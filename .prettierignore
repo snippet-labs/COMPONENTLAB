@@ -1,0 +1,14 @@
+# Build and output directories
+node_modules
+dist
+build
+coverage
+.next
+
+# Lock files
+*.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+bun.lock
