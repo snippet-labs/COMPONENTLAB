@@ -3,12 +3,11 @@
 ## Description
 
 -
--
 
 ## Issue worked on
 
-| Issue link |
-| ---------- |
+| Issue link | N/A |
+| ---------- | --- |
 
 ## Changes Made
 
@@ -29,4 +28,4 @@
 - [ ] Code follows the project’s style guidelines
 - [ ] Documentation has been updated if necessary
 - [ ] Done local formatting of the code written
-- [ ] Branch is updated with base brancn
+- [ ] Branch is updated with base branch
