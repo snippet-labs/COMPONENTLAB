@@ -1,12 +1,17 @@
-// Imports
+// Index.test.tsx
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import Index from './page';
 
-describe('Index Component', () => {
-  it("should render the heading text 'ComponentLAB'", () => {
+// Mock Header to avoid depending on its internals
+vi.mock('@/components/Header/Header', () => ({
+  default: () => <div>Mocked Header</div>,
+}));
+
+describe('Index Page', () => {
+  it('should render the Header component', () => {
     render(<Index />);
-    const headingText = screen.getByText('ComponentLAB');
-    expect(headingText).not.toBeNull();
+    // Check if our mocked header is in the document
+    expect(screen.getByText('Mocked Header')).not.toBeNull();
   });
 });
