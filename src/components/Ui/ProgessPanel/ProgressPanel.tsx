@@ -2,7 +2,6 @@
 
 import { MdOutlineRadioButtonChecked } from 'react-icons/md';
 import { useScrollSpy } from '@/hooks/useScrollSpy';
-import type { ProgressPanelSection } from '@/types';
 import Link from 'next/link';
 import { ProgressPanelProps } from './ProgressPanel.types';
 
