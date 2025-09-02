@@ -19,12 +19,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
       className="fixed top-0 z-[90] left-0 w-70 h-screen bg-white shadow-md border-r-2 backdrop-blur-lg overflow-y-scroll sidebar-scroll"
     >
       {/* HEADER */}
-      <div className="flex items-center justify-between pt-25">
-        <div className="flex items-center pl-3">
+      <div className="flex items-center justify-between pt-25 sticky top-0 bg-white z-10">
+        <div className="flex items-center p-3">
           <IoMdArrowRoundBack
-            onClick={handleToggleSidebar}
-            size={28}
-            className="border-2 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-75"
+        onClick={handleToggleSidebar}
+        size={28}
+        className=" border-2 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-75"
           />
         </div>
       </div>
