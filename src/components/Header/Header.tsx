@@ -4,8 +4,11 @@ import { RxAccessibility } from 'react-icons/rx';
 
 const Header: React.FC = () => {
   return (
-    <header className="max-w-6xl mx-auto min-h-screen flex flex-col items-center lg:items-start px-4" data-testid="header">
-       <h2
+    <header
+      className="max-w-6xl mx-auto min-h-screen flex flex-col items-center lg:items-start px-4"
+      data-testid="header"
+    >
+      <h2
         className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-black mb-16 text-center lg:text-left"
         data-testid="header-brand"
       >

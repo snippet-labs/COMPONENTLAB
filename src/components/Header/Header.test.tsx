@@ -17,7 +17,7 @@ describe('Header Component', () => {
     expect(brand).not.toBeNull();
     expect(brand.textContent).toBe('COMPONENTLABS');
   });
-  
+
   it('should render the heading', () => {
     renderHeader();
     const heading = screen.queryAllByTestId('header-title')[0];
