@@ -1,0 +1,92 @@
+'use client';
+
+// Modules
+import { useState } from 'react';
+import { CgMenuLeft } from 'react-icons/cg';
+import { HiCode } from 'react-icons/hi';
+import { IoClose } from 'react-icons/io5';
+import { MdStarRate } from 'react-icons/md';
+import { NavigationItems } from '@/constants/NavigationItems';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { NavigationProps } from './Navigation.types';
+
+const Navigation: React.FC<NavigationProps> = ({ handleToggleSidebar }) => {
+  // STATES
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // HANDLER
+  const toggleMobileMenu = () => setIsMobileMenuOpen((previous) => !previous);
+
+  return (
+    <nav className="fixed top-0 w-full z-[100] border-b-2 bg-white">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-18">
+          {/* LOGO */}
+          <div className="flex items-center backdrop-blur-3xl">
+            <button onClick={handleToggleSidebar}>
+              <HiCode size={35} className="transition-all cursor-pointer" />
+            </button>
+            <h1 className="ml-3 text-2xl font-bold font-cursive"></h1>
+          </div>
+
+          {/* DESKTOP : Navigation */}
+          <div className="hidden sm:flex space-x-3">
+            {NavigationItems.map(({ name, path }) => (
+              <ul
+                key={name}
+                className="flex items-center justify-center border px-3 py-1 rounded-full hover:bg-black hover:text-white hover:cursor-pointer transition-all duration-75"
+              >
+                <li className="text-lg">
+                  <Link href={path}>{name}</Link>
+                </li>
+                <span className="border py-1 px-2 ml-1 rounded-full bg-white text-black">
+                  <MdStarRate className="hover:text-black" />
+                </span>
+              </ul>
+            ))}
+          </div>
+
+          {/* MOBILE : Menu Button */}
+          <div className="flex z-[100] items-center space-x-4 sm:hidden">
+            <motion.button
+              onClick={toggleMobileMenu}
+              className="border-2 rounded-full p-1 hover:bg-black hover:text-white hover:cursor-pointer transition-all duration-75"
+              animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {isMobileMenuOpen ? <IoClose size={25} /> : <CgMenuLeft size={25} />}
+            </motion.button>
+          </div>
+        </div>
+      </div>
+
+      {/* MOBILE : Navigation menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="sm:hidden absolute top-full left-0 w-full bg-white shadow-md border-b-2 backdrop-blur-lg"
+          >
+            <div className="px-2 pt-2 pb-3 space-y-2">
+              {NavigationItems.map(({ name, path }) => (
+                <Link
+                  key={name}
+                  href={path}
+                  className="block px-3 py-2 text-base font-medium rounded-md hover:bg-gray-100 transition-colors"
+                  onClick={toggleMobileMenu}
+                >
+                  {name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
+
+export default Navigation;
