@@ -4,7 +4,13 @@ import { RxAccessibility } from 'react-icons/rx';
 
 const Header: React.FC = () => {
   return (
-    <header className="max-w-6xl mx-auto min-h-screen flex items-center px-4" data-testid="header">
+    <header className="max-w-6xl mx-auto min-h-screen flex flex-col items-center lg:items-start px-4" data-testid="header">
+       <h2
+        className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-black mb-16 text-center lg:text-left"
+        data-testid="header-brand"
+      >
+        COMPONENTLABS
+      </h2>
       <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-6 sm:gap-8 w-full">
         <div className="flex-1 text-center lg:text-left">
           <h1
@@ -21,7 +27,7 @@ const Header: React.FC = () => {
           </p>
           <div className="mt-6 flex justify-center lg:justify-start">
             <button
-              className="px-5 sm:px-6 py-3 bg-black text-white text-base sm:text-lg font-bold rounded-4xl shadow-md hover:bg-gray-700 transition-colors flex items-center gap-2"
+              className="px-5 sm:px-6 py-3 bg-black text-white text-base sm:text-lg font-bold rounded-4xl shadow-md flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform-all duration-300 ease-in-out"
               data-testid="header-button"
             >
               Browse components

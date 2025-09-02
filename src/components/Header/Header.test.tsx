@@ -11,6 +11,13 @@ describe('Header Component', () => {
     expect(header).not.toBeNull();
   });
 
+  it('should render the brand heading', () => {
+    renderHeader();
+    const brand = screen.queryAllByTestId('header-brand')[0];
+    expect(brand).not.toBeNull();
+    expect(brand.textContent).toBe('COMPONENTLABS');
+  });
+  
   it('should render the heading', () => {
     renderHeader();
     const heading = screen.queryAllByTestId('header-title')[0];
