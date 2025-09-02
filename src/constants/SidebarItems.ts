@@ -1,0 +1,39 @@
+export const SidebarItems = [
+  {
+    parentItemName: 'Getting started',
+    path: '/start',
+    children: [
+      {
+        subItemName: 'Installation',
+        path: '/installation',
+      },
+    ],
+  },
+  {
+    parentItemName: 'Button',
+    path: '/buttons',
+    children: [
+      { subItemName: 'Primary Button', path: 'buttons/primary-button' },
+      { subItemName: 'Secondary Button', path: '' },
+      { subItemName: 'Icon Button', path: '' },
+    ],
+  },
+  {
+    parentItemName: 'Checkboxes',
+    path: '/checkboxes',
+    children: [
+      { subItemName: 'Basic Checkbox', path: '' },
+      { subItemName: 'Group Checkbox', path: '' },
+      { subItemName: 'Controlled Checkbox', path: '' },
+    ],
+  },
+  {
+    parentItemName: 'Forms',
+    path: '/forms',
+    children: [
+      { subItemName: 'Login Form', path: '' },
+      { subItemName: 'Register Form', path: 'r' },
+      { subItemName: 'Contact Form', path: '' },
+    ],
+  },
+];
