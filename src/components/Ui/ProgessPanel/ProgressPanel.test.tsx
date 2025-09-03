@@ -30,6 +30,8 @@ describe('ProgressPanel', () => {
     { id: 'setup', title: 'Setup', subsections: [] },
   ];
 
+  const renderComponent = () => render(<ProgressPanel tableOfContents={tableOfContents} />);
+
   beforeEach(() => {
     vi.clearAllMocks();
 
@@ -42,7 +44,7 @@ describe('ProgressPanel', () => {
 
   it('should render all sections and subsections', () => {
     (useScrollSpy as Mock).mockReturnValue('intro');
-    render(<ProgressPanel tableOfContents={tableOfContents} />);
+    renderComponent();
 
     expect(screen.queryAllByText('Introduction')[0]).not.toBeNull();
     expect(screen.queryAllByText('Setup')[0]).not.toBeNull();
@@ -52,7 +54,7 @@ describe('ProgressPanel', () => {
 
   it('should call scrollIntoView when clicking a section link', () => {
     (useScrollSpy as Mock).mockReturnValue('intro');
-    render(<ProgressPanel tableOfContents={tableOfContents} />);
+    renderComponent();
 
     const link = screen.queryAllByText('Introduction')[0];
     fireEvent.click(link);
@@ -65,7 +67,7 @@ describe('ProgressPanel', () => {
 
   it('should call scrollIntoView when clicking a subsection link', () => {
     (useScrollSpy as Mock).mockReturnValue('intro');
-    render(<ProgressPanel tableOfContents={tableOfContents} />);
+    renderComponent();
 
     const subLink = screen.queryAllByText('Intro Subsection 1')[0];
     fireEvent.click(subLink);
