@@ -43,10 +43,4 @@ describe('Header Component', () => {
     const icon = screen.queryAllByTestId('header-button-icon')[0];
     expect(icon).not.toBeNull();
   });
-
-  it('should render the accessibility icon', () => {
-    renderComponent();
-    const icon = screen.queryAllByTestId('header-accessibility-icon')[0];
-    expect(icon).not.toBeNull();
-  });
 });

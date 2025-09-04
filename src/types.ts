@@ -8,3 +8,8 @@ export interface ProgressPanelSection {
   title: string;
   subsections?: ProgressPanelSubSection[];
 }
+
+export interface QuickLinkCards {
+  label: string;
+  route: string;
+}
