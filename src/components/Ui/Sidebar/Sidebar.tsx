@@ -18,14 +18,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className="fixed top-0 z-[90] left-0 w-70 h-screen bg-white shadow-md border-r-2 backdrop-blur-lg "
     >
-      <div className="sticky top-0 bg-white z-10">
+      <div className="bg-white z-10">
         {/* HEADER */}
-        <div className="flex items-center justify-between pt-22 bg-white">
-          <div className="flex items-center p-4">
+        <div className="flex items-center justify-between pt-25 pb-4 bg-white">
+          <div className="flex items-center ml-3 border-2 rounded-full">
             <IoMdArrowRoundBack
               onClick={handleToggleSidebar}
               size={28}
-              className=" border- border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-75"
+              className="border-1 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-75"
             />
           </div>
         </div>
@@ -41,9 +41,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
           />
         </div>
       </div>
-      <div className="overflow-y-auto h-[calc(100vh-120px)]">
-        {/* LINKS */}
-        <nav className="px-2 mt-4">
+      {/* LINKS */}
+      <div className="overflow-y-auto h-[calc(100vh-220px)]">
+        <nav className="px-4 mt-1">
           {filteredLinks.length > 0 ? (
             filteredLinks.map((parent, parentIndex) => (
               <div key={`${parent.path}-${parentIndex}`} className="mb-2">
@@ -74,7 +74,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
               </div>
             ))
           ) : (
-            <p className="px-2 mt-2 text-sm text-gray-400">No results found</p>
+            <div className="flex items-center justify-center">
+              <p className="px-2 mt-2 text-sm text-gray-400">Search results not found</p>
+            </div>
           )}
         </nav>
       </div>
