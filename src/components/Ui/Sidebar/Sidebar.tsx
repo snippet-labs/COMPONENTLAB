@@ -35,6 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
           <input
             type="text"
             placeholder="Search components ..."
+            data-testid="sidebar-search-input"
             value={searchQuery}
             onChange={handleSearchChange}
             className="w-full px-4 py-2 border-transparent rounded-full bg-gray-200 transition-all duration-200 placeholder:text-black"

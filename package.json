@@ -14,8 +14,9 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "motion": "^12.23.12",
     "@testing-library/user-event": "^14.6.1",
+    "@types/testing-library__user-event": "^4.2.0",
+    "motion": "^12.23.12",
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
