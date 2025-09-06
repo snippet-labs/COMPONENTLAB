@@ -9,7 +9,7 @@ export interface ProgressPanelSection {
   subsections?: ProgressPanelSubSection[];
 }
 
-export interface QuickLinkCards {
+export interface QuickLinkCardsProps {
   label: string;
   route: string;
 }

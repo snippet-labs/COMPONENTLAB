@@ -1,52 +1,56 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { cleanup, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it } from 'vitest';
 import Header from './Header';
 
 const renderComponent = () => render(<Header />);
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('Header Component', () => {
-  it('should render the header component', () => {
+  it('should render the header component', async () => {
     renderComponent();
-    const header = screen.queryAllByTestId('header')[0];
+    const header = await screen.findByTestId('header');
     expect(header).not.toBeNull();
   });
 
-  it('should render the brand heading', () => {
+  it('should render the brand heading', async () => {
     renderComponent();
-    const brand = screen.queryAllByTestId('header-brand')[0];
+    const brand = await screen.findByTestId('header-brand');
     expect(brand).not.toBeNull();
     expect(brand.textContent).toBe('COMPONENTLABS');
   });
 
-  it('should render the heading', () => {
+  it('should render the heading', async () => {
     renderComponent();
-    const heading = screen.queryAllByTestId('header-title')[0];
+    const heading = await screen.findByTestId('header-title');
     expect(heading).not.toBeNull();
     expect(heading.textContent).toBe('Components from our lab, made accessible');
   });
 
-  it('should render the description', () => {
+  it('should render the description', async () => {
     renderComponent();
-    const description = screen.queryAllByTestId('header-description')[0];
+    const description = await screen.findByTestId('header-description');
     expect(description).not.toBeNull();
     expect(description.textContent).toBe(
       'Use our components which are inclusive and accessible to everyone.'
     );
   });
 
-  it('should render the button with text and icon', () => {
+  it('should render the button with text and icon', async () => {
     renderComponent();
-    const button = screen.queryAllByTestId('header-button')[0];
+    const button = await screen.findByTestId('header-button');
     expect(button).not.toBeNull();
     expect(button.textContent?.includes('Browse components')).toBe(true);
 
-    const icon = screen.queryAllByTestId('header-button-icon')[0];
+    const icon = await screen.findByTestId('header-button-icon');
     expect(icon).not.toBeNull();
   });
 
-  it('should render the accessibility icon', () => {
+  it('should render the accessibility icon', async () => {
     renderComponent();
-    const icon = screen.queryAllByTestId('header-accessibility-icon')[0];
+    const icon = await screen.findByTestId('header-accessibility-icon');
     expect(icon).not.toBeNull();
   });
 });
