@@ -8,7 +8,7 @@ const Content: React.FC<ContentProps> = ({ isSidebarOpen, handleToggleSidebar, c
   return (
     <div
       data-testid="content-root"
-      className={`flex-1 w-full min-h-screen px-4 pt-16 overflow-x-hidden overflow-y-auto transition-all duration-300 md:px-9 lg:px-12 lg:pr-72 ${
+      className={`flex-1 w-full min-h-screen px-4 pt-16 overflow-x-hidden overflow-y-auto transition-all duration-300 md:px-9 lg:px-25 lg:pr-72 ${
         isSidebarOpen ? 'lg:ml-64' : ''
       }`}
     >
