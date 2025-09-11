@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     <>
       <header className="flex flex-col items-center lg:items-start" data-testid="header">
         <h2
-          className={`text-4xl md:text-6xl lg:text-8xl text-black mt-5 mb-16 text-center lg:text-left ${Monoton.className}`}
+          className={`text-3xl md:text-6xl lg:text-7xl text-black mt-5 mb-16 text-center lg:text-left ${Monoton.className}`}
           data-testid="header-brand"
         >
           COMPONENTLABS
@@ -30,21 +30,21 @@ const Header: React.FC = () => {
             >
               Use our components which are inclusive and accessible to everyone.
             </p>
-            {/* <div className="mt-6 flex justify-center lg:justify-start">
+            <div className="mt-6 flex justify-center lg:justify-start">
               <div className="mt-6 flex justify-center lg:justify-start">
                 <button
-                  className="px-5 sm:px-6 py-3 bg-black text-white text-base sm:text-lg font-bold rounded-4xl shadow-md flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out hover:px-8 sm:hover:px-10 lg:hover:px-12 xl:hover:px-16 group"
+                  className="px-5 sm:px-6 py-4 bg-black text-white text-base sm:text-lg font-bold rounded-4xl shadow-md flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out hover:px-9 group"
                   data-testid="header-button"
                 >
                   Browse components
                   <FaArrowCircleRight
                     size={25}
                     data-testid="header-button-icon"
-                    className="transition-transform duration-300 ease-in-out group-hover:translate-x-2 sm:group-hover:translate-x-6"
+                    className="transition-transform duration-300 ease-in-out group-hover:translate-x-6 transition-all"
                   />
                 </button>
               </div>
-            </div> */}
+            </div>
           </div>
           <div
             className="flex-1 flex justify-center lg:justify-end"
