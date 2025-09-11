@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     <>
       <header className="flex flex-col items-center lg:items-start" data-testid="header">
         <h2
-          className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-black mb-16 text-center lg:text-left ${Monoton.className}`}
+          className={`text-4xl md:text-6xl lg:text-8xl text-black mt-5 mb-16 text-center lg:text-left ${Monoton.className}`}
           data-testid="header-brand"
         >
           COMPONENTLABS
