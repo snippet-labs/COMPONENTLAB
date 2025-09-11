@@ -1,5 +1,6 @@
 // Modules
 import { monotonFont } from '@/helpers/font';
+import Pagination from '@/components/Ui/Pagination/Pagination';
 
 const Errorpage: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Errorpage: React.FC = () => {
           Unfortunately page is not available <br /> Stay tuned!
         </p>
       </div>
+      <Pagination paginationTitle="Take me to Home" previousRoute="/" previousRouteTitle="Home" />
     </div>
   );
 };

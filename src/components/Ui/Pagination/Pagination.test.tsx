@@ -1,3 +1,4 @@
+// Modules
 import { render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import Pagination from './Pagination';
@@ -5,7 +6,15 @@ import { PaginationProps } from './Pagination.types';
 
 vi.mock('next/link', () => {
   return {
-    default: ({ href, children, className }: any) => (
+    default: ({
+      href,
+      children,
+      className,
+    }: {
+      href: string;
+      children: React.ReactNode;
+      className?: string;
+    }) => (
       <a href={href} className={className}>
         {children}
       </a>
@@ -20,7 +29,9 @@ describe('Pagination Component', () => {
   ];
 
   const renderComponent = (props?: Partial<PaginationProps>) =>
-    render(<Pagination cards={cards} prevRoute={props?.prevRoute} nextRoute={props?.nextRoute} />);
+    render(
+      <Pagination cards={cards} previousRoute={props?.previousRoute} nextRoute={props?.nextRoute} />
+    );
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -40,7 +51,7 @@ describe('Pagination Component', () => {
   });
 
   it('should render Previous button when prevRoute is provided', () => {
-    renderComponent({ prevRoute: '/previous' });
+    renderComponent({ previousRoute: '/previous' });
 
     const prevLinks = screen
       .getAllByRole('link')
@@ -60,7 +71,7 @@ describe('Pagination Component', () => {
   });
 
   it('should render both prev and next links for mobile and desktop layouts', () => {
-    renderComponent({ prevRoute: '/previous', nextRoute: '/next' });
+    renderComponent({ previousRoute: '/previous', nextRoute: '/next' });
 
     const prevLinks = screen
       .getAllByRole('link')
