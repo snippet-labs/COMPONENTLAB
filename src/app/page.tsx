@@ -1,11 +1,8 @@
-import Header from '@/components/Header/Header';
+// Modules
+import Header from '@/components/Pages/Header/Header';
 
 const Index: React.FC = () => {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
+  return <Header />;
 };
 
 export default Index;

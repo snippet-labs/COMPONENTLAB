@@ -1,7 +1,8 @@
+// Modules
 import { useEffect, useState } from 'react';
-import type { ProgressPanelSection } from '@/types';
+import type { ProgressPanelSectionTypes } from '@/types';
 
-export function useScrollSpy(tableOfContents: ProgressPanelSection[]) {
+export function useScrollSpy(tableOfContents: ProgressPanelSectionTypes[]) {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {

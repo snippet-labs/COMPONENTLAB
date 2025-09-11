@@ -1,6 +1,7 @@
-import { QuickLinkCardsProps } from '@/types';
+// MOdules
+import { QuickLinkCardsTypes } from '@/types';
 
-export const HEADER_QUICKLINKS: QuickLinkCardsProps[] = [
+export const HEADER_QUICKLINKS: QuickLinkCardsTypes[] = [
   { label: 'Primary Button', route: '' },
   { label: 'Secondary Button', route: '' },
   { label: 'Icon Button', route: '' },

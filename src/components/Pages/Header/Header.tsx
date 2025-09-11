@@ -1,8 +1,9 @@
+// Modules
 import React from 'react';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
-import { HEADER_QUICKLINKS } from '@/constants/QuickLinkItems';
-import Pagination from '../Ui/Pagination/Pagination';
+import { HEADER_QUICKLINKS } from '@/constants/Header/QuickLinkItems';
+import Pagination from '../../Ui/Pagination/Pagination';
 
 const Header: React.FC = () => {
   return (
