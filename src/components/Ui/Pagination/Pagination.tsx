@@ -17,8 +17,8 @@ const Pagination: React.FC<PaginationProps> = ({ cards, prevRoute, nextRoute }) 
               <Link
                 key={idx}
                 href={card.route}
-                className="relative px-6 py-10 rounded-[15px] shadow-md border text-md font-bold bg-black text-white transform hover:scale-105 transition duration-300 ease-in-out
-before:content-[''] before:absolute before:inset-0 before:rounded-lg before:bg-[radial-gradient(circle_at_left_bottom,rgba(255,255,255,0.9),transparent_70%)] before:opacity-0 hover:before:opacity-100 before:blur-3xl before:transition before:duration-700 before:delay-100 before:ease-in-out overflow-hidden"
+                className="relative w-[200px] h-[120px] px-6 py-10 rounded-[17px] shadow-md border text-md font-bold bg-black text-gray-300 flex items-center justify-center text-center transform hover:scale-105 transition duration-300 ease-in-out
+                before:content-[''] before:absolute before:inset-0 before:rounded-lg before:bg-[radial-gradient(circle_at_left_bottom,rgba(255,255,255,0.9),transparent_70%)] before:opacity-0 hover:before:opacity-100 before:blur-3xl before:transition before:duration-700 before:delay-100 before:ease-in-out overflow-hidden"
               >
                 {card.label}
               </Link>
