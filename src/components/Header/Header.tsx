@@ -55,7 +55,7 @@ const Header: React.FC = () => {
           </div>
         </div>
       </header>
-      <Pagination cards={HEADER_QUICKLINKS} prevRoute="/example1" nextRoute="/example2" />
+      <Pagination cards={HEADER_QUICKLINKS} prevRoute="/" nextRoute="/" />
     </>
   );
 };

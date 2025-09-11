@@ -1,7 +1,8 @@
 import { QuickLinkCardsProps } from '@/types';
 
 export interface PaginationProps {
-  cards: QuickLinkCardsProps[];
+  paginationHeader?: string;
+  cards?: QuickLinkCardsProps[];
   prevRoute?: string;
   nextRoute?: string;
 }
