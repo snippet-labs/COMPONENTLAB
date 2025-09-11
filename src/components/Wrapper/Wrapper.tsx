@@ -12,12 +12,19 @@ import { WrapperTypes } from './Wrapper.types';
 const Wrapper: React.FC<WrapperTypes> = ({ children }) => {
   // STATES
   const [isSidebarOpen, setIsSideBarOpen] = useState(true);
+
   // HANDLER
   const handleToggleSidebar = () => setIsSideBarOpen((previous) => !previous);
 
   return (
-    <>
+    <div className="relative min-h-screen w-full">
+      {/* GRID */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+      {/* NAVIGATION */}
       <Navigation handleToggleSidebar={handleToggleSidebar} />
+
+      {/* LAYOUT */}
       <div className="flex w-full min-h-screen md:mt-5 lg:mt-5">
         <Sidebar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
         <ProgressPanel tableOfContents={progressItems} position="right" />
@@ -25,7 +32,7 @@ const Wrapper: React.FC<WrapperTypes> = ({ children }) => {
           {children}
         </Content>
       </div>
-    </>
+    </div>
   );
 };
 
