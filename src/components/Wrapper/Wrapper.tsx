@@ -2,11 +2,11 @@
 
 // Modules
 import { useState } from 'react';
-import { progressItems } from '@/constants/ProgessItems';
+import { progressItems } from '@/constants/ProgressItems';
 import Content from '@/components/Ui/Content/Content';
 import Sidebar from '@/components/Ui/Sidebar/Sidebar';
 import Navigation from '../Ui/Navigation/Navigation';
-import ProgressPanel from '../Ui/ProgessPanel/ProgressPanel';
+import ProgressPanel from '../Ui/ProgressPanel/ProgressPanel';
 import { WrapperTypes } from './Wrapper.types';
 
 const Wrapper: React.FC<WrapperTypes> = ({ children }) => {
