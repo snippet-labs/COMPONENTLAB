@@ -1,12 +1,7 @@
 // Modules
 import localFont from 'next/font/local';
 
-<<<<<<< HEAD
-// Monoton
-export const monotonFont = localFont({
-=======
 export const monoton = localFont({
->>>>>>> origin/main
   src: '../../public/fonts/Monoton.ttf',
 });
 

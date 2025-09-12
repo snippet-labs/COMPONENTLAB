@@ -57,11 +57,7 @@ const Header: React.FC = () => {
           </div>
         </div>
       </header>
-<<<<<<< HEAD:src/components/Header/Header.tsx
-      <Pagination cards={HEADER_QUICKLINKS} previousRoute="/" nextRoute="/" />
-=======
-      <Pagination cards={HEADER_QUICK_LINKS} prevRoute="/example1" nextRoute="/example2" />
->>>>>>> origin/main:src/components/Pages/Header/Header.tsx
+      <Pagination cards={HEADER_QUICK_LINKS} previousRoute="/" nextRoute="/" />
     </>
   );
 };
