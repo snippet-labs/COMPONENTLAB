@@ -10,5 +10,6 @@ export default defineConfig({
       enabled: true,
       reporter: ['text', 'html'],
     },
+    setupFiles: "./src/tests/setup.ts",
   },
 });
