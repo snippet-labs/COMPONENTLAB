@@ -22,7 +22,7 @@ const Wrapper: React.FC<WrapperTypes> = ({ children }) => {
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       {/* NAVIGATION */}
-      <Navigation handleToggleSidebar={handleToggleSidebar} />
+      <Navigation />
 
       {/* LAYOUT */}
       <div className="flex w-full min-h-screen md:mt-5 lg:mt-5">
