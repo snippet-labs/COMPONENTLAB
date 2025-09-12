@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { CgMenuLeft } from 'react-icons/cg';
 import { HiCode } from 'react-icons/hi';
 import { IoClose } from 'react-icons/io5';
-import { MdStarRate } from 'react-icons/md';
+import { VscGithub } from 'react-icons/vsc';
 import { NavigationItems } from '@/constants/NavigationItems';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
@@ -32,16 +32,15 @@ const Navigation: React.FC<NavigationProps> = ({ handleToggleSidebar }) => {
           {/* DESKTOP : Navigation */}
           <div className="hidden sm:flex space-x-3">
             {NavigationItems.map(({ name, path }) => (
-              <ul
-                key={name}
-                className="flex items-center justify-center border px-3 py-1 rounded-full hover:bg-black hover:text-white hover:cursor-pointer transition-all duration-75"
-              >
+              <ul key={name} className="flex items-center justify-center">
                 <li className="text-lg">
-                  <Link href={path}>{name}</Link>
+                  <div className="flex items-center justify-center gap-2 border-2 px-2 py-1 rounded-full hover:cursor-pointer hover:bg-black hover:text-white duration-200 ease-in transition-all">
+                    <VscGithub size={25} />
+                    <Link href={path} target="_blank">
+                      {name}
+                    </Link>
+                  </div>
                 </li>
-                <span className="border py-1 px-2 ml-1 rounded-full bg-white text-black">
-                  <MdStarRate className="hover:text-black" />
-                </span>
               </ul>
             ))}
           </div>

@@ -1,6 +1,6 @@
 export const NavigationItems = [
   {
     name: 'GitHub',
-    path: '/github',
+    path: 'https://github.com/snippet-labs/COMPONENTLAB',
   },
 ];
