@@ -3,7 +3,7 @@ import React from 'react';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
 import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
-import { monoton } from '@/helpers/font';
+import { fontMonoton } from '@/helpers/font';
 import Pagination from '../../Ui/Pagination/Pagination';
 
 const Header: React.FC = () => {
@@ -11,10 +11,10 @@ const Header: React.FC = () => {
     <>
       <header className="flex flex-col items-center lg:items-start" data-testid="header">
         <h2
-          className={`text-3xl md:text-6xl lg:text-7xl text-black mt-5 mb-16 text-center lg:text-left ${monoton.className}`}
+          className={`text-3xl md:text-6xl lg:text-7xl text-black mt-5 mb-16 text-center lg:text-left ${fontMonoton.className}`}
           data-testid="header-brand"
         >
-          COMPONENTLABS
+          COMPONENTLAB
         </h2>
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-6 sm:gap-8 w-full">
           <div className="flex-1 text-center lg:text-left">
