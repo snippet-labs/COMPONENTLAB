@@ -1,6 +1,7 @@
-import { ProgressPanelSection } from '@/types';
+// Modules
+import { ProgressPanelSectionTypes } from '@/types';
 
 export interface ProgressPanelProps {
-  tableOfContents: ProgressPanelSection[];
+  tableOfContents: ProgressPanelSectionTypes[];
   position?: 'left' | 'right';
 }
