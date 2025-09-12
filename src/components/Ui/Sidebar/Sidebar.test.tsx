@@ -1,3 +1,4 @@
+// Modules
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { render, screen } from '@testing-library/react';
@@ -13,11 +14,13 @@ vi.mock('react-icons/md', () => ({
 }));
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children }: any) => <div>{children}</div>, // mock <motion.div>
+    div: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>, // mock <motion.div>
   },
 }));
 vi.mock('next/link', () => ({
-  default: ({ children, href }: any) => <a href={href}>{children}</a>,
+  default: ({ children, href }: { children?: React.ReactNode; href: string }) => (
+    <a href={href}>{children}</a>
+  ),
 }));
 
 const mockUseSidebarSearch = vi.fn();

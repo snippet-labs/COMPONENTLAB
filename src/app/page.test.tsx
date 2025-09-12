@@ -1,8 +1,9 @@
+// Modules
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import Index from './page';
 
-vi.mock('@/components/Header/Header', () => ({
+vi.mock('@/components/Pages/Header/Header', () => ({
   default: () => <div>Mocked Header</div>,
 }));
 

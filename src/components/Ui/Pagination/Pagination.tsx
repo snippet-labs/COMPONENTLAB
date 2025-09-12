@@ -1,5 +1,6 @@
 'use client';
 
+// Modules
 import React from 'react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import Link from 'next/link';
