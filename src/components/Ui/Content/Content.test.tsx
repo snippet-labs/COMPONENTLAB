@@ -1,51 +1,52 @@
+// Modules
 import React from 'react';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import Content from './Content';
 import { ContentProps } from './Content.types';
 
-// ✅ Auto cleanup after each test
+// Cleanup
 afterEach(() => {
   cleanup();
 });
 
-// ✅ Mock react-icons
+// Mock : Icons
 vi.mock('react-icons/io', () => ({
   IoMdArrowDropleft: () => 'IoMdArrowDropleft',
   IoMdArrowDropright: () => 'IoMdArrowDropright',
 }));
 
+// Render
+const renderComponent = (props?: Partial<ContentProps>) => {
+  const mockToggle = vi.fn();
+  const defaultProps: ContentProps = {
+    isSidebarOpen: true,
+    handleToggleSidebar: mockToggle,
+    children: <p>Test Child</p>,
+  };
+
+  const utils = render(<Content {...defaultProps} {...props} />);
+  return {
+    ...utils,
+    mockToggle,
+  };
+};
+
+// Suite
 describe('Content Component', () => {
   it('should render without crashing', () => {
-    const mockToggle = vi.fn();
-
-    // direct function call test
-    const element = Content({
-      isSidebarOpen: true,
-      handleToggleSidebar: mockToggle,
-      children: <p>Test Child</p>,
-    });
-
-    expect(element).toBeDefined();
+    const { container } = renderComponent();
+    expect(container).toBeDefined();
   });
 
   it('should render Expand/Collapse button', () => {
-    const mockToggle = vi.fn();
-
-    const { rerender, getByTestId } = render(
-      <Content isSidebarOpen={true} handleToggleSidebar={mockToggle}>
-        <p>Test Child</p>
-      </Content>
-    );
-
-    // ✅ Collapse button check
+    const { getByTestId, rerender } = renderComponent({ isSidebarOpen: true });
     const collapseBtn = getByTestId('toggle-button');
     expect(collapseBtn).toBeDefined();
     expect(collapseBtn.textContent).toBe('Collapse sidebar');
 
-    // ✅ Re-render with sidebar closed
     rerender(
-      <Content isSidebarOpen={false} handleToggleSidebar={mockToggle}>
+      <Content isSidebarOpen={false} handleToggleSidebar={() => {}}>
         <p>Test Child</p>
       </Content>
     );
@@ -55,14 +56,11 @@ describe('Content Component', () => {
     expect(expandBtn.textContent).toBe('Expand sidebar');
   });
 
-  it('renders correctly with custom props (sidebar open)', () => {
-    const mockToggle = vi.fn();
-
-    const { getByTestId } = render(
-      <Content isSidebarOpen={true} handleToggleSidebar={mockToggle}>
-        <p data-testid="child">Custom Child</p>
-      </Content>
-    );
+  it('should render correctly with custom props (sidebar open)', () => {
+    const { getByTestId } = renderComponent({
+      isSidebarOpen: true,
+      children: <p data-testid="child">Custom Child</p>,
+    });
 
     const collapseBtn = getByTestId('toggle-button');
     expect(collapseBtn).toBeDefined();
@@ -72,119 +70,74 @@ describe('Content Component', () => {
     expect(child.textContent).toBe('Custom Child');
   });
 
-  it('respects TypeScript prop types', () => {
-    // ✅ Type-safe props
-    const mockToggle: ContentProps['handleToggleSidebar'] = vi.fn();
-
-    const props: ContentProps = {
-      isSidebarOpen: true,
-      handleToggleSidebar: mockToggle,
+  it('should respect TypeScript prop types', () => {
+    const { getByTestId } = renderComponent({
       children: <p>TS Child</p>,
-    };
-
-    const { getByTestId } = render(<Content {...props} />);
+    });
 
     const btn = getByTestId('toggle-button');
     expect(btn).toBeDefined();
     expect(btn.textContent).toBe('Collapse sidebar');
   });
 
-  // ----------------------
-  // ✅ Event Handling Tests
-  // ----------------------
   it('should call handleToggleSidebar when button is clicked', () => {
-    const mockToggle = vi.fn();
-
-    const { getByTestId } = render(
-      <Content isSidebarOpen={true} handleToggleSidebar={mockToggle}>
-        <p>Child</p>
-      </Content>
-    );
-
+    const { getByTestId, mockToggle } = renderComponent();
     const button = getByTestId('toggle-button');
     fireEvent.click(button);
-
     expect(mockToggle).toHaveBeenCalledTimes(1);
   });
 
   it('should handle multiple clicks correctly', () => {
-    const mockToggle = vi.fn();
-
-    const { getByTestId } = render(
-      <Content isSidebarOpen={true} handleToggleSidebar={mockToggle}>
-        <p>Child</p>
-      </Content>
-    );
-
+    const { getByTestId, mockToggle } = renderComponent();
     const button = getByTestId('toggle-button');
     fireEvent.click(button);
     fireEvent.click(button);
     fireEvent.click(button);
-
     expect(mockToggle).toHaveBeenCalledTimes(3);
   });
 
-  // ----------------------
-  // ✅ Edge Case Tests
-  // ----------------------
-  it('handles undefined or null props gracefully', () => {
-    const mockToggle = vi.fn();
-
-    const { getByTestId } = render(
-      <Content isSidebarOpen={undefined as unknown as boolean} handleToggleSidebar={mockToggle}>
-        {null}
-      </Content>
-    );
+  it('should handle undefined or null props gracefully', () => {
+    const { getByTestId } = renderComponent({
+      isSidebarOpen: undefined as unknown as boolean,
+      children: null,
+    });
 
     const button = getByTestId('toggle-button');
     expect(button).toBeDefined();
   });
 
-  it('handles empty strings, arrays, or objects as props', () => {
-    const mockToggle = vi.fn();
-
-    const { getByTestId } = render(
-      <Content isSidebarOpen={false} handleToggleSidebar={mockToggle}>
-        {''}
-      </Content>
-    );
+  it('should handle empty strings, arrays, or objects as props', () => {
+    const { getByTestId } = renderComponent({
+      isSidebarOpen: false,
+      children: '',
+    });
 
     const button = getByTestId('toggle-button');
     expect(button.textContent).toBe('Expand sidebar');
   });
 
-  it('renders very long strings correctly', () => {
-    const mockToggle = vi.fn();
+  it('should render very long strings correctly', () => {
     const longText = 'A'.repeat(500);
-
-    const { getByTestId } = render(
-      <Content isSidebarOpen={true} handleToggleSidebar={mockToggle}>
-        <p data-testid="long-child">{longText}</p>
-      </Content>
-    );
+    const { getByTestId } = renderComponent({
+      children: <p data-testid="long-child">{longText}</p>,
+    });
 
     const child = getByTestId('long-child');
     expect(child.textContent?.length).toBe(500);
   });
 
-  it('handles invalid prop types (forced via as unknown as)', () => {
-    const mockToggle = vi.fn();
-
-    const { getByTestId } = render(
-      <Content
-        isSidebarOpen={'not-a-boolean' as unknown as boolean}
-        handleToggleSidebar={mockToggle}
-      >
-        <p>Invalid Type</p>
-      </Content>
-    );
+  it('should handle invalid prop types (forced via as unknown as)', () => {
+    const { getByTestId } = renderComponent({
+      isSidebarOpen: 'not-a-boolean' as unknown as boolean,
+      children: <p>Invalid Type</p>,
+    });
 
     const button = getByTestId('toggle-button');
     expect(button).toBeDefined();
   });
 
-  it('renders correctly with no props at all (using type cast)', () => {
-    const { container } = render(<Content {...({} as ContentProps)} />);
+  it('should render correctly with no props at all (using type cast)', () => {
+    const { container } = renderComponent({} as Partial<ContentProps>);
     expect(container).toBeDefined();
   });
 });

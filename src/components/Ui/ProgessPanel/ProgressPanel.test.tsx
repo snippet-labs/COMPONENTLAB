@@ -1,15 +1,25 @@
+// Modules
 import { useScrollSpy } from '@/hooks/useScrollSpy';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Mock, beforeEach, describe, expect, it, vi } from 'vitest';
 import ProgressPanel from './ProgressPanel';
 
+// Mock : Hook
 vi.mock('@/hooks/useScrollSpy', () => ({
   useScrollSpy: vi.fn(),
 }));
 
+// Mock : Links
 vi.mock('next/link', () => {
   return {
-    default: ({ href, children, onClick }: any) => (
+    default: ({
+      href,
+      children,
+      onClick,
+    }: React.PropsWithChildren<{
+      href: string;
+      onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+    }>) => (
       <a href={href} onClick={onClick}>
         {children}
       </a>
@@ -17,7 +27,8 @@ vi.mock('next/link', () => {
   };
 });
 
-describe('ProgressPanel', () => {
+// Suite
+describe('ProgressPanel Component', () => {
   const tableOfContents = [
     {
       id: 'intro',
@@ -30,6 +41,7 @@ describe('ProgressPanel', () => {
     { id: 'setup', title: 'Setup', subsections: [] },
   ];
 
+  // Render
   const renderComponent = () => render(<ProgressPanel tableOfContents={tableOfContents} />);
 
   beforeEach(() => {

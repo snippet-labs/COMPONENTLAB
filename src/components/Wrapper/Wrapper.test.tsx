@@ -4,7 +4,8 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import Wrapper from './Wrapper';
 
-const renderWrapper = () => render(<Wrapper>{null}</Wrapper>);
+// Render
+const renderComponent = () => render(<Wrapper>{null}</Wrapper>);
 
 vi.mock('@/components/Ui/Navigation/Navigation', () => ({
   default: ({ handleToggleSidebar }: { handleToggleSidebar: () => void }) => (
@@ -12,6 +13,7 @@ vi.mock('@/components/Ui/Navigation/Navigation', () => ({
   ),
 }));
 
+// Mock : Sidebar
 vi.mock('@/components/Ui/Sidebar/Sidebar', () => ({
   default: ({
     isSidebarOpen,
@@ -22,12 +24,14 @@ vi.mock('@/components/Ui/Sidebar/Sidebar', () => ({
   }) => <div>MockSidebar</div>,
 }));
 
+// Mock : ProgressPanel
 vi.mock('@/components/Ui/ProgessPanel/ProgressPanel', () => ({
   default: ({ tableOfContents, position }: { tableOfContents: string; position: string }) => (
     <div>MockProgressPanel</div>
   ),
 }));
 
+// Mock : Content
 vi.mock('@/components/Ui/Content/Content', () => ({
   default: ({
     children,
@@ -45,27 +49,28 @@ vi.mock('@/components/Ui/Content/Content', () => ({
   ),
 }));
 
-describe('Wrapper', () => {
+// Suite
+describe('Wrapper Component', () => {
   it('should render Navigation component', () => {
-    renderWrapper();
+    renderComponent();
     const nav = screen.queryAllByText('MockNavigation')[0];
     expect(nav).not.toBeNull();
   });
 
   it('should render Sidebar component', () => {
-    renderWrapper();
+    renderComponent();
     const sidebar = screen.queryAllByText('MockSidebar')[0];
     expect(sidebar).not.toBeNull();
   });
 
   it('should render ProgressPanel component', () => {
-    renderWrapper();
+    renderComponent();
     const progress = screen.queryAllByText('MockProgressPanel')[0];
     expect(progress).not.toBeNull();
   });
 
   it('should render Content component', () => {
-    renderWrapper();
+    renderComponent();
     const content = screen.queryAllByText('MockContent')[0];
     expect(content).not.toBeNull();
   });
