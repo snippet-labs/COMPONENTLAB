@@ -7,5 +7,5 @@ export const monoton = localFont({
 
 // Cursive
 export const cursive = localFont({
-  src: "../../public/fonts/Cursive.ttf"
+  src: '../../public/fonts/Cursive.ttf',
 });
