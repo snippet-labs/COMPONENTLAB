@@ -1,8 +1,10 @@
 'use client';
 
 // Modules
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { progressItems } from '@/constants/ProgessItems';
+import { usePathname } from 'next/navigation';
+import NProgress from 'nprogress';
 import Content from '@/components/Ui/Content/Content';
 import Sidebar from '@/components/Ui/Sidebar/Sidebar';
 import Navigation from '../Ui/Navigation/Navigation';
@@ -10,11 +12,22 @@ import ProgressPanel from '../Ui/ProgessPanel/ProgressPanel';
 import { WrapperTypes } from './Wrapper.types';
 
 const Wrapper: React.FC<WrapperTypes> = ({ children }) => {
-  // STATES
   const [isSidebarOpen, setIsSideBarOpen] = useState(true);
+  const pathname = usePathname();
 
-  // HANDLER
-  const handleToggleSidebar = () => setIsSideBarOpen((previous) => !previous);
+  const handleToggleSidebar = () => setIsSideBarOpen((prev) => !prev);
+
+  // Progress-bar-configuration
+  NProgress.configure({ showSpinner: false, trickleSpeed: 200, minimum: 0.2 });
+  useEffect(() => {
+    NProgress.start();
+    const handleProgress = requestAnimationFrame(() => {
+      NProgress.done();
+    });
+
+    // Cleanup
+    return () => cancelAnimationFrame(handleProgress);
+  }, [pathname]);
 
   return (
     <div className="relative min-h-screen w-full">

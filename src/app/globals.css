@@ -1,2 +1,23 @@
 @import 'tailwindcss';
 @plugin 'tailwind-scrollbar';
+
+/* Navigation-progress-bar */
+#nprogress .bar {
+  background: rgb(8, 8, 8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9999;
+}
+
+#nprogress .peg {
+  box-shadow:
+    0 0 10px rgb(3, 3, 3),
+    0 0 5px rgb(5, 5, 5);
+}
+
+#nprogress .spinner {
+  display: none;
+}
