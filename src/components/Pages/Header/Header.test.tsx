@@ -22,7 +22,7 @@ describe('Header Component', () => {
     renderComponent();
     const brand = await screen.findByTestId('header-brand');
     expect(brand).not.toBeNull();
-    expect(brand.textContent).toBe('COMPONENTLABS');
+    expect(brand.textContent).toBe('COMPONENTLAB');
   });
 
   it('should render the heading', async () => {

@@ -25,7 +25,7 @@ vi.mock('@/components/Ui/Sidebar/Sidebar', () => ({
 }));
 
 // Mock : ProgressPanel
-vi.mock('@/components/Ui/ProgessPanel/ProgressPanel', () => ({
+vi.mock('@/components/Ui/ProgressPanel/ProgressPanel', () => ({
   default: ({ tableOfContents, position }: { tableOfContents: string; position: string }) => (
     <div>MockProgressPanel</div>
   ),

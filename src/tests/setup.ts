@@ -1,4 +1,4 @@
-// setupTests.ts
+// Modules
 import { vi } from 'vitest';
 
 // Mock for next/font/local
@@ -28,3 +28,12 @@ vi.mock('next/router', () => {
     }),
   };
 });
+
+// Polyfill ResizeObserver for jsdom 
+class ResizeObserver {
+  observe() { }
+  unobserve() { }
+  disconnect() { }
+}
+
+(globalThis as typeof globalThis & { ResizeObserver: typeof ResizeObserver }).ResizeObserver = ResizeObserver;
