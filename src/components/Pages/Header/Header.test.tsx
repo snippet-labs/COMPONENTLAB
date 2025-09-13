@@ -1,13 +1,16 @@
+// Modules
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import Header from './Header';
 
+// Render
 const renderComponent = () => render(<Header />);
 
 afterEach(() => {
   cleanup();
 });
 
+// Suite
 describe('Header Component', () => {
   it('should render the header component', async () => {
     renderComponent();
@@ -19,7 +22,7 @@ describe('Header Component', () => {
     renderComponent();
     const brand = await screen.findByTestId('header-brand');
     expect(brand).not.toBeNull();
-    expect(brand.textContent).toBe('COMPONENTLABS');
+    expect(brand.textContent).toBe('COMPONENTLAB');
   });
 
   it('should render the heading', async () => {

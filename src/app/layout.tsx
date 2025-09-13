@@ -25,11 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-testid="root-html">
       <body
+        data-testid="root-body"
         className={`${geistSans.variable} ${geistMono.variable} antialiased scrollbar-thin scrollbar-thumb-black scrollbar-track-white`}
       >
-        <Wrapper>{children}</Wrapper>
+        <Wrapper data-testid="root-wrapper">{children}</Wrapper>
       </body>
     </html>
   );

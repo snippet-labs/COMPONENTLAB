@@ -6,32 +6,38 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import Sidebar from './Sidebar';
 
+// Mock : Icons
 vi.mock('react-icons/io', () => ({
   IoMdArrowRoundBack: () => <span>IoMdArrowRoundBack</span>,
 }));
 vi.mock('react-icons/md', () => ({
   MdOutlineRadioButtonChecked: () => <span>MdOutlineRadioButtonChecked</span>,
 }));
+// Mock : Motion
 vi.mock('framer-motion', () => ({
   motion: {
     div: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>, // mock <motion.div>
   },
 }));
+// Mock : Links
 vi.mock('next/link', () => ({
   default: ({ children, href }: { children?: React.ReactNode; href: string }) => (
     <a href={href}>{children}</a>
   ),
 }));
 
+// Mock : Hook
 const mockUseSidebarSearch = vi.fn();
 vi.mock('@/hooks/useSidebarSearch', () => ({
   useSidebarSearch: () => mockUseSidebarSearch(),
 }));
 
+// Render
 const renderComponent = (isSidebarOpen = true, handleToggleSidebar = vi.fn()) => {
   return <Sidebar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />;
 };
 
+// Suite
 describe('Sidebar Component', () => {
   it('Should render empty state when no results found', () => {
     mockUseSidebarSearch.mockReturnValue({
