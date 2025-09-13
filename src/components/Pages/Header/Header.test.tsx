@@ -1,13 +1,16 @@
+// Modules
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import Header from './Header';
 
+// Render
 const renderComponent = () => render(<Header />);
 
 afterEach(() => {
   cleanup();
 });
 
+// Suite
 describe('Header Component', () => {
   it('should render the header component', async () => {
     renderComponent();

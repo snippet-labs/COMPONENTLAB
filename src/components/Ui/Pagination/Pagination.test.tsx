@@ -4,6 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import Pagination from './Pagination';
 import { PaginationProps } from './Pagination.types';
 
+// Mock : links
 vi.mock('next/link', () => {
   return {
     default: ({
@@ -22,6 +23,7 @@ vi.mock('next/link', () => {
   };
 });
 
+// Suite
 describe('Pagination Component', () => {
   const cards: PaginationProps['cards'] = [
     { label: 'Card 1', route: '/card-1' },
