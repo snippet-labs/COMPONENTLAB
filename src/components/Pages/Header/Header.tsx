@@ -5,6 +5,7 @@ import { RxAccessibility } from 'react-icons/rx';
 import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
 import { fontMonoton } from '@/helpers/font';
 import Pagination from '../../Ui/Pagination/Pagination';
+import Footer from '@/components/Ui/Footer/Footer';
 
 const Header: React.FC = () => {
   return (
@@ -58,6 +59,7 @@ const Header: React.FC = () => {
         </div>
       </header>
       <Pagination cards={HEADER_QUICK_LINKS} previousRoute="/" nextRoute="/" />
+      <Footer/>
     </>
   );
 };
