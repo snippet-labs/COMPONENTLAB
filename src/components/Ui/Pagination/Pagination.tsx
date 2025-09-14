@@ -17,7 +17,7 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   return (
     <div className="w-full mt-15 py-6">
-      <div className="w-full h-[1px] mb-4 bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
+      <div className="w-full h-[2px] mb-4 bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
       <div className="relative w-full min-h-[150px] hidden sm:flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-1">
