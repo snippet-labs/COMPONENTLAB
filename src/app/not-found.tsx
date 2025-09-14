@@ -1,5 +1,5 @@
 // Modules
-import { fontMonoton } from '@/helpers/font';
+import { customFontMonoton } from '@/helpers/font';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 
 const Errorpage: React.FC = () => {
@@ -7,8 +7,8 @@ const Errorpage: React.FC = () => {
     <div className="mt-25" data-testid="errorpage-container">
       <div>
         <h1
+          className={`${customFontMonoton.className} text-7xl md:text-8xl lg:text-9xl overflow-hidden bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation`}
           data-testid="errorpage-heading"
-          className={`${fontMonoton.className} text-7xl md:text-8xl lg:text-9xl overflow-hidden duration-200 transition-all`}
         >
           404
         </h1>

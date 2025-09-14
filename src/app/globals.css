@@ -21,3 +21,25 @@
 #nprogress .spinner {
   display: none;
 }
+
+/* ANIMATION */
+@keyframes GradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-shift-animation {
+  background-image: linear-gradient(270deg, #a855f7, #ec4899, #facc15, #38bdf8, #a855f7);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: GradientShift 20s ease-in-out infinite;
+}
