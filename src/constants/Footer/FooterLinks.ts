@@ -1,16 +1,14 @@
 export const footerColumns = [
   {
-    title: "SITEMAP",
-    links: [
-      { label: "Home", href: "/" },
-    ],
+    title: 'SITEMAP',
+    links: [{ label: 'Home', href: '/' }],
   },
   {
-    title: "TEAM",
+    title: 'TEAM',
     links: [
-      { label: "Suvait Karmakar", href: "#" },
-      { label: "Hemangshu Dey", href: "#" },
-      { label: "Subhajit karmakar", href: "#" },
+      { label: 'Suvait Karmakar', href: '#' },
+      { label: 'Hemangshu Dey', href: '#' },
+      { label: 'Subhajit karmakar', href: '#' },
     ],
   },
 ];
