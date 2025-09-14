@@ -3,7 +3,8 @@ import React from 'react';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
 import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
-import customFontMonoton from '@/helpers/font';
+import fontMonoton from '@/helpers/font';
+import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '../../Ui/Pagination/Pagination';
 
 const Header: React.FC = () => {
@@ -11,7 +12,7 @@ const Header: React.FC = () => {
     <>
       <header className="flex flex-col items-center lg:items-start" data-testid="header">
         <h1
-          className={`${customFontMonoton.className} text-3xl md:text-6xl lg:text-7xl  mt-5 mb-16 lg:text-left bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation`}
+          className={`${fontMonoton.className} text-3xl md:text-6xl lg:text-7xl  mt-5 mb-16 lg:text-left bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation`}
           data-testid="header-brand"
         >
           COMPONENTLAB
@@ -58,6 +59,7 @@ const Header: React.FC = () => {
         </div>
       </header>
       <Pagination cards={HEADER_QUICK_LINKS} previousRoute="/" nextRoute="/" />
+      <Footer />
     </>
   );
 };
