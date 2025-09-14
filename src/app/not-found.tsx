@@ -1,5 +1,5 @@
 // Modules
-import { customFontMonoton } from '@/helpers/font';
+import customFontMonoton from '@/helpers/font';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 
 const Errorpage: React.FC = () => {

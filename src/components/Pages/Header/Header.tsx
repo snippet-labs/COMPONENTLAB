@@ -3,7 +3,7 @@ import React from 'react';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
 import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
-import { customFontMonoton } from '@/helpers/font';
+import customFontMonoton from '@/helpers/font';
 import Pagination from '../../Ui/Pagination/Pagination';
 
 const Header: React.FC = () => {

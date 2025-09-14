@@ -1,6 +1,10 @@
 // Modules
 import localFont from 'next/font/local';
 
-export const customFontMonoton = localFont({
-  src: '../../public/fonts/Monoton.ttf',
+const fontMonoton = localFont({
+  src: "../../public/fonts/Monoton.ttf",
+  display: "swap",
+  variable: "--font-monoton",
 });
+
+export default fontMonoton;
