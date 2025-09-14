@@ -2,7 +2,7 @@ export const footerColumns = [
   {
     title: "SITEMAP",
     links: [
-      { label: "Home", href: "#" },
+      { label: "Home", href: "/" },
     ],
   },
   {

@@ -15,9 +15,12 @@ const Footer: React.FC = () => {
           <div key={idx}>
             <h3 className="text-xl font-semibold mb-3">{column.title}</h3>
             <ul className="space-y-2 text-gray-600">
-              {column.links.map((link, linkIdx) => (
-                <li key={linkIdx}>
-                  <Link href={link.href} className="hover:text-black">
+              {column.links.map((link, linkIndex) => (
+                <li key={linkIndex}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-black hover:ml-2 duration-300 transitional-all"
+                  >
                     {link.label}
                   </Link>
                 </li>
