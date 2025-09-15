@@ -1,8 +1,8 @@
-'use client';
-
 // Modules
+import CodeBlock from '@/components/Ui/CodeBlock/CodeBlock';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '@/components/Ui/Pagination/Pagination';
+import { INSTALLATION_CODES_HELLO_WORLD } from './InstallationCodes';
 
 const InstallationGuidePage = () => {
   return (
@@ -24,6 +24,7 @@ const InstallationGuidePage = () => {
       <div>
         <div className="mt-10">
           <p className="font-bold text-3xl">Installation</p>
+          <CodeBlock codes={INSTALLATION_CODES_HELLO_WORLD} />
         </div>
       </div>
       <Pagination

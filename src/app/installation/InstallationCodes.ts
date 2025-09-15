@@ -1,0 +1,1 @@
+export const INSTALLATION_CODES_HELLO_WORLD = `console.log("HelloWorld!")`;
