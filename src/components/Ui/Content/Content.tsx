@@ -18,7 +18,7 @@ const Content: React.FC<ContentProps> = ({ isSidebarOpen, handleToggleSidebar, c
       >
         <button
           onClick={handleToggleSidebar}
-          className="items-center flex border-2 rounded-full px-2 py-1 hover:cursor-pointer hover:bg-black hover:text-white hover:border-white transition-all duration-75 fixed bg-white"
+          className="z-[200] items-center flex border-2 rounded-full px-2 py-1 hover:cursor-pointer hover:bg-black hover:text-white hover:border-white transition-all duration-75 fixed bg-white"
         >
           {isSidebarOpen ? <IoMdArrowDropleft size={25} /> : <IoMdArrowDropright size={25} />}
           <span className="flex items-center justify-center" data-testid="toggle-button">
