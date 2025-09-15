@@ -1,7 +1,7 @@
 export const SidebarItems = [
   {
     parentItemName: 'Getting started',
-    path: '/start',
+    path: '/',
     children: [
       {
         subItemName: 'Installation',
