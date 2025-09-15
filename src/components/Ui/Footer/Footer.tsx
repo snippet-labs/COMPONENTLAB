@@ -62,8 +62,11 @@ const Footer: React.FC = () => {
         <p className="mt-2 sm:mt-0" data-testid="footer-version">
           <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation">
             Version
-          </span>{' '}
+          </span>
+          &nbsp;
           {packageJson.version}
+          &nbsp;
+          <sup className="font-bold text-xs">{packageJson.status}</sup>
         </p>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 {
   "name": "componentlab",
   "version": "0.1.0",
+  "status": "In Development",
   "private": true,
   "type": "module",
   "scripts": {
