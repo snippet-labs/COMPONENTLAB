@@ -36,4 +36,40 @@ export const SidebarItems = [
       { subItemName: 'Contact Form', path: '' },
     ],
   },
+    {
+    parentItemName: 'Forms',
+    path: '/forms',
+    children: [
+      { subItemName: 'Login Form', path: '' },
+      { subItemName: 'Register Form', path: 'r' },
+      { subItemName: 'Contact Form', path: '' },
+    ],
+  },
+    {
+    parentItemName: 'Forms',
+    path: '/forms',
+    children: [
+      { subItemName: 'Login Form', path: '' },
+      { subItemName: 'Register Form', path: 'r' },
+      { subItemName: 'Contact Form', path: '' },
+    ],
+  },
+    {
+    parentItemName: 'Forms',
+    path: '/forms',
+    children: [
+      { subItemName: 'Login Form', path: '' },
+      { subItemName: 'Register Form', path: 'r' },
+      { subItemName: 'Contact Form', path: '' },
+    ],
+  },
+    {
+    parentItemName: 'Forms',
+    path: '/forms',
+    children: [
+      { subItemName: 'Login Form', path: '' },
+      { subItemName: 'Register Form', path: 'r' },
+      { subItemName: 'Contact Form', path: '' },
+    ],
+  },
 ];
