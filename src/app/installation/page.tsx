@@ -33,13 +33,15 @@ const InstallationGuidePage = () => {
           <p className="font-bold text-3xl">Installation</p>
           <p className="mt-2 mb-4 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
             We only need two dependencies for using our components, tailwindcss and react-icon
-            library.
+            library. As package manager we predominantly use&nbsp;
+            <code className="bg-gray-200 px-1 border-1 rounded-lg text-black">bun</code> but you are
+            free to use anything of your choice.
           </p>
           <div>
-            <p className="font-bold border-2 rounded-lg bg-gray-200 p-1 inline">STEP 1</p>
+            <p className="font-bold border-2 rounded-full bg-white px-3 py-1 inline">STEP 1</p>
             <div className="border-l-4 border-dotted mt-5">
-              <div className="ml-2">
-                <p>
+              <div className="ml-5">
+                <p className="text-justify">
                   React Icons is a popular library for using SVG icons in React applications. It
                   provides thousands of icons from popular icon packs like Font Awesome, Material
                   Design, Ionicons, Feather, Heroicons, and more, all as React components. Click
@@ -65,10 +67,10 @@ const InstallationGuidePage = () => {
             </div>
           </div>
           <div className="mt-10">
-            <p className="font-bold border-2 rounded-lg bg-gray-200 p-1 inline">STEP 2</p>
+            <p className="font-bold border-2 rounded-full bg-white px-3 py-1 inline">STEP 2</p>
             <div className="border-l-4 border-dotted mt-5">
-              <div className="ml-2">
-                <p>
+              <div className="ml-5">
+                <p className="text-justify">
                   Tailwind CSS is a utility-first CSS framework that allows developers to style web
                   applications directly in the HTML or JSX using predefined utility classes. Follow
                   the commands below, click the&nbsp;
@@ -91,12 +93,12 @@ const InstallationGuidePage = () => {
                 />
                 <CodeBlock
                   codes={INSTALLATION_CODES_VITE_CONFIG_PLUGIN}
-                  codeLanguage="bash"
+                  codeLanguage="tsx"
                   fileName="vite.config.ts"
                 />
                 <CodeBlock
                   codes={INSTALLATION_CODES_CSS_IMPORT}
-                  codeLanguage="bash"
+                  codeLanguage="tsx"
                   fileName="index.css"
                 />
               </div>
