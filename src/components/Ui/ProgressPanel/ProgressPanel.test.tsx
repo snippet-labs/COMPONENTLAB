@@ -1,6 +1,7 @@
 // Modules
 import { useScrollSpy } from '@/hooks/useScrollSpy';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Mock, beforeEach, describe, expect, it, vi } from 'vitest';
 import ProgressPanel from './ProgressPanel';
 
@@ -40,7 +41,8 @@ describe('ProgressPanel Component', () => {
     { id: 'setup', title: 'Setup', subsections: [] },
   ];
 
-  const renderComponent = (props = {}) => render(<ProgressPanel tableOfContents={tableOfContents} {...props} />);
+  const renderComponent = (props = {}) =>
+    render(<ProgressPanel tableOfContents={tableOfContents} {...props} />);
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -58,22 +60,28 @@ describe('ProgressPanel Component', () => {
     expect(screen.queryAllByText('Intro Subsection 2')[0]).not.toBeNull();
   });
 
-  it('should call scrollIntoView when clicking a section link', () => {
+  it('should call scrollIntoView when clicking a section link', async () => {
     (useScrollSpy as Mock).mockReturnValue('intro');
     renderComponent();
 
-    fireEvent.click(screen.queryAllByText('Introduction')[0]);
+    await userEvent.click(screen.queryAllByText('Introduction')[0]);
 
-    expect(Element.prototype.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
+    expect(Element.prototype.scrollIntoView).toHaveBeenCalledWith({
+      behavior: 'smooth',
+      block: 'start',
+    });
   });
 
-  it('should call scrollIntoView when clicking a subsection link', () => {
+  it('should call scrollIntoView when clicking a subsection link', async () => {
     (useScrollSpy as Mock).mockReturnValue('intro');
     renderComponent();
 
-    fireEvent.click(screen.queryAllByText('Intro Subsection 1')[0]);
+    await userEvent.click(screen.queryAllByText('Intro Subsection 1')[0]);
 
-    expect(Element.prototype.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
+    expect(Element.prototype.scrollIntoView).toHaveBeenCalledWith({
+      behavior: 'smooth',
+      block: 'start',
+    });
   });
 
   it('should render with left position when position="left"', () => {
@@ -83,29 +91,29 @@ describe('ProgressPanel Component', () => {
     expect(screen.queryAllByText('Introduction')[0]).not.toBeNull();
   });
 
-   it('should render with right position when position="right"', () => {
+  it('should render with right position when position="right"', () => {
     (useScrollSpy as Mock).mockReturnValue('intro');
     renderComponent({ position: 'right' });
 
     expect(screen.queryAllByText('Introduction')[0]).not.toBeNull();
   });
 
-  it('should not throw if target element does not exist when clicking a section link', () => {
+  it('should not throw if target element does not exist when clicking a section link', async () => {
     (useScrollSpy as Mock).mockReturnValue('intro');
     vi.spyOn(document, 'getElementById').mockReturnValue(null);
 
     renderComponent();
-    fireEvent.click(screen.queryAllByText('Introduction')[0]);
+    await userEvent.click(screen.queryAllByText('Introduction')[0]);
 
     expect(Element.prototype.scrollIntoView).not.toHaveBeenCalled();
   });
 
-  it('should not throw if target element does not exist when clicking a subsection link', () => {
+  it('should not throw if target element does not exist when clicking a subsection link', async () => {
     (useScrollSpy as Mock).mockReturnValue('intro');
     vi.spyOn(document, 'getElementById').mockReturnValue(null);
 
     renderComponent();
-    fireEvent.click(screen.queryAllByText('Intro Subsection 1')[0]);
+    await userEvent.click(screen.queryAllByText('Intro Subsection 1')[0]);
 
     expect(Element.prototype.scrollIntoView).not.toHaveBeenCalled();
   });
@@ -127,5 +135,4 @@ describe('ProgressPanel Component', () => {
 
     expect(screen.queryAllByText('Configuration')[0]).not.toBeNull();
   });
-
 });

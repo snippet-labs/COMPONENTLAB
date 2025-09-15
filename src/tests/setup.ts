@@ -29,11 +29,12 @@ vi.mock('next/router', () => {
   };
 });
 
-// Polyfill ResizeObserver for jsdom 
+// Polyfill ResizeObserver for jsdom
 class ResizeObserver {
-  observe() { }
-  unobserve() { }
-  disconnect() { }
+  observe() {}
+  unobserve() {}
+  disconnect() {}
 }
 
-(globalThis as typeof globalThis & { ResizeObserver: typeof ResizeObserver }).ResizeObserver = ResizeObserver;
+(globalThis as typeof globalThis & { ResizeObserver: typeof ResizeObserver }).ResizeObserver =
+  ResizeObserver;
