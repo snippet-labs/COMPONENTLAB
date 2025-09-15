@@ -7,43 +7,34 @@ import { MdFileCopy } from 'react-icons/md';
 import { Highlight, themes } from 'prism-react-renderer';
 import { CodeBlockProps } from './CodeBlock.types';
 
-const CodeBlock: React.FC<CodeBlockProps> = ({ codes, codeLanguage }) => {
-  // STATES
+const CodeBlock: React.FC<CodeBlockProps> = ({ codes, codeLanguage, fileName }) => {
   const [copied, setCopied] = useState(false);
-  // HANDLER
+
   const handleCodeBlockCopyFunctionality = async () => {
     try {
       await navigator.clipboard.writeText(codes);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (copyFunctionalityError) {
-      console.error('FAILED TO COPY CODEBLOCK: ', copyFunctionalityError);
+    } catch (error) {
+      console.error('FAILED TO COPY CODEBLOCK: ', error);
     }
   };
 
   return (
     <div className="mt-5 relative group">
-      <button
-        onClick={handleCodeBlockCopyFunctionality}
-        className="absolute top-2 right-2 flex items-center gap-1 bg-gray-100  px-2 py-1 rounded-md text-black opacity-80 hover:opacity-100 hover:cursor-pointer transition-all duration-200"
-      >
-        {copied ? (
-          <>
-            <IoMdCheckmarkCircle size={15} />
-          </>
-        ) : (
-          <>
-            <MdFileCopy size={15} />
-          </>
-        )}
-      </button>
+      <div className="flex items-center justify-between bg-gray-200 px-3 py-1 rounded-t-xl border-b border-gray-300">
+        <span className="text-sm font-medium text-gray-800">{fileName || ''}</span>
+        <button
+          onClick={handleCodeBlockCopyFunctionality}
+          className="flex items-center justify-center text-gray-700 hover:text-gray-900 hover:cursor-pointer transition-all duration-150"
+        >
+          {copied ? <IoMdCheckmarkCircle size={16} /> : <MdFileCopy size={16} />}
+        </button>
+      </div>
 
       <Highlight theme={themes.oneLight} code={codes} language={codeLanguage}>
         {({ tokens, getTokenProps }) => (
-          <pre
-            className="border-2 p-3 rounded-xl bg-gray-100 overflow-auto"
-            style={{ scrollbarWidth: 'thin' }}
-          >
+          <pre className="border-2 border-t-0 p-3 rounded-b-xl bg-gray-100 overflow-auto max-h-[500px]">
             {tokens.map((line, i) => (
               <div key={i}>
                 {line.map((token, key) => (
