@@ -2,11 +2,12 @@
 
 // Modules
 import { useState } from 'react';
-import { FiCheck, FiCopy } from 'react-icons/fi';
+import { IoMdCheckmarkCircle } from 'react-icons/io';
+import { MdFileCopy } from 'react-icons/md';
 import { Highlight, themes } from 'prism-react-renderer';
 import { CodeBlockProps } from './CodeBlock.types';
 
-const CodeBlock: React.FC<CodeBlockProps> = ({ codes }) => {
+const CodeBlock: React.FC<CodeBlockProps> = ({ codes, codeLanguage }) => {
   // STATES
   const [copied, setCopied] = useState(false);
   // HANDLER
@@ -28,19 +29,19 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ codes }) => {
       >
         {copied ? (
           <>
-            <FiCheck size={15} />
+            <IoMdCheckmarkCircle size={15} />
           </>
         ) : (
           <>
-            <FiCopy size={15} />
+            <MdFileCopy size={15} />
           </>
         )}
       </button>
 
-      <Highlight theme={themes.oneLight} code={codes} language="tsx">
+      <Highlight theme={themes.oneLight} code={codes} language={codeLanguage}>
         {({ tokens, getTokenProps }) => (
           <pre
-            className="border-2 p-3 rounded-xl bg-gray-100 overflow-auto max-h-[500px] custom-scrollbar"
+            className="border-2 p-3 rounded-xl bg-gray-100 overflow-auto"
             style={{ scrollbarWidth: 'thin' }}
           >
             {tokens.map((line, i) => (
