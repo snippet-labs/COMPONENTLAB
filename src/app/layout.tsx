@@ -1,4 +1,5 @@
 // Modules
+import fontMonoton from '@/helpers/font';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Wrapper from '@/components/Wrapper/Wrapper';
@@ -28,7 +29,7 @@ export default function RootLayout({
     <html lang="en" data-testid="root-html">
       <body
         data-testid="root-body"
-        className={`${geistSans.variable} ${geistMono.variable} antialiased scrollbar-thin scrollbar-thumb-black scrollbar-track-white`}
+        className={`${fontMonoton.variable} ${geistSans.variable} ${geistMono.variable} antialiased scrollbar-thin scrollbar-thumb-black scrollbar-track-white`}
       >
         <Wrapper data-testid="root-wrapper">{children}</Wrapper>
       </body>

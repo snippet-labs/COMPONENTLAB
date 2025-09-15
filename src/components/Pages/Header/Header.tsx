@@ -3,7 +3,7 @@ import React from 'react';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
 import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
-import { fontMonoton } from '@/helpers/font';
+import fontMonoton from '@/helpers/font';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '../../Ui/Pagination/Pagination';
 
@@ -11,20 +11,20 @@ const Header: React.FC = () => {
   return (
     <>
       <header className="flex flex-col items-center lg:items-start" data-testid="header">
-        <h2
-          className={`text-3xl md:text-6xl lg:text-7xl text-black mt-5 mb-16 text-center lg:text-left ${fontMonoton.className}`}
+        <h1
+          className={`${fontMonoton.className} text-3xl md:text-6xl lg:text-7xl  mt-5 mb-16 lg:text-left bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation`}
           data-testid="header-brand"
         >
           COMPONENTLAB
-        </h2>
+        </h1>
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-6 sm:gap-8 w-full">
           <div className="flex-1 text-center lg:text-left">
-            <h1
+            <h2
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
               data-testid="header-title"
             >
               Components from our lab, made accessible
-            </h1>
+            </h2>
             <p
               className="text-lg sm:text-xl md:text-2xl text-gray-600 font-medium mt-3"
               data-testid="header-description"

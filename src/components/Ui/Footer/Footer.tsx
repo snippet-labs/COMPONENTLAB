@@ -56,10 +56,14 @@ const Footer: React.FC = () => {
         data-testid="footer-bottom"
       >
         <p data-testid="footer-copyright">
-          © {new Date().getFullYear()} SnippetLabs product. All rights reserved.
+          © {new Date().getFullYear()} <span className="font-bold">SnippetLabs</span> product. All
+          rights reserved.
         </p>
         <p className="mt-2 sm:mt-0" data-testid="footer-version">
-          <span className="text-green-600 font-semibold">Version</span> {packageJson.version}
+          <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation">
+            Version
+          </span>{' '}
+          {packageJson.version}
         </p>
       </div>
     </footer>
