@@ -16,9 +16,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
       initial={{ x: -300 }}
       animate={{ x: isSidebarOpen ? 0 : -300 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className="fixed top-0 z-[90] left-0 w-70 h-screen bg-white shadow-md border-r-2 backdrop-blur-lg "
+      className="fixed top-0 z-[40] left-0 w-70 h-screen bg-white shadow-md border-r-2 backdrop-blur-lg flex flex-col"
     >
-      <div className="bg-white z-10">
+      <div className="bg-white">
         {/* HEADER */}
         <div className="flex items-center justify-between pt-25 pb-4 bg-white">
           <div className="flex items-center ml-3 border-2 rounded-full">
@@ -43,8 +43,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
         </div>
       </div>
       {/* LINKS */}
-      <div className="overflow-y-auto h-[calc(100vh-220px)]">
-        <nav className="px-4 mt-1">
+      <div className="flex-1 mb-5 overflow-y-auto" onWheel={(event) => event.stopPropagation()}>
+        <nav className="px-4 h-full">
           {filteredLinks.length > 0 ? (
             filteredLinks.map((parent, parentIndex) => (
               <div key={`${parent.path}-${parentIndex}`} className="mb-2">
