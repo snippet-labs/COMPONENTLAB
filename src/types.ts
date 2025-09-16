@@ -11,8 +11,8 @@ export interface ProgressPanelSectionTypes {
   subsections?: ProgressPanelSubSectionTypes[];
 }
 
-// Quick-link-cards-types
-export interface QuickLinkCardsTypes {
+// Link-cards-types
+export interface LinkCardsTypes {
   label: string;
   route: string;
 }

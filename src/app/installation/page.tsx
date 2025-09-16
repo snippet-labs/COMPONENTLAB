@@ -1,5 +1,6 @@
 // Modules
 import { HiExternalLink } from 'react-icons/hi';
+import { DOCUMENTATION_LINKS } from '@/constants/Installation/DocumentationLinkItems';
 import Link from 'next/link';
 import CodeBlock from '@/components/Ui/CodeBlock/CodeBlock';
 import Footer from '@/components/Ui/Footer/Footer';
@@ -104,9 +105,20 @@ const InstallationGuidePage = () => {
               </div>
             </div>
           </div>
+          <div className="mt-10">
+            <p className="text-xl md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
+              There you go, Well done !
+            </p>
+            <p className="text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
+              Now using our components is no less then breeze, navigate though the component items
+              and copy the code block for your desired selected component. DONE ! <br />
+              <span className="text-2xl mt-2">THAT EASY !</span>
+            </p>
+          </div>
         </div>
       </div>
       <Pagination
+        cards={DOCUMENTATION_LINKS}
         paginationTitle="Official installation guide"
         previousRoute="/"
         previousRouteTitle="Home"
