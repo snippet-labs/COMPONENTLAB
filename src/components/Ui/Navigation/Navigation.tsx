@@ -17,7 +17,7 @@ const Navigation: React.FC = () => {
   const toggleMobileMenu = () => setIsMobileMenuOpen((previous) => !previous);
 
   return (
-    <nav className="fixed top-0 w-full z-[100] border-b-2 bg-white" data-testid="navigation">
+    <nav className="fixed top-0 w-full z-[500] border-b-2 bg-white" data-testid="navigation">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18">
           {/* LOGO */}
@@ -48,7 +48,7 @@ const Navigation: React.FC = () => {
           </div>
 
           {/* MOBILE : Menu Button */}
-          <div className="flex z-[100] items-center space-x-4 sm:hidden">
+          <div className="flex z-[500] items-center space-x-4 sm:hidden">
             <motion.button
               onClick={toggleMobileMenu}
               data-testid="mobile-menu-toggle"
