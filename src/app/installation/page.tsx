@@ -52,7 +52,11 @@ const InstallationGuidePage = () => {
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation">
                     Click to Learn more
                   </span>
-                  <Link href={'https://react-icons.github.io/react-icons/'} target="_blank">
+                  <Link
+                    href={'https://react-icons.github.io/react-icons/'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <HiExternalLink
                       size={20}
                       className="inline ml-2 hover:scale-105 hover:cursor-pointer transition-all duration-150"
@@ -80,7 +84,7 @@ const InstallationGuidePage = () => {
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation">
                     Click to Learn more
                   </span>
-                  <Link href={'https://tailwindcss.com/'} target="_blank">
+                  <Link href={'https://tailwindcss.com/'} target="_blank" rel="noopener noreferrer">
                     <HiExternalLink
                       size={20}
                       className="inline ml-2 hover:scale-105 hover:cursor-pointer transition-all duration-150"
