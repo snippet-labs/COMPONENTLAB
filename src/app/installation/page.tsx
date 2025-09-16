@@ -106,12 +106,26 @@ const InstallationGuidePage = () => {
             </div>
           </div>
           <div className="mt-10">
+            <p className="font-bold border-2 rounded-full bg-white px-3 py-1 inline">STEP 3</p>
+            <div className="border-l-4 border-dotted mt-5">
+              <div className="ml-5">
+                <p className="text-justify">
+                  Now when we are set with all the required dependencies, all we need is to create a
+                  folder&nbsp;
+                  <code className="bg-gray-200 px-1 border-1 rounded-lg text-black">src/lab/</code>
+                  &nbsp; within which we can drop our components and use it within a desired
+                  project.&nbsp;
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-10">
             <p className="text-xl md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
               There you go, Well done !
             </p>
             <p className="text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
               Now using our components is no less then breeze, navigate though the component items
-              and copy the code block for your desired selected component. DONE ! <br />
+              and copy the code block for your desired selected component. <br />
               <span className="text-2xl mt-2">THAT EASY !</span>
             </p>
           </div>
