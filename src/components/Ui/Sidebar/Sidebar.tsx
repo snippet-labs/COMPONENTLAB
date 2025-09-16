@@ -43,7 +43,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
         </div>
       </div>
       {/* LINKS */}
-      <div className="flex-1 mb-5 overflow-y-auto" onWheel={(event) => event.stopPropagation()}>
+      <div
+        className="flex-1 mb-5 overflow-y-auto scrollbar-thin scrollbar-thumb-black scrollbar-track-white"
+        onWheel={(event) => event.stopPropagation()}
+      >
         <nav className="px-4 h-full">
           {filteredLinks.length > 0 ? (
             filteredLinks.map((parent, parentIndex) => (
