@@ -1,5 +1,5 @@
 // Modules
-import fontMonoton  from '@/helpers/font';
+import fontMonoton from '@/helpers/font';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 
