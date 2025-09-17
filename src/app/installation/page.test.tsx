@@ -6,6 +6,7 @@ import InstallationGuidePage from './page';
 // Render
 const renderComponent = () => render(<InstallationGuidePage />);
 
+// Cleanup
 afterEach(() => {
   cleanup();
 });
@@ -49,7 +50,9 @@ describe('InstallationGuidePage Component', () => {
   it('should render STEP 3 section with folder creation text', () => {
     renderComponent();
     const step3 = screen.queryAllByText('STEP 3')[0];
-    const folderText = screen.queryAllByText(/Now when we are set with all the required dependencies/i)[0];
+    const folderText = screen.queryAllByText(
+      /Now when we are set with all the required dependencies/i
+    )[0];
     expect(step3).not.toBeNull();
     expect(folderText).not.toBeNull();
   });

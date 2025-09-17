@@ -33,7 +33,6 @@ export const SidebarItems = [
     children: [
       { subItemName: 'Login Form', path: '' },
       { subItemName: 'Register Form', path: 'r' },
-      { subItemName: 'Contact Form', path: '' },
-    ],
+      { subItemName: 'Contact Form', path: '' },]
   },
 ];
