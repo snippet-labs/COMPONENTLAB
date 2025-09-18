@@ -16,7 +16,7 @@ const InstallationGuidePage = () => {
   return (
     <div className="min-h-screen">
       <div>
-        <h1 className="text-sm font-medium">COMPONENTLAB/</h1>
+        <h1 className="ml-1 text-sm font-medium">COMPONENTLAB/</h1>
         <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl">Getting Started</h2>
         <p className="mt-10 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
           ComponentLAB is designed with low dependency, focusing solely on delivering clean,

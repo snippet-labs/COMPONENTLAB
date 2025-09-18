@@ -1,8 +1,9 @@
-import type { ButtonVarients } from "@/app/button/ButtonVarients";
-
+// Global types
+import { AccessibleComponentsVariantCard } from "@/types";
 
 export type StarterProps = {
   starterTitle: string;
   starterDescription: string;
-  starterVarientCards: ButtonVarients[];
+  starterVariantDescription: string;
+  starterVariantCards: AccessibleComponentsVariantCard[];
 };

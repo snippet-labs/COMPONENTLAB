@@ -1,13 +1,19 @@
+// Modules
 import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import Footer from '../../components/Ui/Footer/Footer';
 import Starter from '../../components/Ui/Starter/Starter';
-import { ButtonVarients } from './ButtonVarients';
+import { BUTTON_VARIANTS } from './ButtonVariants';
 
 const ButtonStarterPage = () => {
   return (
-    <div>
-      <Starter starterTitle='Buttons' starterDescription='Hellow World' starterVarientCards={ButtonVarients} />
+    <div className="min-h-screen">
+      <Starter
+        starterTitle="Starter"
+        starterDescription="Starter parent accessible component description goes here"
+        starterVariantDescription="Starter variant description goes here"
+        starterVariantCards={BUTTON_VARIANTS}
+      />
       <Pagination
         cards={HEADER_QUICK_LINKS}
         nextRoute="/"
