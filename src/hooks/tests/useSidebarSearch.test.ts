@@ -24,7 +24,7 @@ describe('useSidebarSearch Hook', () => {
     expect(result.current.filteredLinks).toEqual([
       {
         parentItemName: 'Button',
-        path: '/buttons',
+        path: '/button',
         children: [
           { subItemName: 'Primary Button', path: 'buttons/primary-button' },
           { subItemName: 'Secondary Button', path: '' },

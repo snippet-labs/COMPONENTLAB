@@ -42,7 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
           />
         </div>
       </div>
-      
+
       {/* LINKS */}
       <div
         className="flex-1 mb-5 overflow-y-auto scrollbar-thin scrollbar-thumb-black scrollbar-track-white"

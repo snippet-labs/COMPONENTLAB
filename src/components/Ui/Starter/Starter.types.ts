@@ -1,5 +1,5 @@
 // Global types
-import { AccessibleComponentsVariantCard } from "@/types";
+import { AccessibleComponentsVariantCard } from '@/types';
 
 export type StarterProps = {
   starterTitle: string;
