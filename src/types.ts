@@ -16,3 +16,10 @@ export interface LinkCardsTypes {
   label: string;
   route: string;
 }
+
+// Accessible-components-variant-cards
+export interface AccessibleComponentsVariantCard {
+  label: string;
+  description: string;
+  path: string;
+}

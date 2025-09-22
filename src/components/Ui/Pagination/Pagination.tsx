@@ -35,8 +35,8 @@ const Pagination: React.FC<PaginationProps> = ({
                   href={card.route}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative w-[200px] h-[120px] px-6 py-10 rounded-[17px] shadow-md border text-md font-bold 
-                 bg-black text-gray-300 flex items-center justify-center text-center 
+                  className="relative w-[200px] h-[120px] px-6 py-10 rounded-[20px] shadow-md border text-md font-bold 
+                 bg-black/85 text-gray-300 flex items-center justify-center text-center 
                  transform transition-all duration-300 ease-in-out 
                  hover:scale-105 hover:shadow-2xl hover:text-white before:content-[''] before:absolute before:inset-0 before:rounded-lg 
                  before:bg-[radial-gradient(circle_at_left_bottom,rgba(255,255,255,0.9),transparent_70%)] 
@@ -80,7 +80,6 @@ const Pagination: React.FC<PaginationProps> = ({
           {previousRoute && (
             <Link
               href={previousRoute}
-              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-10 h-10 rounded-full border shadow-md bg-white text-gray-700 hover:bg-gray-100 transition-colors"
             >
@@ -106,7 +105,6 @@ const Pagination: React.FC<PaginationProps> = ({
                 <Link
                   key={idx}
                   href={card.route}
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 rounded-xl shadow-md border text-sm font-semibold bg-black text-gray-300 hover:bg-gray-100  hover:border-1 hover:border-black hover:text-black hover:scale-105 duration-300 ease-in transition-all"
                 >

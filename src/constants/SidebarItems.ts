@@ -11,7 +11,7 @@ export const SidebarItems = [
   },
   {
     parentItemName: 'Button',
-    path: '/buttons',
+    path: '/button',
     children: [
       { subItemName: 'Primary Button', path: 'buttons/primary-button' },
       { subItemName: 'Secondary Button', path: '' },
