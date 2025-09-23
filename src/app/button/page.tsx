@@ -7,12 +7,13 @@ import { BUTTON_VARIANTS } from './ButtonVariants';
 
 const ButtonStarterPage = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" data-testid="button-starter-page">
       <Starter
         starterTitle="Starter"
         starterDescription="Starter parent accessible component description goes here"
         starterVariantDescription="Starter variant description goes here"
         starterVariantCards={BUTTON_VARIANTS}
+        data-testid="starter-component"
       />
       <Pagination
         cards={HEADER_QUICK_LINKS}
@@ -20,8 +21,9 @@ const ButtonStarterPage = () => {
         nextRouteTitle="home"
         previousRoute="/"
         previousRouteTitle="previous"
+        data-testid="pagination-component"
       />
-      <Footer />
+      <Footer data-testid="footer-component" />
     </div>
   );
 };
