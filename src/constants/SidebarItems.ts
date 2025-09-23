@@ -1,7 +1,11 @@
+// Global variables
+import { BUTTON_VARIANTS, CHECKBOX_VARIANTS } from './global';
+
+// Sidebar items
 export const SidebarItems = [
   {
-    parentItemName: 'Getting started',
-    path: '/',
+    parentItemName: 'Getting Started',
+    path: '/installation',
     children: [
       {
         subItemName: 'Installation',
@@ -12,28 +16,26 @@ export const SidebarItems = [
   {
     parentItemName: 'Button',
     path: '/button',
-    children: [
-      { subItemName: 'Primary Button', path: 'buttons/primary-button' },
-      { subItemName: 'Secondary Button', path: '' },
-      { subItemName: 'Icon Button', path: '' },
-    ],
+    children: BUTTON_VARIANTS.map((variant) => ({
+      subItemName: variant,
+      path: `/button/${variant.toLowerCase()}`,
+    })),
   },
   {
     parentItemName: 'Checkboxes',
     path: '/checkboxes',
-    children: [
-      { subItemName: 'Basic Checkbox', path: '' },
-      { subItemName: 'Group Checkbox', path: '' },
-      { subItemName: 'Controlled Checkbox', path: '' },
-    ],
+    children: CHECKBOX_VARIANTS.map((variant) => ({
+      subItemName: variant,
+      path: `/checkbox/${variant.toLowerCase()}`,
+    })),
   },
   {
     parentItemName: 'Forms',
     path: '/forms',
     children: [
-      { subItemName: 'Login Form', path: '' },
-      { subItemName: 'Register Form', path: 'r' },
-      { subItemName: 'Contact Form', path: '' },
+      { subItemName: 'Login Form', path: '/forms/login' },
+      { subItemName: 'Register Form', path: '/forms/register' },
+      { subItemName: 'Contact Form', path: '/forms/contact' },
     ],
   },
 ];

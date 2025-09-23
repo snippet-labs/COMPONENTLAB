@@ -5,7 +5,7 @@ import Footer from '../../components/Ui/Footer/Footer';
 import Starter from '../../components/Ui/Starter/Starter';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 
-const ButtonStarterPage = () => {
+const AccessibleButtonStarterPage = () => {
   return (
     <div className="min-h-screen">
       <Starter
@@ -26,4 +26,4 @@ const ButtonStarterPage = () => {
   );
 };
 
-export default ButtonStarterPage;
+export default AccessibleButtonStarterPage;
