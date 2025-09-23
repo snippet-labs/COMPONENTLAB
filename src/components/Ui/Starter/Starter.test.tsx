@@ -1,6 +1,6 @@
 // Modules
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { cleanup, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it } from 'vitest';
 import Starter from './Starter';
 import { StarterProps } from './Starter.types';
 
@@ -20,6 +20,11 @@ const renderComponent = (props: StarterProps = mockProps) => {
   render(<Starter {...props} />);
 };
 
+// Cleanup
+afterEach(() => {
+  cleanup();
+});
+
 // Test Suite
 describe('Starter Component', () => {
   it('should render the "starter" component', () => {
@@ -27,13 +32,13 @@ describe('Starter Component', () => {
     expect(screen.queryAllByTestId('starter-component')[0]).not.toBeNull();
   });
 
-  it('it render the "starter title"', () => {
+  it('should render the "starter title"', () => {
     renderComponent();
     const title = screen.queryAllByTestId('starter-title')[0];
     expect(title.textContent).toBe(mockProps.starterTitle);
   });
 
-  it('it should render the "starter description"', () => {
+  it('should render the "starter description"', () => {
     renderComponent();
     const description = screen.queryAllByTestId('starter-description')[0];
     expect(description.textContent).toBe(mockProps.starterDescription);
