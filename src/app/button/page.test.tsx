@@ -1,10 +1,11 @@
+// Modules
 import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 import ButtonStarterPage from './page';
 
-// Reusable render function
+// Render
 const renderComponent = () => {
   render(<ButtonStarterPage />);
 };
@@ -14,6 +15,7 @@ afterEach(() => {
   cleanup();
 });
 
+// Test Suite
 describe('ButtonStarterPage Component', () => {
   it('should render the ButtonStarterPage container', () => {
     renderComponent();
