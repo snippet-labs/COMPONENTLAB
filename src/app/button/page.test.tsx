@@ -1,6 +1,6 @@
 import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { cleanup, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it } from 'vitest';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 import ButtonStarterPage from './page';
 
@@ -8,6 +8,11 @@ import ButtonStarterPage from './page';
 const renderComponent = () => {
   render(<ButtonStarterPage />);
 };
+
+// Cleanup
+afterEach(() => {
+  cleanup();
+});
 
 describe('ButtonStarterPage Component', () => {
   it('should render the ButtonStarterPage container', () => {
