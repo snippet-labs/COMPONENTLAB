@@ -13,7 +13,7 @@ describe('useSidebarSearch Hook', () => {
     expect(result.current.filteredLinks).toEqual(SidebarItems);
   });
 
-  it('should update searchQuery when setSearchQuery is called', () => {
+  it('should update searchQuery when setSearchQuery is called for "Button"', () => {
     const { result } = renderHook(() => useSidebarSearch());
 
     act(() => {
@@ -26,15 +26,21 @@ describe('useSidebarSearch Hook', () => {
         parentItemName: 'Button',
         path: '/button',
         children: [
-          { subItemName: 'Primary Button', path: 'buttons/primary-button' },
-          { subItemName: 'Secondary Button', path: '' },
-          { subItemName: 'Icon Button', path: '' },
+          { subItemName: 'Standard', path: '/button/standard' },
+          { subItemName: 'Submit', path: '/button/submit' },
+          { subItemName: 'Reset', path: '/button/reset' },
+          { subItemName: 'Toggle', path: '/button/toggle' },
+          { subItemName: 'Link', path: '/button/link' },
+          { subItemName: 'Loading', path: '/button/loading' },
+          { subItemName: 'Dropdown', path: '/button/dropdown' },
+          { subItemName: 'Menu', path: '/button/menu' },
+          { subItemName: 'Floating', path: '/button/floating' },
         ],
       },
     ]);
   });
 
-  it('should update searchQuery when handleSearchChange is called', () => {
+  it('should update searchQuery when handleSearchChange is called for "Forms"', () => {
     const { result } = renderHook(() => useSidebarSearch());
 
     const mockEvent = { target: { value: 'forms' } };
@@ -48,9 +54,9 @@ describe('useSidebarSearch Hook', () => {
         parentItemName: 'Forms',
         path: '/forms',
         children: [
-          { subItemName: 'Login Form', path: '' },
-          { subItemName: 'Register Form', path: 'r' },
-          { subItemName: 'Contact Form', path: '' },
+          { subItemName: 'Login', path: '/forms/login' },
+          { subItemName: 'Register', path: '/forms/register' },
+          { subItemName: 'Contact', path: '/forms/contact' },
         ],
       },
     ]);
@@ -79,9 +85,9 @@ describe('useSidebarSearch Hook', () => {
         parentItemName: 'Checkboxes',
         path: '/checkboxes',
         children: [
-          { subItemName: 'Basic Checkbox', path: '' },
-          { subItemName: 'Group Checkbox', path: '' },
-          { subItemName: 'Controlled Checkbox', path: '' },
+          { subItemName: 'Basic', path: '/checkbox/basic' },
+          { subItemName: 'Group', path: '/checkbox/group' },
+          { subItemName: 'Controlled', path: '/checkbox/controlled' },
         ],
       },
     ]);

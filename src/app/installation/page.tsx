@@ -10,7 +10,7 @@ import {
   INSTALLATION_CODES_REACT_ICONS,
   INSTALLATION_CODES_TAILWINDCSS,
   INSTALLATION_CODES_VITE_CONFIG_PLUGIN,
-} from './InstallationCodes';
+} from './Installation.code';
 
 const InstallationGuidePage = () => {
   return (
