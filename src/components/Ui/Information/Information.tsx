@@ -9,7 +9,9 @@ import { InformationProps } from './Information.types';
 const Information: React.FC<InformationProps> = ({
   variantTitle,
   variantDescription,
+  variantTags,
   variantComponent: Component,
+  variantComponentProps,
   variantCode,
   variantFileName,
   variantPropColumn,
@@ -18,11 +20,21 @@ const Information: React.FC<InformationProps> = ({
   return (
     <div>
       <div>
+        {/* Header and Description */}
         <h1 className="ml-1 text-sm font-medium">COMPONENTLAB/</h1>
         <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl">{variantTitle}</h2>
         <p className="mt-10 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
           {variantDescription}
         </p>
+        <div className="mt-1 flex flex-wrap items-center gap-2">
+          {variantTags.map((item, idx) => (
+            <ul key={idx} className="">
+              <li className="text-sm font-bold border-2 border-orange-400 px-2 rounded-xl bg-orange-300 text-black">
+                {item.name}
+              </li>
+            </ul>
+          ))}
+        </div>
       </div>
       <div>
         {/* Demo */}
@@ -30,8 +42,8 @@ const Information: React.FC<InformationProps> = ({
           <p className="font-bold border-2 rounded-full bg-white px-3 py-1 inline">Demo</p>
           <div className="border-l-4 border-dotted mt-5">
             <div className="ml-5">
-              <div className="flex items-center justify-center border-2 p-5 rounded-xl bg-white h-auto">
-                <Component />
+              <div className="flex items-center justify-center border-2 p-5 rounded-xl bg-gray-100 h-auto">
+                <Component {...variantComponentProps} />
               </div>
             </div>
           </div>

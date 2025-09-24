@@ -31,3 +31,8 @@ export interface TableTypes {
   columns: Column[];
   rows: DataRow[];
 }
+
+// Accessible-component-tags
+export interface AccessibleComponentTags {
+  name: string;
+}
