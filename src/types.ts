@@ -18,8 +18,16 @@ export interface LinkCardsTypes {
 }
 
 // Accessible-components-variant-cards
-export interface AccessibleComponentsVariantCard {
+export interface AccessibleComponentsVariantCardTypes {
   label: string;
   description: string;
   path: string;
+}
+
+// Table-prop-types
+export type Column = string;
+export type DataRow = (string | number)[];
+export interface TableTypes {
+  columns: Column[];
+  rows: DataRow[];
 }
