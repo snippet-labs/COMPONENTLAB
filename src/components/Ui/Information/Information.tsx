@@ -5,7 +5,6 @@ import CodeBlock from '../CodeBlock/CodeBlock';
 import { Table } from '../Table/Table';
 import { InformationProps } from './Information.types';
 
-// Modules
 const Information: React.FC<InformationProps> = ({
   variantTitle,
   variantDescription,
@@ -18,50 +17,81 @@ const Information: React.FC<InformationProps> = ({
   variantPropRow,
 }) => {
   return (
-    <div>
-      <div>
+    <div data-testid="information-component">
+      <div data-testid="information-header">
         {/* Header and Description */}
-        <h1 className="ml-1 text-sm font-medium">COMPONENTLAB/</h1>
-        <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl">{variantTitle}</h2>
-        <p className="mt-10 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
+        <h1 className="ml-1 text-sm font-medium" data-testid="information-prefix">
+          COMPONENTLAB/
+        </h1>
+        <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl" data-testid="information-title">
+          {variantTitle}
+        </h2>
+        <p
+          className="mt-10 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify"
+          data-testid="information-description"
+        >
           {variantDescription}
         </p>
-        <div className="mt-1 flex flex-wrap items-center gap-2">
+        <div className="mt-1 flex flex-wrap items-center gap-2" data-testid="information-tags">
           {variantTags.map((item, idx) => (
-            <ul key={idx} className="">
-              <li className="text-sm font-bold border-2 border-orange-400 px-2 rounded-xl bg-orange-300 text-black">
+            <ul key={idx}>
+              <li
+                className="text-sm font-bold border-2 border-orange-400 px-2 rounded-xl bg-orange-300 text-black"
+                data-testid={`tag-${idx}`}
+              >
                 {item.name}
               </li>
             </ul>
           ))}
         </div>
       </div>
-      <div>
+
+      <div data-testid="information-demo">
         {/* Demo */}
         <div className="mt-10">
-          <p className="font-bold border-2 rounded-full bg-white px-3 py-1 inline">Demo</p>
+          <p
+            className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
+            data-testid="demo-label"
+          >
+            Demo
+          </p>
           <div className="border-l-4 border-dotted mt-5">
             <div className="ml-5">
-              <div className="flex items-center justify-center border-2 p-5 rounded-xl bg-gray-100 h-auto">
+              <div
+                className="flex items-center justify-center border-2 p-5 rounded-xl bg-gray-100 h-auto"
+                data-testid="demo-container"
+              >
                 <Component {...variantComponentProps} />
               </div>
             </div>
           </div>
         </div>
+
         {/* Code */}
         <div className="mt-10">
-          <p className="font-bold border-2 rounded-full bg-white px-3 py-1 inline">Code</p>
+          <p
+            className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
+            data-testid="code-label"
+          >
+            Code
+          </p>
           <div className="border-l-4 border-dotted mt-5">
-            <div className="ml-5">
+            <div className="ml-5" data-testid="code-container">
               <CodeBlock codes={variantCode} codeLanguage="tsx" fileName={variantFileName} />
             </div>
           </div>
         </div>
+
         {/* Table */}
         <div className="mt-10">
-          <p className="font-bold border-2 rounded-full bg-white px-3 py-1 inline">Prop</p>
+          <p
+            className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
+            data-testid="prop-label"
+          >
+            Prop
+          </p>
           <div className="border-l-4 border-dotted mt-5">
-            <div className="ml-5">
+            <div className="ml-5" data-testid="prop-container">
               <Table columns={variantPropColumn} rows={variantPropRow} />
             </div>
           </div>

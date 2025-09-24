@@ -33,9 +33,9 @@ export const SidebarItems = [
     parentItemName: 'Forms',
     path: '/forms',
     children: [
-      { subItemName: 'Login Form', path: '/forms/login' },
-      { subItemName: 'Register Form', path: '/forms/register' },
-      { subItemName: 'Contact Form', path: '/forms/contact' },
+      { subItemName: 'Login', path: '/forms/login' },
+      { subItemName: 'Register', path: '/forms/register' },
+      { subItemName: 'Contact', path: '/forms/contact' },
     ],
   },
 ];
