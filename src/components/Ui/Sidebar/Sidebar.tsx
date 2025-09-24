@@ -56,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
                   <MdOutlineRadioButtonChecked size={15} />
                   <Link
                     href={parent.path}
-                    onClick={handleToggleSidebar}
+                    onClick={() => null}
                     className="flex items-center px-2 py-2 text-base font-medium group"
                   >
                     {parent.parentItemName}
@@ -68,7 +68,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
                       <Link
                         key={`${child.path}-${childIndex}`}
                         href={child.path}
-                        onClick={handleToggleSidebar}
+                        onClick={() => null}
                         className="flex items-center px-2 py-1 text-sm text-gray-600 hover:text-gray-900 hover:ml-2 group transition-all duration-200"
                       >
                         {child.subItemName}
