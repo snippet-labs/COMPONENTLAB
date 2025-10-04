@@ -1,11 +1,12 @@
-import { AccessibleComponentTags, DataRow } from '@/types';
+// Modules
+import { AccessibleComponentTags, DataRow } from "@/types";
 
-export interface InformationProps {
+export interface InformationProps<T extends Record<string, unknown>> {
   variantTitle: string;
   variantDescription: string;
   variantTags: AccessibleComponentTags[];
-  variantComponent: React.ComponentType;
-  variantComponentProps: Record<string, unknown>;
+  variantComponent: React.ComponentType<T>;
+  variantComponentProps: T;
   variantCode: string;
   variantFileName: string;
   variantPropColumn: string[];
