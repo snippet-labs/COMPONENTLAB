@@ -1,5 +1,5 @@
 // Modules
-import { AccessibleComponentTags, DataRow } from "@/types";
+import { AccessibleComponentTags, DataRow } from '@/types';
 
 export interface InformationProps<T extends Record<string, unknown>> {
   variantTitle: string;

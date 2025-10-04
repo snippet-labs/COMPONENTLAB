@@ -90,7 +90,7 @@ function Information<T extends Record<string, unknown>>({
           className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
           data-testid="prop-label"
         >
-          Props
+          Prop
         </p>
         <div className="border-l-4 border-dotted mt-5">
           <div className="ml-5" data-testid="prop-container">
