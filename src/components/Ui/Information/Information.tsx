@@ -1,11 +1,12 @@
 'use client';
 
 // Modules
+import React from 'react';
 import CodeBlock from '../CodeBlock/CodeBlock';
 import { Table } from '../Table/Table';
 import { InformationProps } from './Information.types';
 
-const Information: React.FC<InformationProps> = ({
+function Information<T extends Record<string, unknown>>({
   variantTitle,
   variantDescription,
   variantTags,
@@ -15,11 +16,11 @@ const Information: React.FC<InformationProps> = ({
   variantFileName,
   variantPropColumn,
   variantPropRow,
-}) => {
+}: InformationProps<T>) {
   return (
     <div data-testid="information-component">
+      {/* Header */}
       <div data-testid="information-header">
-        {/* Header and Description */}
         <h1 className="ml-1 text-sm font-medium" data-testid="information-prefix">
           COMPONENTLAB/
         </h1>
@@ -32,6 +33,8 @@ const Information: React.FC<InformationProps> = ({
         >
           {variantDescription}
         </p>
+
+        {/* Tags */}
         <div className="mt-1 flex flex-wrap items-center gap-2" data-testid="information-tags">
           {variantTags.map((item, idx) => (
             <ul key={idx}>
@@ -46,59 +49,57 @@ const Information: React.FC<InformationProps> = ({
         </div>
       </div>
 
-      <div data-testid="information-demo">
-        {/* Demo */}
-        <div className="mt-10">
-          <p
-            className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
-            data-testid="demo-label"
-          >
-            Demo
-          </p>
-          <div className="border-l-4 border-dotted mt-5">
-            <div className="ml-5">
-              <div
-                className="flex items-center justify-center border-2 p-5 rounded-xl bg-gray-100 h-auto"
-                data-testid="demo-container"
-              >
-                <Component {...variantComponentProps} />
-              </div>
+      {/* Demo Section */}
+      <div data-testid="information-demo" className="mt-10">
+        <p
+          className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
+          data-testid="demo-label"
+        >
+          Demo
+        </p>
+        <div className="border-l-4 border-dotted mt-5">
+          <div className="ml-5">
+            <div
+              className="flex items-center justify-center border-2 p-5 rounded-xl bg-gray-100 h-auto"
+              data-testid="demo-container"
+            >
+              <Component {...variantComponentProps} />
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Code */}
-        <div className="mt-10">
-          <p
-            className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
-            data-testid="code-label"
-          >
-            Code
-          </p>
-          <div className="border-l-4 border-dotted mt-5">
-            <div className="ml-5" data-testid="code-container">
-              <CodeBlock codes={variantCode} codeLanguage="tsx" fileName={variantFileName} />
-            </div>
+      {/* Code Section */}
+      <div className="mt-10" data-testid="information-code">
+        <p
+          className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
+          data-testid="code-label"
+        >
+          Code
+        </p>
+        <div className="border-l-4 border-dotted mt-5">
+          <div className="ml-5" data-testid="code-container">
+            <CodeBlock codes={variantCode} codeLanguage="tsx" fileName={variantFileName} />
           </div>
         </div>
+      </div>
 
-        {/* Table */}
-        <div className="mt-10">
-          <p
-            className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
-            data-testid="prop-label"
-          >
-            Prop
-          </p>
-          <div className="border-l-4 border-dotted mt-5">
-            <div className="ml-5" data-testid="prop-container">
-              <Table columns={variantPropColumn} rows={variantPropRow} />
-            </div>
+      {/* Props Table Section */}
+      <div className="mt-10" data-testid="information-props">
+        <p
+          className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
+          data-testid="prop-label"
+        >
+          Prop
+        </p>
+        <div className="border-l-4 border-dotted mt-5">
+          <div className="ml-5" data-testid="prop-container">
+            <Table columns={variantPropColumn} rows={variantPropRow} />
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Information;
