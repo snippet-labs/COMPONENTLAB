@@ -1,5 +1,5 @@
 // Modules
-import { footerColumns } from '@/constants/Footer/FooterPaginationLinks';
+import { FOOTER_LINKS } from '@/constants/Footer/FooterPaginationLinks';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
@@ -23,7 +23,7 @@ describe('Footer Component', () => {
 
   it('should render the correct number of columns', () => {
     renderComponent();
-    footerColumns.forEach((_, idx) => {
+    FOOTER_LINKS.forEach((_, idx) => {
       const column = screen.queryAllByTestId(`footer-column-${idx}`)[0];
       expect(column).not.toBeNull();
     });
@@ -31,7 +31,7 @@ describe('Footer Component', () => {
 
   it('should render each column title correctly', () => {
     renderComponent();
-    footerColumns.forEach((col, idx) => {
+    FOOTER_LINKS.forEach((col, idx) => {
       const titleEl = screen.queryAllByTestId(`footer-column-title-${idx}`)[0];
       expect(titleEl).not.toBeNull();
       expect(titleEl.textContent?.trim()).toBe(col.title);
@@ -40,7 +40,7 @@ describe('Footer Component', () => {
 
   it('should render all links with correct labels', () => {
     renderComponent();
-    footerColumns.forEach((col, idx) => {
+    FOOTER_LINKS.forEach((col, idx) => {
       col.links.forEach((link, linkIdx) => {
         const linkEl = screen.queryAllByTestId(`footer-link-${idx}-${linkIdx}`)[0];
         expect(linkEl).not.toBeNull();

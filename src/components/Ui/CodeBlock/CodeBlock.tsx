@@ -43,20 +43,29 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ codes, codeLanguage, fileName }) 
     if (canScroll) {
       event.stopPropagation();
     }
-    // If we’re fully at top or bottom, the scroll will bubble to the parent
   };
 
   return (
-    <div className="mt-5 relative group">
+    <div className="mt-5 relative group" data-testid="codeblock-container">
       {/* Header */}
-      <div className="flex items-center justify-between bg-gray-200 px-3 py-1 rounded-t-xl border-b border-gray-300">
-        <span className="text-sm font-medium text-gray-800">{fileName || ''}</span>
+      <div
+        className="flex items-center justify-between bg-gray-200 px-3 py-1 rounded-t-xl border-b border-gray-300"
+        data-testid="codeblock-header"
+      >
+        <span className="text-sm font-medium text-gray-800" data-testid="codeblock-filename">
+          {fileName || ''}
+        </span>
         <button
           onClick={handleCodeBlockCopyFunctionality}
           className="flex items-center justify-center text-gray-700 hover:text-gray-900 hover:cursor-pointer transition-all duration-150"
           aria-label="Copy code to clipboard"
+          data-testid="codeblock-copy-button"
         >
-          {copied ? <IoMdCheckmarkCircle size={16} /> : <MdFileCopy size={16} />}
+          {copied ? (
+            <IoMdCheckmarkCircle size={16} data-testid="codeblock-copied-icon" />
+          ) : (
+            <MdFileCopy size={16} data-testid="codeblock-copy-icon" />
+          )}
         </button>
       </div>
 
@@ -73,6 +82,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ codes, codeLanguage, fileName }) 
           overscrollBehavior: 'auto',
           touchAction: 'pan-y',
         }}
+        data-testid="codeblock-scroll-container"
       >
         {/* Scrollbar styling */}
         <style jsx>{`
@@ -95,12 +105,15 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ codes, codeLanguage, fileName }) 
           }
         `}</style>
 
-        <div className="p-3 text-sm font-mono text-gray-800 whitespace-pre-wrap break-words code-scroll">
+        <div
+          className="p-3 text-sm font-mono text-gray-800 whitespace-pre-wrap break-words code-scroll"
+          data-testid="codeblock-code"
+        >
           <Highlight theme={themes.oneLight} code={codes} language={codeLanguage}>
             {({ tokens, getTokenProps }) => (
-              <pre className="m-0">
+              <pre className="m-0" data-testid="codeblock-pre">
                 {tokens.map((line, i) => (
-                  <div key={i}>
+                  <div key={i} data-testid={`codeblock-line-${i}`}>
                     {line.map((token, key) => (
                       <span key={key} {...getTokenProps({ token })} />
                     ))}
