@@ -2,7 +2,7 @@
 import React from 'react';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
-import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
+import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
 import fontMonoton from '@/helpers/font';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '../../Ui/Pagination/Pagination';
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
           </div>
         </div>
       </header>
-      <Pagination cards={HEADER_QUICK_LINKS} previousRoute="/" nextRoute="/installation" />
+      <Pagination cards={HEADER_PAGINATION_LINKS} previousRoute="/" nextRoute="/installation" />
       <Footer />
     </>
   );

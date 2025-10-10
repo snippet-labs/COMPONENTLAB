@@ -3,7 +3,7 @@
 // Modules
 import React from 'react';
 import { HiCode } from 'react-icons/hi';
-import { footerColumns } from '@/constants/Footer/FooterLinks';
+import { FOOTER_LINKS } from '@/constants/Footer/FooterPaginationLinks';
 import Link from 'next/link';
 import packageJson from '../../../../package.json';
 
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-6"
         data-testid="footer-grid"
       >
-        {footerColumns.map((column, idx) => (
+        {FOOTER_LINKS.map((column, idx) => (
           <div key={idx} data-testid={`footer-column-${idx}`}>
             <h3 className="text-xl font-semibold mb-3" data-testid={`footer-column-title-${idx}`}>
               {column.title}

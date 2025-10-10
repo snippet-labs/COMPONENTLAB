@@ -44,7 +44,6 @@ const Starter: React.FC<StarterProps> = ({
               <Link
                 key={idx}
                 href={card.path}
-                target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-[300px] h-[100px] md:w-[400px] md:h-[120px] 
                  rounded-[20px] border bg-black/85 

@@ -1,4 +1,4 @@
-export const footerColumns = [
+export const FOOTER_LINKS = [
   {
     title: 'SITEMAP',
     links: [{ label: 'Home', href: '/' }],

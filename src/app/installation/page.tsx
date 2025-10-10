@@ -1,6 +1,6 @@
 // Modules
 import { HiExternalLink } from 'react-icons/hi';
-import { DOCUMENTATION_LINKS } from '@/constants/Installation/DocumentationLinkItems';
+import { DOCUMENTATION_LINKS } from '@/constants/Installation/InstallationPaginationLinks';
 import Link from 'next/link';
 import CodeBlock from '@/components/Ui/CodeBlock/CodeBlock';
 import Footer from '@/components/Ui/Footer/Footer';
