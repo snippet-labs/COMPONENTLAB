@@ -2,6 +2,7 @@
 
 // Modules
 import React from 'react';
+import Link from 'next/link';
 import CodeBlock from '../CodeBlock/CodeBlock';
 import { Table } from '../Table/Table';
 import { InformationProps } from './Information.types';
@@ -28,7 +29,7 @@ function Information<T extends Record<string, unknown>>({
           {variantTitle}
         </h2>
         <p
-          className="mt-10 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify"
+          className="mt-10 mb-3 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify"
           data-testid="information-description"
         >
           {variantDescription}
@@ -59,6 +60,9 @@ function Information<T extends Record<string, unknown>>({
         </p>
         <div className="border-l-4 border-dotted mt-5">
           <div className="ml-5">
+            <p className="mb-5 text-justify">
+              The preview section demonstrates how the accessible component appears and behaves.
+            </p>
             <div
               className="flex items-center justify-center border-2 p-5 rounded-xl bg-gray-100 h-auto"
               data-testid="demo-container"
@@ -79,6 +83,16 @@ function Information<T extends Record<string, unknown>>({
         </p>
         <div className="border-l-4 border-dotted mt-5">
           <div className="ml-5" data-testid="code-container">
+            <p className="text-justify">
+              The complete code-block for the accessible component is provided below. Simply copy
+              the code-block and use it in your project structure. Check STEP 3 of our{' '}
+              <Link href="/installation">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation">
+                  Installation guide
+                </span>
+              </Link>{' '}
+              to understand how to use the component locally.
+            </p>
             <CodeBlock codes={variantCode} codeLanguage="tsx" fileName={variantFileName} />
           </div>
         </div>
@@ -94,6 +108,10 @@ function Information<T extends Record<string, unknown>>({
         </p>
         <div className="border-l-4 border-dotted mt-5">
           <div className="ml-5" data-testid="prop-container">
+            <p className="mb-5 text-justify">
+              A comprehensive overview of the component&apos;s props, including their types and the
+              properties they define.
+            </p>
             <Table columns={variantPropColumn} rows={variantPropRow} />
           </div>
         </div>
