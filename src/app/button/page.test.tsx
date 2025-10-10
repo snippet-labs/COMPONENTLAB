@@ -1,5 +1,5 @@
 // Modules
-import { HEADER_QUICK_LINKS } from '@/constants/Header/QuickLinkItems';
+import { HEADER_QUICK_LINKS } from '@/constants/Header/HeaderPaginationLinks';
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { BUTTON_VARIANTS } from './ButtonVariants';
