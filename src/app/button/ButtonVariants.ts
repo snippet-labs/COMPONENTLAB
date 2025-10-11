@@ -34,16 +34,4 @@ export const BUTTON_VARIANTS = [
     description: 'A button that reveals a list of options or actions when clicked.',
     path: '/button/dropdown',
   },
-  {
-    label: 'Menu',
-    description:
-      'A collection of navigational or actionable items grouped together, often hidden until triggered',
-    path: '/button/menu',
-  },
-  {
-    label: 'Floating',
-    description:
-      'A prominently positioned button that “floats” over content, typically for primary actions',
-    path: '/button/floating',
-  },
 ];
