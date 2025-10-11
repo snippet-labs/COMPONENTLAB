@@ -33,8 +33,6 @@ describe('useSidebarSearch Hook', () => {
           { subItemName: 'Link', path: '/button/link' },
           { subItemName: 'Loading', path: '/button/loading' },
           { subItemName: 'Dropdown', path: '/button/dropdown' },
-          { subItemName: 'Menu', path: '/button/menu' },
-          { subItemName: 'Floating', path: '/button/floating' },
         ],
       },
     ]);

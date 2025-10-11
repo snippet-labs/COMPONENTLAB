@@ -21,7 +21,7 @@ const StandardAccessibleButtonVariantPage = () => {
         variantComponent={StandardButtonVariant}
         variantComponentProps={{
           title: 'Standard',
-          ariaLabel: 'Standard accessible button',
+          ariaLabel: 'Standard accessible',
           onClick: () => toast.success('Button Clicked', { duration: 2000 }),
           disabled: false,
         }}
