@@ -25,6 +25,7 @@ const Errorpage: React.FC = () => {
         paginationTitle="Take me to Home"
         previousRoute="/"
         previousRouteTitle="Home"
+        isExternalLink={false}
       />
       <Footer />
     </div>
