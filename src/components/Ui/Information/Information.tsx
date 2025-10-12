@@ -51,7 +51,7 @@ function Information<T extends Record<string, unknown>>({
       </div>
 
       {/* Demo Section */}
-      <div data-testid="information-demo" className="mt-10">
+      <div data-testid="information-demo" className="mt-10 transition-all duration-200">
         <p
           className="font-bold border-2 rounded-full bg-white px-3 py-1 inline"
           data-testid="demo-label"
