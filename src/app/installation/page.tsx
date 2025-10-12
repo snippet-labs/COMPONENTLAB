@@ -140,8 +140,8 @@ const InstallationGuidePage = () => {
         paginationTitle="Official installation guide"
         previousRoute="/"
         previousRouteTitle="Home"
-        nextRoute="/button"
-        nextRouteTitle="Button"
+        nextRoute="/buttons"
+        nextRouteTitle="Buttons"
       />
       <Footer />
     </div>

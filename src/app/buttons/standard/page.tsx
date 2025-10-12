@@ -33,9 +33,9 @@ const StandardAccessibleButtonVariantPage = () => {
       <Pagination
         paginationTitle="Follow up with other available components"
         cards={STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
-        previousRoute="/button"
+        previousRoute="/buttons"
         previousRouteTitle="Button"
-        nextRoute="/button/submit"
+        nextRoute="/buttons/submit"
         nextRouteTitle="Submit"
       />
       <Footer />

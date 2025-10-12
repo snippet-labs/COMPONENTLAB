@@ -1,6 +1,8 @@
 'use client';
 
+// Modules
 import { useEffect, useRef, useState } from 'react';
+import { MdOutlineArrowDropDownCircle } from 'react-icons/md';
 
 interface DropdownOption {
   value: string | number;
@@ -28,14 +30,14 @@ const DropdownButtonVariant: React.FC<DropdownVariantProps> = ({
   const [selectedValue, setSelectedValue] = useState<string | number | undefined>(defaultValue);
   const [liveMessage, setLiveMessage] = useState<string>(
     selectedValue
-      ? `Selected ${options.find((o) => o.value === selectedValue)?.label}`
+      ? `Selected ${options.find((option) => option.value === selectedValue)?.label}`
       : 'No option selected'
   );
 
   const buttonRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
-  const selectedOption = options.find((o) => o.value === selectedValue);
+  const selectedOption = options.find((option) => option.value === selectedValue);
 
   useEffect(() => {
     setLiveMessage(selectedOption ? `Selected ${selectedOption.label}` : 'No option selected');
@@ -44,7 +46,7 @@ const DropdownButtonVariant: React.FC<DropdownVariantProps> = ({
   useEffect(() => {
     if (open && listRef.current) {
       listRef.current.focus();
-      const selectedIndex = options.findIndex((o) => o.value === selectedValue);
+      const selectedIndex = options.findIndex((option) => option.value === selectedValue);
       setHighlightedIndex(selectedIndex >= 0 ? selectedIndex : 0);
     } else {
       setHighlightedIndex(-1);
@@ -121,21 +123,23 @@ const DropdownButtonVariant: React.FC<DropdownVariantProps> = ({
         aria-label={`${label}, selected: ${selectedOption?.label || placeholder}`}
         onClick={() => setOpen((prev) => !prev)}
         onFocus={handleButtonFocus}
-        className={`px-7 py-1 rounded-xl border-dotted border-2 font-medium text-lg transition-all duration-300 
+        className={`px-4 py-1 rounded-xl border-dotted border-2 font-medium text-lg transition-all duration-300 
           focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 
-          flex justify-between items-center min-w-[12rem]
+          flex justify-between items-center min-w-[15rem]
           bg-white border-black text-black hover:bg-black hover:text-white hover:cursor-pointer`}
       >
         {selectedOption ? selectedOption.label : placeholder}
-        <svg className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path
-            d="M6 8l4 4 4-4"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+        {open ? (
+          <MdOutlineArrowDropDownCircle
+            aria-hidden="true"
+            className="transition-all duration-200"
           />
-        </svg>
+        ) : (
+          <MdOutlineArrowDropDownCircle
+            aria-hidden="true"
+            className="rotate-180 transition-all duration-200"
+          />
+        )}
       </button>
 
       {open && (
@@ -145,7 +149,7 @@ const DropdownButtonVariant: React.FC<DropdownVariantProps> = ({
           role="listbox"
           aria-labelledby="dropdown-label"
           aria-activedescendant={highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined}
-          className="relative mt-2 w-full max-h-48 overflow-auto rounded-xl border-dotted border-2 bg-white py-1 text-sm shadow-lg focus:outline-none z-10"
+          className="relative mt-2 w-full max-h-48 overflow-auto rounded-xl border-dotted border-2 bg-white py-1 text-sm shadow-lg focus:outline-none z-10 transition-all duration-200"
           onKeyDown={handleKeyNavigation}
         >
           {options.map((option, index) => (
@@ -156,7 +160,7 @@ const DropdownButtonVariant: React.FC<DropdownVariantProps> = ({
               aria-selected={option.value === selectedValue}
               aria-disabled={option.disabled || undefined}
               className={`px-7 py-1 rounded-xl cursor-pointer transition-all duration-200
-                ${highlightedIndex === index ? 'bg-slate-100' : ''}
+                ${highlightedIndex === index ? 'bg-slate-200' : ''}
                 ${option.disabled ? 'opacity-50 pointer-events-none' : ''}`}
               onMouseEnter={() => setHighlightedIndex(index)}
               onClick={() => !option.disabled && handleOptionSelect(option.value)}
