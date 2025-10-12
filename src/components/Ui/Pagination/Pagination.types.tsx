@@ -7,4 +7,5 @@ export interface PaginationProps {
   previousRouteTitle?: string;
   nextRoute?: string;
   nextRouteTitle?: string;
+  isExternalLink: boolean;
 }

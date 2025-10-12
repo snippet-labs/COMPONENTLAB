@@ -14,6 +14,7 @@ const Pagination: React.FC<PaginationProps> = ({
   previousRouteTitle = 'Previous',
   nextRoute,
   nextRouteTitle = 'Next',
+  isExternalLink,
 }) => {
   return (
     <div className="w-full mt-15 py-6">
@@ -33,6 +34,7 @@ const Pagination: React.FC<PaginationProps> = ({
                 <Link
                   key={idx}
                   href={card.route}
+                  target={isExternalLink ? '_blank' : undefined}
                   rel="noopener noreferrer"
                   className="relative w-[200px] h-[120px] px-6 py-10 rounded-[20px] shadow-md border text-md font-bold 
                  bg-black/85 text-gray-300 flex items-center justify-center text-center 

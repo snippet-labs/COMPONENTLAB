@@ -142,6 +142,7 @@ const InstallationGuidePage = () => {
         previousRouteTitle="Home"
         nextRoute="/button"
         nextRouteTitle="Button"
+        isExternalLink={true}
       />
       <Footer />
     </div>
