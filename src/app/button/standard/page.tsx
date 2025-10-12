@@ -9,7 +9,7 @@ import { columns, rows } from '@/lab/AccessibleButtons/Standard/StandardButtonVa
 import Footer from '@/components/Ui/Footer/Footer';
 import Information from '@/components/Ui/Information/Information';
 import Pagination from '@/components/Ui/Pagination/Pagination';
-import { STANDARD_BUTTON_VARIANT_TAGS } from '../../../lab/AccessibleButtons/Standard/StandardButtonTags';
+import { STANDARD_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Standard/StandardButtonTags';
 
 const StandardAccessibleButtonVariantPage = () => {
   return (
@@ -37,6 +37,7 @@ const StandardAccessibleButtonVariantPage = () => {
         previousRouteTitle="Button"
         nextRoute="/button/submit"
         nextRouteTitle="Submit"
+        isExternalLink={false}
       />
       <Footer />
     </div>
