@@ -4,6 +4,7 @@ import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
 import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
 import fontMonoton from '@/helpers/font';
+import Link from 'next/link';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '../../Ui/Pagination/Pagination';
 
@@ -33,17 +34,19 @@ const Header: React.FC = () => {
             </p>
             <div className="mt-6 flex justify-center lg:justify-start">
               <div className="mt-6 flex justify-center lg:justify-start">
-                <button
-                  className="px-5 sm:px-6 py-4 bg-black text-white text-base sm:text-lg font-bold rounded-4xl shadow-md flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out hover:px-9 group"
-                  data-testid="header-button"
-                >
-                  Browse components
-                  <FaArrowCircleRight
-                    size={25}
-                    data-testid="header-button-icon"
-                    className="duration-300 ease-in-out group-hover:translate-x-6 transition-all"
-                  />
-                </button>
+                <Link href="/buttons">
+                  <button
+                    className="px-5 sm:px-6 py-4 bg-black text-white text-base sm:text-lg font-bold rounded-4xl shadow-md flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out hover:px-9 group"
+                    data-testid="header-button"
+                  >
+                    Browse components
+                    <FaArrowCircleRight
+                      size={25}
+                      data-testid="header-button-icon"
+                      className="duration-300 ease-in-out group-hover:translate-x-6 transition-all"
+                    />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

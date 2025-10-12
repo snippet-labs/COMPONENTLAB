@@ -50,11 +50,11 @@ const Pagination: React.FC<PaginationProps> = ({
           </div>
         </div>
 
-        <div className="flex gap-3 justify-end mt-6">
+        <div className="flex items-center gap-3 justify-end mt-6">
           {previousRoute && previousRouteTitle && (
             <Link
               href={previousRoute}
-              className="flex items-center justify-center gap-2 w-28 px-4 py-2 rounded-full border shadow-md text-sm font-semibold bg-white text-gray-700 hover:bg-black hover:text-white transition-colors"
+              className="flex items-center justify-between gap-2 w-50 px-4 py-2 rounded-full border shadow-md text-sm font-semibold bg-white text-gray-700 hover:bg-black hover:text-white transition-colors"
             >
               <FiArrowLeft size={18} />
               <span className="hidden sm:inline">{previousRouteTitle}</span>
@@ -64,7 +64,7 @@ const Pagination: React.FC<PaginationProps> = ({
           {nextRoute && nextRouteTitle && (
             <Link
               href={nextRoute}
-              className="flex items-center justify-center gap-2 w-28 px-4 py-2 rounded-full border shadow-md text-sm font-semibold bg-white text-gray-700 hover:bg-black hover:text-white transition-colors"
+              className="flex items-center justify-between gap-2 w-50 px-4 py-2 rounded-full border shadow-md text-sm font-semibold bg-white text-gray-700 hover:bg-black hover:text-white transition-colors"
             >
               <span className="hidden sm:inline">{nextRouteTitle}</span>
               <FiArrowRight size={18} />
@@ -80,7 +80,7 @@ const Pagination: React.FC<PaginationProps> = ({
             <Link
               href={previousRoute}
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-10 h-10 rounded-full border shadow-md bg-white text-gray-700 hover:bg-gray-100 transition-colors"
+              className="flex items-center justify-center w-20 h-10 rounded-full border shadow-md bg-white text-gray-700 hover:bg-gray-100 transition-colors"
             >
               <FiArrowLeft size={20} />
             </Link>
@@ -89,7 +89,7 @@ const Pagination: React.FC<PaginationProps> = ({
           {nextRoute && (
             <Link
               href={nextRoute}
-              className="flex items-center justify-center w-10 h-10 rounded-full border shadow-md bg-white text-gray-700 hover:bg-gray-100 transition-colors ml-auto"
+              className="flex items-center justify-center w-20 h-10 rounded-full border shadow-md bg-white text-gray-700 hover:bg-gray-100 transition-colors ml-auto"
             >
               <FiArrowRight size={20} />
             </Link>
