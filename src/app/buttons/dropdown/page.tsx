@@ -43,6 +43,7 @@ const DropdownAccessibleButtonVariantPage = () => {
         previousRouteTitle="Loading"
         nextRoute="/checkboxs"
         nextRouteTitle="Checkboxes"
+        isExternalLink={false}
       />
       <Footer />
     </div>
