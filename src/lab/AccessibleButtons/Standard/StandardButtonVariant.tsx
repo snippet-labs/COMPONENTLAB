@@ -8,10 +8,6 @@ interface StandardButtonVariantProps {
   disabled?: boolean;
 }
 
-/**
- * Accessible toggle button variant component.
- * Type is fixed to "button" for safety and consistency.
- */
 const StandardButtonVariant: React.FC<StandardButtonVariantProps> = ({
   title = 'Button',
   ariaLabel,

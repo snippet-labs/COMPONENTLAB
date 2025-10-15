@@ -1,16 +1,15 @@
 'use client';
 
-import Footer from "@/components/Ui/Footer/Footer";
-import Information from "@/components/Ui/Information/Information";
-import Pagination from "@/components/Ui/Pagination/Pagination";
-import { STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from "@/constants/Components/StandardAccessibleComponentPaginationLinks";
-import { TOGGLE_BUTTON_VARIANT_TAGS } from "@/lab/AccessibleButtons/Toggle/ToggleButtonTags";
-import ToggleButtonVariant from "@/lab/AccessibleButtons/Toggle/ToggleButtonVariant";
-import { TOGGLE_BUTTON_VARIABLE_CODE } from "@/lab/AccessibleButtons/Toggle/ToggleButtonVariant.code";
-import { columns, rows } from "@/lab/AccessibleButtons/Standard/StandardButtonVariant.props";
-import toast from "react-hot-toast";
-
 // Modules
+import toast from 'react-hot-toast';
+import { STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/StandardAccessibleComponentPaginationLinks';
+import { columns, rows } from '@/lab/AccessibleButtons/Standard/StandardButtonVariant.props';
+import { TOGGLE_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Toggle/ToggleButtonTags';
+import ToggleButtonVariant from '@/lab/AccessibleButtons/Toggle/ToggleButtonVariant';
+import { TOGGLE_BUTTON_VARIABLE_CODE } from '@/lab/AccessibleButtons/Toggle/ToggleButtonVariant.code';
+import Footer from '@/components/Ui/Footer/Footer';
+import Information from '@/components/Ui/Information/Information';
+import Pagination from '@/components/Ui/Pagination/Pagination';
 
 const ToogleAccessibleButtonVariantPage = () => {
   return (
@@ -29,7 +28,7 @@ The component supports multiple visual styles (e.g., switch, icon, or text-based
           disabled: false,
         }}
         variantCode={TOGGLE_BUTTON_VARIABLE_CODE}
-        variantFileName="ToggleButtonVarient.tsx"
+        variantFileName="ToggleButtonVariant.tsx"
         variantPropColumn={columns}
         variantPropRow={rows}
       />
@@ -40,6 +39,7 @@ The component supports multiple visual styles (e.g., switch, icon, or text-based
         previousRouteTitle="Reset"
         nextRoute="/button/Link"
         nextRouteTitle="Link"
+        isExternalLink={false}
       />
       <Footer />
     </div>

@@ -32,7 +32,12 @@ describe('Pagination Component', () => {
 
   const renderComponent = (props?: Partial<PaginationProps>) =>
     render(
-      <Pagination cards={cards} previousRoute={props?.previousRoute} nextRoute={props?.nextRoute} />
+      <Pagination
+        cards={cards}
+        previousRoute={props?.previousRoute}
+        nextRoute={props?.nextRoute}
+        isExternalLink={false}
+      />
     );
 
   beforeEach(() => {

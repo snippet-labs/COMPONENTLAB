@@ -23,6 +23,7 @@ const AccessibleButtonStarterPage = () => {
         previousRoute="/installation"
         previousRouteTitle="Installation"
         data-testid="pagination-component"
+        isExternalLink={false}
       />
       <Footer data-testid="footer-component" />
     </div>
