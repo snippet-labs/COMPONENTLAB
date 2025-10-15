@@ -13,7 +13,7 @@ describe('useSidebarSearch Hook', () => {
     expect(result.current.filteredLinks).toEqual(SidebarItems);
   });
 
-  it('should update searchQuery when setSearchQuery is called for "Button"', () => {
+  it('should update searchQuery when setSearchQuery is called for "Buttons"', () => {
     const { result } = renderHook(() => useSidebarSearch());
 
     act(() => {
@@ -23,18 +23,16 @@ describe('useSidebarSearch Hook', () => {
     expect(result.current.searchQuery).toBe('button');
     expect(result.current.filteredLinks).toEqual([
       {
-        parentItemName: 'Button',
-        path: '/button',
+        parentItemName: 'Buttons',
+        path: '/buttons',
         children: [
-          { subItemName: 'Standard', path: '/button/standard' },
-          { subItemName: 'Submit', path: '/button/submit' },
-          { subItemName: 'Reset', path: '/button/reset' },
-          { subItemName: 'Toggle', path: '/button/toggle' },
-          { subItemName: 'Link', path: '/button/link' },
-          { subItemName: 'Loading', path: '/button/loading' },
-          { subItemName: 'Dropdown', path: '/button/dropdown' },
-          { subItemName: 'Menu', path: '/button/menu' },
-          { subItemName: 'Floating', path: '/button/floating' },
+          { subItemName: 'Standard', path: '/buttons/standard' },
+          { subItemName: 'Submit', path: '/buttons/submit' },
+          { subItemName: 'Reset', path: '/buttons/reset' },
+          { subItemName: 'Toggle', path: '/buttons/toggle' },
+          { subItemName: 'Link', path: '/buttons/link' },
+          { subItemName: 'Loading', path: '/buttons/loading' },
+          { subItemName: 'Dropdown', path: '/buttons/dropdown' },
         ],
       },
     ]);
@@ -85,9 +83,9 @@ describe('useSidebarSearch Hook', () => {
         parentItemName: 'Checkboxes',
         path: '/checkboxes',
         children: [
-          { subItemName: 'Basic', path: '/checkbox/basic' },
-          { subItemName: 'Group', path: '/checkbox/group' },
-          { subItemName: 'Controlled', path: '/checkbox/controlled' },
+          { subItemName: 'Basic', path: '/checkboxs/basic' },
+          { subItemName: 'Group', path: '/checkboxs/group' },
+          { subItemName: 'Controlled', path: '/checkboxs/controlled' },
         ],
       },
     ]);

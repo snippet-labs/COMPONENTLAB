@@ -7,8 +7,6 @@ export const BUTTON_VARIANTS = [
   'Link',
   'Loading',
   'Dropdown',
-  'Menu',
-  'Floating',
 ];
 // Checkboxes Variants
 export const CHECKBOX_VARIANTS = ['Basic', 'Group', 'Controlled'];

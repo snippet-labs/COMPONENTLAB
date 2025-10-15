@@ -2,48 +2,36 @@ export const BUTTON_VARIANTS = [
   {
     label: 'Standard',
     description: 'A basic clickable button used to trigger general actions on a webpage.',
-    path: '/button/standard',
+    path: '/buttons/standard',
   },
   {
     label: 'Submit',
     description: 'A button that submits data to a server or triggers validation process',
-    path: '/button/submit',
+    path: '/buttons/submit',
   },
   {
     label: 'Reset',
     description: 'A button that clears everything, restoring default values',
-    path: '/button/reset',
+    path: '/buttons/reset',
   },
   {
     label: 'Toggle',
     description: 'A button that switches between two states, like on/off or show/hide',
-    path: '/button/toggle',
+    path: '/buttons/toggle',
   },
   {
     label: 'Link',
     description: 'A button styled as a link that navigates users to another page or section',
-    path: '/button/link',
+    path: '/buttons/link',
   },
   {
     label: 'Loading',
     description: 'A button that indicates an ongoing action, often showing a spinner or progress',
-    path: '/button/loading',
+    path: '/buttons/loading',
   },
   {
     label: 'Dropdown',
     description: 'A button that reveals a list of options or actions when clicked.',
-    path: '/button/dropdown',
-  },
-  {
-    label: 'Menu',
-    description:
-      'A collection of navigational or actionable items grouped together, often hidden until triggered',
-    path: '/button/menu',
-  },
-  {
-    label: 'Floating',
-    description:
-      'A prominently positioned button that “floats” over content, typically for primary actions',
-    path: '/button/floating',
+    path: '/buttons/dropdown',
   },
 ];
