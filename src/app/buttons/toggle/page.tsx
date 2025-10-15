@@ -1,14 +1,14 @@
 'use client';
 
-import Footer from "@/components/Ui/Footer/Footer";
-import Information from "@/components/Ui/Information/Information";
-import Pagination from "@/components/Ui/Pagination/Pagination";
-import { STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from "@/constants/Components/StandardAccessibleComponentPaginationLinks";
-import { TOGGLE_BUTTON_VARIANT_TAGS } from "@/lab/AccessibleButtons/Toggle/ToggleButtonTags";
-import ToggleButtonVariant from "@/lab/AccessibleButtons/Toggle/ToggleButtonVariant";
-import { TOGGLE_BUTTON_VARIABLE_CODE } from "@/lab/AccessibleButtons/Toggle/ToggleButtonVariant.code";
-import { columns, rows } from "@/lab/AccessibleButtons/Standard/StandardButtonVariant.props";
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
+import { STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/StandardAccessibleComponentPaginationLinks';
+import { columns, rows } from '@/lab/AccessibleButtons/Standard/StandardButtonVariant.props';
+import { TOGGLE_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Toggle/ToggleButtonTags';
+import ToggleButtonVariant from '@/lab/AccessibleButtons/Toggle/ToggleButtonVariant';
+import { TOGGLE_BUTTON_VARIABLE_CODE } from '@/lab/AccessibleButtons/Toggle/ToggleButtonVariant.code';
+import Footer from '@/components/Ui/Footer/Footer';
+import Information from '@/components/Ui/Information/Information';
+import Pagination from '@/components/Ui/Pagination/Pagination';
 
 // Modules
 

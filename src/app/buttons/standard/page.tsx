@@ -3,13 +3,13 @@
 // Modules
 import toast from 'react-hot-toast';
 import { STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/StandardAccessibleComponentPaginationLinks';
+import { STANDARD_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Standard/StandardButtonTags';
 import StandardButtonVariant from '@/lab/AccessibleButtons/Standard/StandardButtonVariant';
 import { STANDARD_BUTTON_VARIABLE_CODE } from '@/lab/AccessibleButtons/Standard/StandardButtonVariant.code';
 import { columns, rows } from '@/lab/AccessibleButtons/Standard/StandardButtonVariant.props';
 import Footer from '@/components/Ui/Footer/Footer';
 import Information from '@/components/Ui/Information/Information';
 import Pagination from '@/components/Ui/Pagination/Pagination';
-import { STANDARD_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Standard/StandardButtonTags';
 
 const StandardAccessibleButtonVariantPage = () => {
   return (

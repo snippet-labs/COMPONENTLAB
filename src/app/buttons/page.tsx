@@ -5,7 +5,6 @@ import Footer from '../../components/Ui/Footer/Footer';
 import Starter from '../../components/Ui/Starter/Starter';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 
-
 const AccessibleButtonStarterPage = () => {
   return (
     <div className="min-h-screen" data-testid="button-starter-page">
