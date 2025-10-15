@@ -18,7 +18,7 @@ const Navigation: React.FC = () => {
 
   return (
     <nav className="fixed top-0 w-full z-[500] border-b-2 bg-white" data-testid="navigation">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="px-4 mx-auto max-w-8xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18">
           {/* LOGO */}
           <div className="flex items-center backdrop-blur-3xl">

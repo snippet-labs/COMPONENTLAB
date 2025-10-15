@@ -14,9 +14,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
   return (
     <motion.div
       initial={{ x: -300 }}
-      animate={{ x: isSidebarOpen ? 0 : -300 }}
+      animate={{ x: isSidebarOpen ? 0 : -400 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className="fixed top-0 left-0 z-[400] w-70 h-screen bg-white shadow-md border-r-2 backdrop-blur-lg flex flex-col"
+      className="fixed top-0 left-0 z-[400] w-80 h-screen bg-white shadow-md border-r-2 backdrop-blur-lg flex flex-col"
     >
       {/* HEADER */}
       <div className="bg-white">
