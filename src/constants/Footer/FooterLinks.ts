@@ -7,9 +7,9 @@ export const FOOTER_LINKS = [
     title: 'TEAM',
     href: "/team",
     links: [
-      { label: 'Suvait Karmakar', href: '#' },
-      { label: 'Hemangshu Dey', href: '#' },
-      { label: 'Subhajit karmakar', href: '#' },
+      { label: 'Suvait Karmakar', href: 'https://www.linkedin.com/in/imsuvajitkarmakar/' },
+      { label: 'Hemangshu Dey', href: 'https://www.linkedin.com/in/hemangshu-dey-2a2221276/' },
+      { label: 'Subhajit karmakar', href: 'https://www.linkedin.com/in/subhajit-karmakar-b25b08246/' },
     ],
   },
 ];
