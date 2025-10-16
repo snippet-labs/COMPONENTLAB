@@ -2,7 +2,7 @@
 
 // Modules
 import toast from 'react-hot-toast';
-import { STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/StandardAccessibleComponentPaginationLinks';
+import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
 import { STANDARD_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Standard/StandardButtonTags';
 import StandardButtonVariant from '@/lab/AccessibleButtons/Standard/StandardButtonVariant';
 import { STANDARD_BUTTON_VARIABLE_CODE } from '@/lab/AccessibleButtons/Standard/StandardButtonVariant.code';
@@ -32,7 +32,7 @@ const StandardAccessibleButtonVariantPage = () => {
       />
       <Pagination
         paginationTitle="Follow up with other available components"
-        cards={STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
+        cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
         previousRoute="/buttons"
         previousRouteTitle="Button"
         nextRoute="/buttons/submit"

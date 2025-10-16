@@ -49,7 +49,11 @@ const Wrapper: React.FC<WrapperTypes> = ({ children }) => {
           {/* LAYOUT */}
           <div className="flex w-full min-h-screen md:mt-5 lg:mt-5">
             <Sidebar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
-            <ProgressPanel tableOfContents={progressItems} position="right" />
+            <ProgressPanel
+              isSidebarOpen={isSidebarOpen}
+              tableOfContents={progressItems}
+              position="right"
+            />
             <Content isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar}>
               {children}
             </Content>

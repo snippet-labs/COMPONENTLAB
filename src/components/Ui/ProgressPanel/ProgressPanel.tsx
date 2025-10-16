@@ -6,7 +6,11 @@ import { useScrollSpy } from '@/hooks/useScrollSpy';
 import Link from 'next/link';
 import { ProgressPanelProps } from './ProgressPanel.types';
 
-const ProgressPanel: React.FC<ProgressPanelProps> = ({ tableOfContents, position = 'right' }) => {
+const ProgressPanel: React.FC<ProgressPanelProps> = ({
+  tableOfContents,
+  position = 'right',
+  isSidebarOpen,
+}) => {
   // HOOKS
   const activeSection = useScrollSpy(tableOfContents);
 
@@ -22,7 +26,7 @@ const ProgressPanel: React.FC<ProgressPanelProps> = ({ tableOfContents, position
   return (
     <div
       className={`hidden lg:block fixed top-0 ${position === 'right' ? 'right-0' : 'left-0'} 
-        w-64 h-screen bg-white shadow-md border-l-2 backdrop-blur-sm overflow-y-auto z-[80]`}
+         h-screen bg-white shadow-md border-l-2 backdrop-blur-sm overflow-y-auto z-[80] ${isSidebarOpen ? 'w-62' : 'w-54'} transition-all duration-300`}
     >
       <nav className="px-4 py-4 pt-25">
         <div className="space-y-1">
