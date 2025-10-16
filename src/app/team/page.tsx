@@ -7,18 +7,23 @@ import Pagination from '@/components/Ui/Pagination/Pagination';
 
 const TeamPage: React.FC = () => {
   return (
-    <div className="min-h-screen">
-      <div>
-        <h1 className="ml-1 text-sm font-medium">COMPONENTLAB/</h1>
-        <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl">Read our team conversation</h2>
+    <div className="min-h-screen" data-testid="team-page">
+      <div data-testid="team-header">
+        <h1 className="ml-1 text-sm font-medium" data-testid="team-header-title">
+          COMPONENTLAB/
+        </h1>
+        <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl" data-testid="team-subtitle">
+          Read our team conversation
+        </h2>
       </div>
-      <div className="mt-20">
+      <div className="mt-20" data-testid="chat-section">
         <ChatBubble
           image={'/suvajit.png'}
           senderName="Suvajit"
           message="Hi, You guys free ?"
           time="3:32 PM"
           isStart={true}
+          data-testid="chatbubble"
         />
         <ChatBubble
           image={'/hemangshu.png'}
@@ -252,16 +257,20 @@ const TeamPage: React.FC = () => {
           isStart={true}
         />
       </div>
-      <Pagination
-        paginationTitle="Explore our accessible components"
-        cards={TEAM_PAGINATION_LINKS}
-        previousRoute="/"
-        previousRouteTitle="Home"
-        nextRoute="/installation"
-        nextRouteTitle="Installation"
-        isExternalLink={false}
-      />
-      <Footer />
+      <div data-testid="pagination-section">
+        <Pagination
+          paginationTitle="Explore our accessible components"
+          cards={TEAM_PAGINATION_LINKS}
+          previousRoute="/"
+          previousRouteTitle="Home"
+          nextRoute="/installation"
+          nextRouteTitle="Installation"
+          isExternalLink={false}
+        />
+      </div>
+      <div data-testid="footer-section">
+        <Footer />
+      </div>
     </div>
   );
 };
