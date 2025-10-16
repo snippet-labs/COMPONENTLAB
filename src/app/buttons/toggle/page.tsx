@@ -2,7 +2,7 @@
 
 // Modules
 import toast from 'react-hot-toast';
-import { STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/StandardAccessibleComponentPaginationLinks';
+import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
 import { columns, rows } from '@/lab/AccessibleButtons/Standard/StandardButtonVariant.props';
 import { TOGGLE_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Toggle/ToggleButtonTags';
 import ToggleButtonVariant from '@/lab/AccessibleButtons/Toggle/ToggleButtonVariant';
@@ -34,7 +34,7 @@ The component supports multiple visual styles (e.g., switch, icon, or text-based
       />
       <Pagination
         paginationTitle="Follow up with other available components"
-        cards={STANDARD_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
+        cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
         previousRoute="/button/reset"
         previousRouteTitle="Reset"
         nextRoute="/button/Link"

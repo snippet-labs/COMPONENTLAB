@@ -3,7 +3,7 @@
 // Modules
 import React from 'react';
 import { HiCode } from 'react-icons/hi';
-import { FOOTER_LINKS } from '@/constants/Footer/FooterPaginationLinks';
+import { FOOTER_LINKS } from '@/constants/Footer/FooterLinks';
 import Link from 'next/link';
 import packageJson from '../../../../package.json';
 

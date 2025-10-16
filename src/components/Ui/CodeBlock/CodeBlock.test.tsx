@@ -28,13 +28,13 @@ const renderComponent = (props = {}) =>
 
 // Test Suite
 describe('CodeBlock Component', () => {
-  it('it should render the main container', () => {
+  it('should render the main container', () => {
     renderComponent();
     const container = screen.queryAllByTestId('codeblock-container')[0];
     expect(container).not.toBeNull();
   });
 
-  it('it should render the header and filename', () => {
+  it('should render the header and filename', () => {
     renderComponent();
     const header = screen.queryAllByTestId('codeblock-header')[0];
     const fileName = screen.queryAllByTestId('codeblock-filename')[0];
@@ -42,7 +42,7 @@ describe('CodeBlock Component', () => {
     expect(fileName.textContent).toBe(sampleFileName);
   });
 
-  it('it should render the copy button and default icon', () => {
+  it('should render the copy button and default icon', () => {
     renderComponent();
     const button = screen.queryAllByTestId('codeblock-copy-button')[0];
     const icon = screen.queryAllByTestId('codeblock-copy-icon')[0];
@@ -50,7 +50,7 @@ describe('CodeBlock Component', () => {
     expect(icon).not.toBeNull();
   });
 
-  it('it should show copied icon after clicking the copy button', () => {
+  it('should show copied icon after clicking the copy button', () => {
     renderComponent();
     const button = screen.queryAllByTestId('codeblock-copy-button')[0];
     userEvent.click(button);
@@ -58,7 +58,7 @@ describe('CodeBlock Component', () => {
     expect(copiedIcon).not.toBeNull();
   });
 
-  it('it should revert to copy icon after 2 seconds', () => {
+  it('should revert to copy icon after 2 seconds', () => {
     vi.useFakeTimers();
     renderComponent();
     const button = screen.queryAllByTestId('codeblock-copy-button')[0];
@@ -71,7 +71,7 @@ describe('CodeBlock Component', () => {
     vi.useRealTimers();
   });
 
-  it('it should copy code to clipboard when button is clicked', () => {
+  it('should copy code to clipboard when button is clicked', () => {
     renderComponent();
     const button = screen.queryAllByTestId('codeblock-copy-button')[0];
     // Trigger click directly
@@ -79,10 +79,10 @@ describe('CodeBlock Component', () => {
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(sampleCode);
   });
 
-  it('it should log error if clipboard copy fails', () => {
+  it('should log error if clipboard copy fails', () => {
     const mockError = vi.spyOn(console, 'error').mockImplementation(() => {});
     // Force clipboard to fail
-    (navigator.clipboard.writeText as any) = vi.fn(() => {
+    (navigator.clipboard.writeText as unknown) = vi.fn(() => {
       throw new Error('Copy failed');
     });
 
@@ -99,7 +99,7 @@ describe('CodeBlock Component', () => {
     mockError.mockRestore();
   });
 
-  it('it should render scrollable code area and code block', () => {
+  it('should render scrollable code area and code block', () => {
     renderComponent();
     const scrollContainer = screen.queryAllByTestId('codeblock-scroll-container')[0];
     const code = screen.queryAllByTestId('codeblock-code')[0];
@@ -107,13 +107,13 @@ describe('CodeBlock Component', () => {
     expect(code).not.toBeNull();
   });
 
-  it('it should render <pre> tag with code lines', () => {
+  it('should render <pre> tag with code lines', () => {
     renderComponent();
     const pre = screen.queryAllByTestId('codeblock-pre')[0];
     expect(pre).not.toBeNull();
   });
 
-  it('it should focus the scroll container on pointerdown', () => {
+  it('should focus the scroll container on pointerdown', () => {
     renderComponent();
     const container = screen.queryAllByTestId('codeblock-scroll-container')[0] as HTMLElement;
     const focusSpy = vi.spyOn(container, 'focus');
