@@ -61,12 +61,12 @@ const Header: React.FC = () => {
           </div>
         </div>
       </header>
-      <Pagination
-        cards={HEADER_PAGINATION_LINKS}
-        previousRoute="/"
-        nextRoute="/installation"
-        isExternalLink={false}
-      />
+        <Pagination
+          cards={HEADER_PAGINATION_LINKS}
+          previousRoute="/"
+          nextRoute="/installation"
+          isExternalLink={false}
+        />
       <Footer />
     </>
   );
