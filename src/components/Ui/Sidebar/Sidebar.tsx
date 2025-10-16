@@ -4,6 +4,7 @@
 import { BiSolidErrorCircle } from 'react-icons/bi';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { MdOutlineRadioButtonChecked } from 'react-icons/md';
+import { RiHome9Fill } from 'react-icons/ri';
 import { useSidebarSearch } from '@/hooks/useSidebarSearch';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -28,6 +29,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
               size={28}
               className="border-1 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-75"
             />
+          </div>
+          <div className="flex items-center mr-3 border-2 rounded-full">
+            <Link href="/">
+              <RiHome9Fill
+                size={28}
+                className="border-1 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-75"
+              />
+            </Link>
           </div>
         </div>
 
