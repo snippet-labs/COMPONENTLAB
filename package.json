@@ -13,7 +13,7 @@
     "test:coverage": "vitest run --coverage",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "server:up": "concurrently \"bun run build\" \"bun run dev\""
+    "server:up": "concurrently \"bun run test\" \"bun run format\" \"bun run build\""
   },
   "dependencies": {
     "@testing-library/user-event": "^14.6.1",
