@@ -1,10 +1,15 @@
+'use client';
+
 // Modules
 import React from 'react';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
 import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
 import fontMonoton from '@/helpers/font';
+import Error from 'next/error';
 import Link from 'next/link';
+import { ErrorBoundary } from '@/components/Error';
+import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '../../Ui/Pagination/Pagination';
 
@@ -61,13 +66,17 @@ const Header: React.FC = () => {
           </div>
         </div>
       </header>
+      <ErrorBoundary errorComponent={FallSafeComponent}>
         <Pagination
           cards={HEADER_PAGINATION_LINKS}
           previousRoute="/"
           nextRoute="/installation"
           isExternalLink={false}
         />
-      <Footer />
+      </ErrorBoundary>
+      <ErrorBoundary errorComponent={FallSafeComponent}>
+        <Footer />
+      </ErrorBoundary>
     </>
   );
 };
