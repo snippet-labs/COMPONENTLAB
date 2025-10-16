@@ -39,7 +39,10 @@ const Starter: React.FC<StarterProps> = ({
               {starterVariantDescription}
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-5 mt-3 ml-5" data-testid="variant-cards">
+          <div
+            className="mt-10 ml-5 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4"
+            data-testid="variant-cards"
+          >
             {starterVariantCards.map((card, idx) => (
               <Link
                 key={idx}

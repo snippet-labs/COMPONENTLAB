@@ -1,6 +1,7 @@
 'use client';
 
 // Modules
+import { BiSolidErrorCircle } from 'react-icons/bi';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { MdOutlineRadioButtonChecked } from 'react-icons/md';
 import { useSidebarSearch } from '@/hooks/useSidebarSearch';
@@ -15,7 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
     <motion.div
       initial={{ x: -500 }}
       animate={{ x: isSidebarOpen ? 0 : -500 }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       className="fixed top-0 left-0 z-[400] w-80 h-screen bg-white shadow-md border-r-2 backdrop-blur-lg flex flex-col"
     >
       {/* HEADER */}
@@ -79,8 +80,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
               </div>
             ))
           ) : (
-            <div className="flex items-center justify-center">
-              <p className="px-2 mt-2 text-sm text-gray-400">Search results not found</p>
+            <div className="flex flex-col items-center justify-center">
+              <span className="animate animate-pulse">
+                <BiSolidErrorCircle
+                  className="animate animate-pulse transition-all duration-200"
+                  size={50}
+                />
+              </span>
+              <p className="px-2 mt-2 text-md text-gray-400">Search results not found</p>
             </div>
           )}
         </nav>
