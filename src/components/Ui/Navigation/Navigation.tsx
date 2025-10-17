@@ -9,6 +9,8 @@ import { VscGithub } from 'react-icons/vsc';
 import { NavigationItems } from '@/constants/NavigationItems';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
+import { ErrorBoundary } from '@/components/Error';
+import FallSafeComponent from '@/components/Error/FallSafeComponent';
 
 const Navigation: React.FC = () => {
   // STATES
@@ -33,15 +35,17 @@ const Navigation: React.FC = () => {
             {NavigationItems.map(({ name, path }) => (
               <ul key={name} className="flex items-center justify-center">
                 <li className="text-lg">
-                  <div
-                    className="flex items-center justify-center gap-2 border-2 px-2 py-1 rounded-full hover:cursor-pointer hover:bg-black hover:text-white duration-200 ease-in transition-all"
-                    data-testid={`desktop-nav-item-${name}`}
-                  >
-                    <VscGithub size={25} />
-                    <Link href={path} target="_blank">
-                      {name}
-                    </Link>
-                  </div>
+                  <ErrorBoundary errorComponent={FallSafeComponent}>
+                    <div
+                      className="flex items-center justify-center gap-2 border-2 px-2 py-1 rounded-full hover:cursor-pointer hover:bg-black hover:text-white duration-200 ease-in transition-all"
+                      data-testid={`desktop-nav-item-${name}`}
+                    >
+                      <VscGithub size={25} />
+                      <Link href={path} target="_blank">
+                        {name}
+                      </Link>
+                    </div>
+                  </ErrorBoundary>
                 </li>
               </ul>
             ))}

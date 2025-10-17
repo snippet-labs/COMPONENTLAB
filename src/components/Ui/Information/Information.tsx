@@ -3,6 +3,8 @@
 // Modules
 import React from 'react';
 import Link from 'next/link';
+import { ErrorBoundary } from '@/components/Error';
+import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import CodeBlock from '../CodeBlock/CodeBlock';
 import { Table } from '../Table/Table';
 import { InformationProps } from './Information.types';
@@ -26,28 +28,30 @@ function Information<T extends Record<string, unknown>>({
           COMPONENTLAB/
         </h1>
         <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl" data-testid="information-title">
-          {variantTitle}
+          <ErrorBoundary errorComponent={FallSafeComponent}>{variantTitle}</ErrorBoundary>
         </h2>
         <p
           className="mt-10 mb-3 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify"
           data-testid="information-description"
         >
-          {variantDescription}
+          <ErrorBoundary errorComponent={FallSafeComponent}>{variantDescription}</ErrorBoundary>
         </p>
 
         {/* Tags */}
-        <div className="mt-1 flex flex-wrap items-center gap-2" data-testid="information-tags">
-          {variantTags.map((item, idx) => (
-            <ul key={idx}>
-              <li
-                className="text-sm font-bold border-2 border-orange-400 px-2 rounded-xl bg-orange-300 text-black"
-                data-testid={`tag-${idx}`}
-              >
-                {item.name}
-              </li>
-            </ul>
-          ))}
-        </div>
+        <ErrorBoundary errorComponent={FallSafeComponent}>
+          <div className="mt-1 flex flex-wrap items-center gap-2" data-testid="information-tags">
+            {variantTags.map((item, idx) => (
+              <ul key={idx}>
+                <li
+                  className="text-sm font-bold border-2 border-orange-400 px-2 rounded-xl bg-orange-300 text-black"
+                  data-testid={`tag-${idx}`}
+                >
+                  {item.name}
+                </li>
+              </ul>
+            ))}
+          </div>
+        </ErrorBoundary>
       </div>
 
       {/* Demo Section */}
@@ -67,7 +71,9 @@ function Information<T extends Record<string, unknown>>({
               className="flex items-center justify-center border-2 p-5 rounded-xl bg-gray-100 h-auto"
               data-testid="demo-container"
             >
-              <Component {...variantComponentProps} />
+              <ErrorBoundary errorComponent={FallSafeComponent}>
+                <Component {...variantComponentProps} />
+              </ErrorBoundary>
             </div>
           </div>
         </div>
@@ -93,7 +99,9 @@ function Information<T extends Record<string, unknown>>({
               </Link>{' '}
               to understand how to use the component locally.
             </p>
-            <CodeBlock codes={variantCode} codeLanguage="tsx" fileName={variantFileName} />
+            <ErrorBoundary errorComponent={FallSafeComponent}>
+              <CodeBlock codes={variantCode} codeLanguage="tsx" fileName={variantFileName} />
+            </ErrorBoundary>
           </div>
         </div>
       </div>
@@ -112,7 +120,9 @@ function Information<T extends Record<string, unknown>>({
               A comprehensive overview of the component&apos;s props, including their types and the
               properties they define.
             </p>
-            <Table columns={variantPropColumn} rows={variantPropRow} />
+            <ErrorBoundary errorComponent={FallSafeComponent}>
+              <Table columns={variantPropColumn} rows={variantPropRow} />
+            </ErrorBoundary>
           </div>
         </div>
       </div>

@@ -7,6 +7,8 @@ import { DROPDOWN_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Dropdown/D
 import DropdownButtonVariant from '@/lab/AccessibleButtons/Dropdown/DropdownButtonVariant';
 import { DROPDOWN_BUTTON_VARIANT_CODE } from '@/lab/AccessibleButtons/Dropdown/DropdownButtonVariant.code';
 import { columns, rows } from '@/lab/AccessibleButtons/Dropdown/DropdownButtonVariant.props';
+import { ErrorBoundary } from '@/components/Error';
+import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import Footer from '@/components/Ui/Footer/Footer';
 import Information from '@/components/Ui/Information/Information';
 import Pagination from '@/components/Ui/Pagination/Pagination';
@@ -14,38 +16,43 @@ import Pagination from '@/components/Ui/Pagination/Pagination';
 const DropdownAccessibleButtonVariantPage = () => {
   return (
     <div className="min-h-screen">
-      <Information
-        variantTitle="Dropdown Accessible Button"
-        variantDescription="The Accessible Dropdown Button provides a fully keyboard-navigable and screen reader friendly way to display a list of selectable options. It adheres to WAI-ARIA best practices, ensuring users can open, navigate, and select items using both keyboard and mouse interactions. The component manages focus states, announces dynamic content changes, and supports customizable labels for better accessibility and usability across devices."
-        variantTags={DROPDOWN_BUTTON_VARIANT_TAGS}
-        variantComponent={DropdownButtonVariant}
-        variantComponentProps={{
-          label: 'Choose a vehicle',
-          options: [
-            { value: 'Car', label: 'Car' },
-            { value: 'Scooty', label: 'Scooty' },
-            { value: 'Bike', label: 'Bike' },
-          ],
-          placeholder: 'Select a vehicle',
-          onChange: (value: string | number) =>
-            toast.success(`Vehicle selected`, { duration: 2000 }),
-        }}
-        variantCode={DROPDOWN_BUTTON_VARIANT_CODE}
-        variantFileName="DropdownButtonVariant.tsx"
-        variantPropColumn={columns}
-        variantPropRow={rows}
-      />
-
-      <Pagination
-        paginationTitle="Follow up with other available components"
-        cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
-        previousRoute="/loading"
-        previousRouteTitle="Loading"
-        nextRoute="/checkboxs"
-        nextRouteTitle="Checkboxes"
-        isExternalLink={false}
-      />
-      <Footer />
+      <ErrorBoundary errorComponent={FallSafeComponent}>
+        <Information
+          variantTitle="Dropdown Accessible Button"
+          variantDescription="The Accessible Dropdown Button provides a fully keyboard-navigable and screen reader friendly way to display a list of selectable options. It adheres to WAI-ARIA best practices, ensuring users can open, navigate, and select items using both keyboard and mouse interactions. The component manages focus states, announces dynamic content changes, and supports customizable labels for better accessibility and usability across devices."
+          variantTags={DROPDOWN_BUTTON_VARIANT_TAGS}
+          variantComponent={DropdownButtonVariant}
+          variantComponentProps={{
+            label: 'Choose a vehicle',
+            options: [
+              { value: 'Car', label: 'Car' },
+              { value: 'Scooty', label: 'Scooty' },
+              { value: 'Bike', label: 'Bike' },
+            ],
+            placeholder: 'Select a vehicle',
+            onChange: (value: string | number) =>
+              toast.success(`Vehicle selected`, { duration: 2000 }),
+          }}
+          variantCode={DROPDOWN_BUTTON_VARIANT_CODE}
+          variantFileName="DropdownButtonVariant.tsx"
+          variantPropColumn={columns}
+          variantPropRow={rows}
+        />
+      </ErrorBoundary>
+      <ErrorBoundary errorComponent={FallSafeComponent}>
+        <Pagination
+          paginationTitle="Follow up with other available components"
+          cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
+          previousRoute="/loading"
+          previousRouteTitle="Loading"
+          nextRoute="/checkboxs"
+          nextRouteTitle="Checkboxes"
+          isExternalLink={false}
+        />
+      </ErrorBoundary>
+      <ErrorBoundary errorComponent={FallSafeComponent}>
+        <Footer />
+      </ErrorBoundary>
     </div>
   );
 };
