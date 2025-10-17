@@ -3,6 +3,7 @@
 // Modules
 import { BiSolidErrorCircle } from 'react-icons/bi';
 import { IoMdArrowRoundBack } from 'react-icons/io';
+import { IoPeopleCircleOutline } from 'react-icons/io5';
 import { MdOutlineRadioButtonChecked } from 'react-icons/md';
 import { RiHome9Fill } from 'react-icons/ri';
 import { useSidebarSearch } from '@/hooks/useSidebarSearch';
@@ -29,19 +30,24 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
             <IoMdArrowRoundBack
               onClick={handleToggleSidebar}
               size={28}
-              className="border-1 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-75"
+              className="border-1 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-300"
             />
           </div>
-          <div className="flex items-center mr-3 border-2 rounded-full">
+          <div className="flex items-center mr-3 border-2 rounded-full px-0.5 py-0.5">
             <Link href="/">
               <RiHome9Fill
                 size={28}
-                className="border-1 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-75"
+                className="border-1 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-300"
+              />
+            </Link>
+            <Link href="/team">
+              <IoPeopleCircleOutline
+                size={28}
+                className="border-1 border-transparent rounded-full cursor-pointer hover:bg-black hover:text-white transition-all duration-300"
               />
             </Link>
           </div>
         </div>
-
         {/* SEARCH */}
         <ErrorBoundary errorComponent={FallSafeComponent}>
           <div className="px-3 pt-2 pb-4 bg-white">
