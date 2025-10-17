@@ -1,7 +1,7 @@
 export interface ChatBubbleProps {
-    image: string;
-    senderName: string;
-    message: string;
-    time: string;
-    isStart: boolean;
+  image: string;
+  senderName: string;
+  message: string;
+  time: string;
+  isStart: boolean;
 }
