@@ -2,6 +2,8 @@
 import { HiExternalLink } from 'react-icons/hi';
 import { DOCUMENTATION_LINKS } from '@/constants/Installation/InstallationPaginationLinks';
 import Link from 'next/link';
+import { ErrorBoundary } from '@/components/Error';
+import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import CodeBlock from '@/components/Ui/CodeBlock/CodeBlock';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '@/components/Ui/Pagination/Pagination';
@@ -63,11 +65,13 @@ const InstallationGuidePage = () => {
                     />
                   </Link>
                 </p>
-                <CodeBlock
-                  codes={INSTALLATION_CODES_REACT_ICONS}
-                  codeLanguage="bash"
-                  fileName="terminal"
-                />
+                <ErrorBoundary errorComponent={FallSafeComponent}>
+                  <CodeBlock
+                    codes={INSTALLATION_CODES_REACT_ICONS}
+                    codeLanguage="bash"
+                    fileName="terminal"
+                  />
+                </ErrorBoundary>
               </div>
             </div>
           </div>
@@ -91,21 +95,27 @@ const InstallationGuidePage = () => {
                     />
                   </Link>
                 </p>
-                <CodeBlock
-                  codes={INSTALLATION_CODES_TAILWINDCSS}
-                  codeLanguage="bash"
-                  fileName="terminal"
-                />
-                <CodeBlock
-                  codes={INSTALLATION_CODES_VITE_CONFIG_PLUGIN}
-                  codeLanguage="tsx"
-                  fileName="vite.config.ts"
-                />
-                <CodeBlock
-                  codes={INSTALLATION_CODES_CSS_IMPORT}
-                  codeLanguage="tsx"
-                  fileName="index.css"
-                />
+                <ErrorBoundary errorComponent={FallSafeComponent}>
+                  <CodeBlock
+                    codes={INSTALLATION_CODES_TAILWINDCSS}
+                    codeLanguage="bash"
+                    fileName="terminal"
+                  />
+                </ErrorBoundary>
+                <ErrorBoundary errorComponent={FallSafeComponent}>
+                  <CodeBlock
+                    codes={INSTALLATION_CODES_VITE_CONFIG_PLUGIN}
+                    codeLanguage="tsx"
+                    fileName="vite.config.ts"
+                  />
+                </ErrorBoundary>
+                <ErrorBoundary errorComponent={FallSafeComponent}>
+                  <CodeBlock
+                    codes={INSTALLATION_CODES_CSS_IMPORT}
+                    codeLanguage="tsx"
+                    fileName="index.css"
+                  />
+                </ErrorBoundary>
               </div>
             </div>
           </div>
@@ -135,16 +145,20 @@ const InstallationGuidePage = () => {
           </div>
         </div>
       </div>
-      <Pagination
-        cards={DOCUMENTATION_LINKS}
-        paginationTitle="Official installation guide"
-        previousRoute="/"
-        previousRouteTitle="Home"
-        nextRoute="/button"
-        nextRouteTitle="Button"
-        isExternalLink={true}
-      />
-      <Footer />
+      <ErrorBoundary errorComponent={FallSafeComponent}>
+        <Pagination
+          cards={DOCUMENTATION_LINKS}
+          paginationTitle="Official installation guide"
+          previousRoute="/"
+          previousRouteTitle="Home"
+          nextRoute="/button"
+          nextRouteTitle="Button"
+          isExternalLink={true}
+        />
+      </ErrorBoundary>
+      <ErrorBoundary errorComponent={FallSafeComponent}>
+        <Footer />
+      </ErrorBoundary>
     </div>
   );
 };

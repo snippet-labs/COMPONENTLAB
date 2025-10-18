@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 @plugin 'tailwind-scrollbar';
 @plugin "daisyui" {
-  themes: none --default
-};
+  themes: none --default;
+}
 
 /* Navigation-progress-bar */
 #nprogress .bar {

@@ -1,5 +1,7 @@
 // Modules
 import Link from 'next/link';
+import { ErrorBoundary } from '@/components/Error';
+import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import { StarterProps } from './Starter.types';
 
 const Starter: React.FC<StarterProps> = ({
@@ -39,40 +41,42 @@ const Starter: React.FC<StarterProps> = ({
               {starterVariantDescription}
             </p>
           </div>
-          <div
-            className="mt-10 ml-5 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4"
-            data-testid="variant-cards"
-          >
-            {starterVariantCards.map((card, idx) => (
-              <Link
-                key={idx}
-                href={card.path}
-                rel="noopener noreferrer"
-                className="relative w-[300px] h-[100px] md:w-[400px] md:h-[120px] 
+          <ErrorBoundary errorComponent={FallSafeComponent}>
+            <div
+              className="mt-10 ml-5 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4"
+              data-testid="variant-cards"
+            >
+              {starterVariantCards.map((card, idx) => (
+                <Link
+                  key={idx}
+                  href={card.path}
+                  rel="noopener noreferrer"
+                  className="relative w-[300px] h-[100px] md:w-[400px] md:h-[120px] 
                  rounded-[20px] border bg-black/85 
                  flex flex-col items-start justify-start 
                  shadow-sm hover:shadow-md 
                  transition-all duration-300 ease-out 
                  hover:-translate-y-1 group overflow-hidden p-3 md:p-4 lg:p-6"
-                data-testid={`variant-card-${idx}`}
-              >
-                <span
-                  className="relative text-gray-100 font-bold text-lg md:text-2xl lg:text-3xl
+                  data-testid={`variant-card-${idx}`}
+                >
+                  <span
+                    className="relative text-gray-100 font-bold text-lg md:text-2xl lg:text-3xl
                    transition-colors duration-300 group-hover:text-white"
-                  data-testid={`variant-card-label-${idx}`}
-                >
-                  {card.label}
-                </span>
-                <span
-                  className="relative text-gray-400 text-[12px] text-justify md:text-xs font-normal mt-1
+                    data-testid={`variant-card-label-${idx}`}
+                  >
+                    {card.label}
+                  </span>
+                  <span
+                    className="relative text-gray-400 text-[12px] text-justify md:text-xs font-normal mt-1
                    transition-colors duration-300 group-hover:text-gray-200"
-                  data-testid={`variant-card-description-${idx}`}
-                >
-                  {card.description}
-                </span>
-              </Link>
-            ))}
-          </div>
+                    data-testid={`variant-card-description-${idx}`}
+                  >
+                    {card.description}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </ErrorBoundary>
         </div>
       </div>
     </div>
