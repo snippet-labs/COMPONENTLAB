@@ -11,10 +11,17 @@ import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '../../Ui/Pagination/Pagination';
+import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import { progressItems } from '@/constants/ProgressItems';
 
 const Header: React.FC = () => {
   return (
     <>
+      <ProgressPanel
+        isSidebarOpen={isSidebarOpen}
+        tableOfContents={progressItems}
+        position="right"
+      />
       <header className="flex flex-col items-center lg:items-start" data-testid="header">
         <h1
           className={`${fontMonoton.className} text-3xl md:text-6xl lg:text-7xl  mt-5 mb-16 lg:text-left bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation`}
