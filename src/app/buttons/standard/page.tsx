@@ -53,7 +53,7 @@ const StandardAccessibleButtonVariantPage = () => {
         </div>
       </ErrorBoundary>
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="know-me">
+        <div id="know-more">
           <Footer />
         </div>
       </ErrorBoundary>
