@@ -7,20 +7,28 @@ import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import CodeBlock from '@/components/Ui/CodeBlock/CodeBlock';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '@/components/Ui/Pagination/Pagination';
+import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
 import {
   INSTALLATION_CODES_CSS_IMPORT,
   INSTALLATION_CODES_REACT_ICONS,
   INSTALLATION_CODES_TAILWINDCSS,
   INSTALLATION_CODES_VITE_CONFIG_PLUGIN,
 } from './Installation.code';
+import { INSTALLATION_PAGE_PROGRESS_ITEMS } from './Installation.progress';
 
 const InstallationGuidePage = () => {
   return (
     <div className="min-h-screen">
+      <ProgressPanel tableOfContents={INSTALLATION_PAGE_PROGRESS_ITEMS} position="right" />
       <div>
         <h1 className="ml-1 text-sm font-medium">COMPONENTLAB/</h1>
-        <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl">Getting Started</h2>
-        <p className="mt-10 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
+        <h2 id="getting-started" className="font-bold text-4xl md:text-5xl lg:text-6xl">
+          Getting Started
+        </h2>
+        <p
+          id="introduction"
+          className="mt-10 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify"
+        >
           ComponentLAB is designed with low dependency, focusing solely on delivering clean,
           reusable code to help you build your next accessible component with ease. With a simple
           installation process, you can quickly &nbsp;
@@ -32,7 +40,7 @@ const InstallationGuidePage = () => {
         </p>
       </div>
       <div>
-        <div className="mt-10">
+        <div id="installation" className="mt-10">
           <p className="font-bold text-3xl">Installation</p>
           <p className="mt-2 mb-4 text-sm md:text-lg lg:text-lg text-gray-600 font-medium text-justify">
             We only need two dependencies for using our components, tailwindcss and react-icon
@@ -146,18 +154,22 @@ const InstallationGuidePage = () => {
         </div>
       </div>
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <Pagination
-          cards={DOCUMENTATION_LINKS}
-          paginationTitle="Official installation guide"
-          previousRoute="/"
-          previousRouteTitle="Home"
-          nextRoute="/button"
-          nextRouteTitle="Button"
-          isExternalLink={true}
-        />
+        <div id="quick-links">
+          <Pagination
+            cards={DOCUMENTATION_LINKS}
+            paginationTitle="Official installation guide"
+            previousRoute="/"
+            previousRouteTitle="Home"
+            nextRoute="/button"
+            nextRouteTitle="Button"
+            isExternalLink={true}
+          />
+        </div>
       </ErrorBoundary>
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <Footer />
+        <div id="kmow-more">
+          <Footer />
+        </div>
       </ErrorBoundary>
     </div>
   );

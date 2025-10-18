@@ -1,11 +1,10 @@
 
-export const HEADER_PROGRESS_ITEMS = [
+export const TEAM_PAGE_PROGRESS_ITEMS = [
     {
-        id: 'introduction',
-        title: 'Introduction',
+        id: 'team',
+        title: 'Team',
         subsections: [
-            { id: 'motto', title: "What we offer" },
-            { id: 'browse', title: 'Browse' },
+            { id: 'conversation', title: "Conversation" },
         ],
     },
     {

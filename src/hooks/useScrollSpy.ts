@@ -12,7 +12,7 @@ export function useScrollSpy(tableOfContents: ProgressPanelSectionTypes[]) {
         ...(section.subsections || []),
       ]);
 
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 260;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const element = document.getElementById(sections[i].id);

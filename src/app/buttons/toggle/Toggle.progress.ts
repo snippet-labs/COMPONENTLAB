@@ -1,11 +1,13 @@
 
-export const HEADER_PROGRESS_ITEMS = [
+export const TOGGLE_BUTTON_VARIANT_PROGRESS_ITEMS = [
     {
-        id: 'introduction',
-        title: 'Introduction',
+        id: 'toggle-button',
+        title: 'Toggle',
         subsections: [
-            { id: 'motto', title: "What we offer" },
-            { id: 'browse', title: 'Browse' },
+            { id: 'introduction', title: "Introduction" },
+            { id: 'demo', title: "Demo" },
+            { id: 'code', title: "Code" },
+            { id: 'props', title: "Props" },
         ],
     },
     {

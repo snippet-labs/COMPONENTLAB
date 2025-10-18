@@ -1,11 +1,11 @@
 
-export const HEADER_PROGRESS_ITEMS = [
+export const INSTALLATION_PAGE_PROGRESS_ITEMS = [
     {
-        id: 'introduction',
-        title: 'Introduction',
+        id: 'getting-started',
+        title: 'Getting Started',
         subsections: [
-            { id: 'motto', title: "What we offer" },
-            { id: 'browse', title: 'Browse' },
+            { id: 'introduction', title: "Introduction" },
+            { id: 'installation', title: 'Installation' },
         ],
     },
     {

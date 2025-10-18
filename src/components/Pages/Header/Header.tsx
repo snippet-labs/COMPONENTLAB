@@ -86,7 +86,9 @@ const Header: React.FC = () => {
         </div>
       </ErrorBoundary>
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <Footer />
+        <div id="know-more">
+          <Footer />
+        </div>
       </ErrorBoundary>
     </>
   );

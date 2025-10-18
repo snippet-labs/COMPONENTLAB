@@ -1,11 +1,11 @@
 
-export const HEADER_PROGRESS_ITEMS = [
+export const BUTTON_STARTER_PAGE_PROGRESS_ITEMS = [
     {
-        id: 'introduction',
-        title: 'Introduction',
+        id: 'buttons',
+        title: 'Buttons',
         subsections: [
-            { id: 'motto', title: "What we offer" },
-            { id: 'browse', title: 'Browse' },
+            { id: 'introduction', title: "Introduction" },
+            { id: 'variants', title: "Variants" },
         ],
     },
     {

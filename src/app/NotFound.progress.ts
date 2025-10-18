@@ -1,12 +1,8 @@
 
-export const HEADER_PROGRESS_ITEMS = [
+export const NOT_FOUND_PROGRESS_ITEMS = [
     {
-        id: 'introduction',
-        title: 'Introduction',
-        subsections: [
-            { id: 'motto', title: "What we offer" },
-            { id: 'browse', title: 'Browse' },
-        ],
+        id: 'error',
+        title: 'Not Found'
     },
     {
         id: 'quick-links',
