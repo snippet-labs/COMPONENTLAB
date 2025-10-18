@@ -3,7 +3,6 @@
 // Modules
 import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { progressItems } from '@/constants/ProgressItems';
 import { ReactLenis } from 'lenis/react';
 import { usePathname } from 'next/navigation';
 import NProgress from 'nprogress';
@@ -12,7 +11,6 @@ import Sidebar from '@/components/Ui/Sidebar/Sidebar';
 import { ErrorBoundary } from '../Error';
 import FallSafeComponent from '../Error/FallSafeComponent';
 import Navigation from '../Ui/Navigation/Navigation';
-import ProgressPanel from '../Ui/ProgressPanel/ProgressPanel';
 import { WrapperTypes } from './Wrapper.types';
 
 const Wrapper: React.FC<WrapperTypes> = ({ children }) => {
@@ -55,11 +53,6 @@ const Wrapper: React.FC<WrapperTypes> = ({ children }) => {
           <ErrorBoundary errorComponent={FallSafeComponent}>
             <div className="flex w-full min-h-screen md:mt-5 lg:mt-5">
               <Sidebar isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar} />
-              <ProgressPanel
-                isSidebarOpen={isSidebarOpen}
-                tableOfContents={progressItems}
-                position="right"
-              />
               <Content isSidebarOpen={isSidebarOpen} handleToggleSidebar={handleToggleSidebar}>
                 {children}
               </Content>

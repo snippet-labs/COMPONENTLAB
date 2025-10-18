@@ -2,7 +2,7 @@
 import { ProgressPanelSectionTypes } from '@/types';
 
 export interface ProgressPanelProps {
-  isSidebarOpen: boolean;
+  isSidebarOpen?: boolean;
   tableOfContents: ProgressPanelSectionTypes[];
   position?: 'left' | 'right';
 }
