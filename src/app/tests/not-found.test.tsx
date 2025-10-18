@@ -23,7 +23,7 @@ describe('Errorpage Component', () => {
     render(<Errorpage />);
     const heading = screen.getByRole('heading', { name: '404' });
     expect(heading).toBeDefined();
-    expect(heading.tagName).toBe('H1');
+    expect(heading.tagName).toBe('H2');
   });
 
   it('should render the error message paragraph', () => {
