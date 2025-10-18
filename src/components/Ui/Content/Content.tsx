@@ -32,7 +32,10 @@ const Content: React.FC<ContentProps> = ({ isSidebarOpen, handleToggleSidebar, c
         {/* MAIN */}
         <div
           data-testid="content-main"
-          className="w-full mt-15 p-1 overflow-x-hidden text-black max-w-[79rem]"
+          /**
+           * @SUVAJIT-KARMAKAR max-w-[79rem] removed
+           */
+          className="w-full mt-15 p-1 overflow-x-hidden text-black"
         >
           <ErrorBoundary errorComponent={FallSafeComponent}>{children}</ErrorBoundary>
         </div>
