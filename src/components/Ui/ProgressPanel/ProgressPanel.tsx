@@ -28,10 +28,13 @@ const ProgressPanel: React.FC<ProgressPanelProps> = ({
   return (
     <div
       className={`hidden lg:block fixed top-0 ${position === 'right' ? 'right-0' : 'left-0'} 
-         h-screen bg-white shadow-md border-l-2 backdrop-blur-sm overflow-y-auto z-[80] ${isSidebarOpen ? 'w-62' : 'w-54'} transition-all duration-300`}
+         h-screen bg-white shadow-md border-l-2 backdrop-blur-sm overflow-y-auto z-[80] ${isSidebarOpen ? 'w-62' : 'w-63'} transition-all duration-300`}
     >
       <ErrorBoundary errorComponent={FallSafeComponent}>
         <nav className="px-4 py-4 pt-25">
+          <p className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation">
+            ON THIS PAGE
+          </p>
           <div className="space-y-1">
             {tableOfContents.map((section) => (
               <div key={section.id}>

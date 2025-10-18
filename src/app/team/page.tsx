@@ -6,20 +6,27 @@ import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import ChatBubble from '@/components/Ui/Chat/ChatBubble';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '@/components/Ui/Pagination/Pagination';
+import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import { TEAM_PAGE_PROGRESS_ITEMS } from './Team.progress';
 
 const TeamPage: React.FC = () => {
   return (
     <div className="min-h-screen" data-testid="team-page">
+      <ProgressPanel tableOfContents={TEAM_PAGE_PROGRESS_ITEMS} position="right" />
       <div data-testid="team-header">
         <h1 className="ml-1 text-sm font-medium" data-testid="team-header-title">
           COMPONENTLAB/
         </h1>
-        <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl" data-testid="team-subtitle">
+        <h2
+          id="team"
+          className="font-bold text-4xl md:text-5xl lg:text-6xl"
+          data-testid="team-subtitle"
+        >
           Read our team conversation
         </h2>
       </div>
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div className="mt-20" data-testid="chat-section">
+        <div id="conversation" className="mt-20" data-testid="chat-section">
           <ChatBubble
             image={'/suvajit.png'}
             senderName="Suvajit"

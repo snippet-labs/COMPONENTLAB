@@ -43,7 +43,7 @@ const Starter: React.FC<StarterProps> = ({
           </div>
           <ErrorBoundary errorComponent={FallSafeComponent}>
             <div
-              className="mt-10 ml-5 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4"
+              className="mt-10 ml-5 flex flex-wrap items-center gap-4"
               data-testid="variant-cards"
             >
               {starterVariantCards.map((card, idx) => (
