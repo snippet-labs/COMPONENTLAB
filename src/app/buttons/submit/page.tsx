@@ -30,11 +30,16 @@ const SubmitAccessibleButtonVariantPage = () => {
   return (
     <div className="min-h-screen">
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <ProgressPanel tableOfContents={SUBMIT_BUTTON_VARIANT_PROGRESS_ITEMS} position="right" />
-        <div id="submit-button">
+        <div id="progress-panel-wrapper" data-testid="progress-panel">
+          <ProgressPanel tableOfContents={SUBMIT_BUTTON_VARIANT_PROGRESS_ITEMS} position="right" />
+        </div>
+      </ErrorBoundary>
+
+      <ErrorBoundary errorComponent={FallSafeComponent}>
+        <div id="submit-button" data-testid="information-section">
           <Information
             variantTitle="Submit Accessible Button"
-            variantDescription="The Submit Button Component is a fully accessible and customizable UI element designed to provide an inclusive user experience for all individuals, including those using assistive technologies. It adheres to WCAG and ARIA accessibility standards, ensuring proper keyboard navigation, focus states, and screen reader support. The component supports multiple visual variants (such as primary, secondary, and outline) while maintaining semantic HTML structure with the <button> element. Built with usability and consistency in mind, it offers responsive design, clear contrast ratios, and intuitive interactions making it an ideal choice for creating accessible and user-friendly interfaces"
+            variantDescription="The Submit Button Component is a fully accessible and customizable UI element designed to provide an inclusive user experience for all individuals, including those using assistive technologies. It adheres to WCAG and ARIA accessibility standards, ensuring proper keyboard navigation, focus states, and screen reader support. The component supports multiple visual variants (such as primary, secondary, and outline) while maintaining semantic HTML structure with the <button> element. Built with usability and consistency in mind, it offers responsive design, clear contrast ratios, and intuitive interactions making it an ideal choice for creating accessible and user-friendly interfaces."
             variantTags={SUBMIT_BUTTON_VARIANT_TAGS}
             variantComponent={SubmitButtonVariant}
             variantComponentProps={{
@@ -50,7 +55,7 @@ const SubmitAccessibleButtonVariantPage = () => {
       </ErrorBoundary>
 
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="quick-links">
+        <div id="quick-links" data-testid="pagination-section">
           <Pagination
             paginationTitle="Follow up with other available components"
             cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
@@ -64,7 +69,7 @@ const SubmitAccessibleButtonVariantPage = () => {
       </ErrorBoundary>
 
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="know-more">
+        <div id="know-more" data-testid="footer-section">
           <Footer />
         </div>
       </ErrorBoundary>

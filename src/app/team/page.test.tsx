@@ -1,7 +1,7 @@
 // Modules
-import TeamPage from '@/app/team/page';
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import TeamPage from './page';
 
 // Render
 const renderComponent = () => render(<TeamPage />);
