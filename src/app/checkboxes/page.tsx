@@ -14,7 +14,7 @@ const CheckboxStarterPage = () => {
     <div className="min-h-screen" data-testid="checkbox-starter-page">
       <ProgressPanel tableOfContents={CHECKBOX_STARTER_PAGE_PROGRESS_ITEMS} position="right" />
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div className="checkboxes">
+        <div id="checkboxes">
           <Starter
             starterTitle="Accessible Checkboxes"
             starterDescription='A checkbox is an interactive form element used to select one or multiple options from a set. It represents a binary choice — checked or unchecked — and is commonly used for preferences, settings, and selections. Ensuring checkboxes are accessible means using semantic HTML (`<input type="checkbox">`) with clear labels, proper grouping for related options, visible focus states, and accurate ARIA attributes when customized. Accessible checkboxes ensure all users, including those using assistive technologies, can easily understand and interact with them.'
