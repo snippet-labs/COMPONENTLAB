@@ -26,7 +26,7 @@ export const SidebarItems = [
     path: '/checkboxes',
     children: CHECKBOX_VARIANTS.map((variant) => ({
       subItemName: variant,
-      path: `/checkboxs/${variant.toLowerCase()}`,
+      path: `/checkboxes/${variant.toLowerCase()}`,
     })),
   },
   {

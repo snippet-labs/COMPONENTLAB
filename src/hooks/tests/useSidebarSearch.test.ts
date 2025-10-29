@@ -83,9 +83,10 @@ describe('useSidebarSearch Hook', () => {
         parentItemName: 'Checkboxes',
         path: '/checkboxes',
         children: [
-          { subItemName: 'Basic', path: '/checkboxs/basic' },
-          { subItemName: 'Group', path: '/checkboxs/group' },
-          { subItemName: 'Controlled', path: '/checkboxs/controlled' },
+          { subItemName: 'Basic', path: '/checkboxes/basic' },
+          { subItemName: 'Group', path: '/checkboxes/group' },
+          { subItemName: 'Nested', path: '/checkboxes/nested' },
+          { subItemName: 'Controlled', path: '/checkboxes/controlled' },
         ],
       },
     ]);
