@@ -1,5 +1,5 @@
 // Modules
-import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
+import { GLOBAL_PAGINATION_LINKS } from '@/constants/GlobalPaginationLinks';
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { BUTTON_VARIANTS } from './ButtonVariants';
@@ -47,9 +47,9 @@ describe('ButtonStarterPage Component', () => {
 
   it('should render correct number of Pagination cards', () => {
     renderComponent();
-    const paginationCards = HEADER_PAGINATION_LINKS.map(
+    const paginationCards = GLOBAL_PAGINATION_LINKS.map(
       (_, idx) => screen.queryAllByTestId(`pagination-card-${idx}`)[0]
     );
-    expect(paginationCards.length).toBe(HEADER_PAGINATION_LINKS.length);
+    expect(paginationCards.length).toBe(GLOBAL_PAGINATION_LINKS.length);
   });
 });
