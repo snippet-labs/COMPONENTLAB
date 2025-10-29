@@ -1,6 +1,5 @@
 'use client';
 
-// Modules
 import toast from 'react-hot-toast';
 import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
 import { STANDARD_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Standard/StandardButtonTags';
@@ -17,13 +16,19 @@ import { STANDARD_BUTTON_VARIANT_PROGRESS_ITEMS } from './StandardButton.progres
 
 const StandardAccessibleButtonVariantPage = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" data-testid="standard-accessible-page">
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <ProgressPanel tableOfContents={STANDARD_BUTTON_VARIANT_PROGRESS_ITEMS} position="right" />
-        <div id="standard-button">
+        <div data-testid="progress-panel">
+          <ProgressPanel
+            tableOfContents={STANDARD_BUTTON_VARIANT_PROGRESS_ITEMS}
+            position="right"
+          />
+        </div>
+
+        <div id="standard-button" data-testid="information-section">
           <Information
             variantTitle="Standard Accessible Button"
-            variantDescription="The Standard Button Component is a fully accessible and customizable UI element designed to provide an inclusive user experience for all individuals, including those using assistive technologies. It adheres to WCAG and ARIA accessibility standards, ensuring proper keyboard navigation, focus states, and screen reader support. The component supports multiple visual variants (such as primary, secondary, and outline) while maintaining semantic HTML structure with the <button> element. Built with usability and consistency in mind, it offers responsive design, clear contrast ratios, and intuitive interactions  making it an ideal choice for creating accessible and user-friendly interfaces"
+            variantDescription="The Standard Button Component is a fully accessible and customizable UI element..."
             variantTags={STANDARD_BUTTON_VARIANT_TAGS}
             variantComponent={StandardButtonVariant}
             variantComponentProps={{
@@ -39,8 +44,9 @@ const StandardAccessibleButtonVariantPage = () => {
           />
         </div>
       </ErrorBoundary>
+
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="quick-links">
+        <div id="quick-links" data-testid="pagination-section">
           <Pagination
             paginationTitle="Follow up with other available components"
             cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
@@ -52,8 +58,9 @@ const StandardAccessibleButtonVariantPage = () => {
           />
         </div>
       </ErrorBoundary>
+
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="know-more">
+        <div id="know-more" data-testid="footer-section">
           <Footer />
         </div>
       </ErrorBoundary>
