@@ -26,13 +26,13 @@ describe('useSidebarSearch Hook', () => {
         parentItemName: 'Buttons',
         path: '/buttons',
         children: [
-          { subItemName: 'Standard', path: '/button/standard' },
-          { subItemName: 'Submit', path: '/button/submit' },
-          { subItemName: 'Reset', path: '/button/reset' },
-          { subItemName: 'Toggle', path: '/button/toggle' },
-          { subItemName: 'Link', path: '/button/link' },
-          { subItemName: 'Loading', path: '/button/loading' },
-          { subItemName: 'Dropdown', path: '/button/dropdown' },
+          { subItemName: 'Standard', path: '/buttons/standard' },
+          { subItemName: 'Submit', path: '/buttons/submit' },
+          { subItemName: 'Reset', path: '/buttons/reset' },
+          { subItemName: 'Toggle', path: '/buttons/toggle' },
+          { subItemName: 'Link', path: '/buttons/link' },
+          { subItemName: 'Loading', path: '/buttons/loading' },
+          { subItemName: 'Dropdown', path: '/buttons/dropdown' },
         ],
       },
     ]);
@@ -83,9 +83,9 @@ describe('useSidebarSearch Hook', () => {
         parentItemName: 'Checkboxes',
         path: '/checkboxes',
         children: [
-          { subItemName: 'Basic', path: '/checkbox/basic' },
-          { subItemName: 'Group', path: '/checkbox/group' },
-          { subItemName: 'Controlled', path: '/checkbox/controlled' },
+          { subItemName: 'Basic', path: '/checkboxes/basic' },
+          { subItemName: 'Group', path: '/checkboxes/group' },
+          { subItemName: 'Controlled', path: '/checkboxes/controlled' },
         ],
       },
     ]);

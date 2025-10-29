@@ -9,4 +9,4 @@ export const BUTTON_VARIANTS = [
   'Dropdown',
 ];
 // Checkboxes Variants
-export const CHECKBOX_VARIANTS = ['Basic', 'Group', 'Controlled'];
+export const CHECKBOX_VARIANTS = ['Basic', 'Group', 'Nested', 'Controlled'];
