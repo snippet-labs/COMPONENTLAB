@@ -1,5 +1,6 @@
 // Modules
 import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import Pagination from '@/components/Ui/Pagination/Pagination';
@@ -10,6 +11,15 @@ import { BUTTON_STARTER_PAGE_PROGRESS_ITEMS } from './Button.progress';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 
 const AccessibleButtonStarterPage = () => {
+  const isEnabled = useFeatureFlag('BUTTON_STARTER_PAGE');
+
+  if (!isEnabled)
+    return (
+      <>
+        <>UnderDevelopment</>
+      </>
+    );
+
   return (
     <div className="min-h-screen" data-testid="button-starter-page">
       <ProgressPanel tableOfContents={BUTTON_STARTER_PAGE_PROGRESS_ITEMS} position="right" />
