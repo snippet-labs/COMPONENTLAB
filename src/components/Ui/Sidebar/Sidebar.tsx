@@ -2,6 +2,7 @@
 
 // Modules
 import { BiSolidErrorCircle } from 'react-icons/bi';
+import { FaCheck } from 'react-icons/fa';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { IoPeopleCircleOutline } from 'react-icons/io5';
 import { MdOutlineRadioButtonChecked } from 'react-icons/md';
@@ -9,12 +10,14 @@ import { RiHome9Fill } from 'react-icons/ri';
 import { useSidebarSearch } from '@/hooks/useSidebarSearch';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import { SidebarProps } from './Sidebar.types';
 
 const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar }) => {
   const { searchQuery, handleSearchChange, filteredLinks } = useSidebarSearch();
+  const pathname = usePathname();
 
   return (
     <motion.div
@@ -82,18 +85,25 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
                     >
                       {parent.parentItemName}
                     </Link>
+                    {pathname === parent.path && (
+                      <FaCheck size={14} className="ml-auto mr-2 text-green-600" />
+                    )}
                   </div>
                   {parent.children?.length > 0 && (
                     <div className="ml-4 mt-1 space-y-1 border-l-2">
                       {parent.children.map((child, childIndex) => (
-                        <Link
-                          key={`${child.path}-${childIndex}`}
-                          href={child.path}
-                          onClick={() => null}
-                          className="flex items-center px-2 py-1 text-sm text-gray-600 hover:text-gray-900 hover:ml-2 group transition-all duration-200"
-                        >
-                          {child.subItemName}
-                        </Link>
+                        <div key={`${child.path}-${childIndex}`} className="flex items-center">
+                          <Link
+                            href={child.path}
+                            onClick={() => null}
+                            className="flex items-center px-2 py-1 text-sm text-gray-600 hover:text-gray-900 hover:ml-2 group transition-all duration-200"
+                          >
+                            {child.subItemName}
+                          </Link>
+                          {pathname === child.path && (
+                            <FaCheck size={12} className="ml-auto mr-2 text-black" />
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}
