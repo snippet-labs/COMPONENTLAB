@@ -5,7 +5,6 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 import ButtonStarterPage from './page';
 
-
 // Render
 const renderComponent = () => {
   render(<ButtonStarterPage />);

@@ -14,7 +14,6 @@ import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
 import Pagination from '../../Ui/Pagination/Pagination';
 import { HEADER_PROGRESS_ITEMS } from './Header.progress';
 
-
 const Header: React.FC = () => {
   return (
     <>
