@@ -9,7 +9,7 @@ import Starter from '../../components/Ui/Starter/Starter';
 import { BUTTON_STARTER_PAGE_PROGRESS_ITEMS } from './Button.progress';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 
-const AccessibleButtonStarterPage = () => {
+const ButtonStarterPage = () => {
   return (
     <div className="min-h-screen" data-testid="button-starter-page">
       <ProgressPanel tableOfContents={BUTTON_STARTER_PAGE_PROGRESS_ITEMS} position="right" />
@@ -46,4 +46,4 @@ const AccessibleButtonStarterPage = () => {
   );
 };
 
-export default AccessibleButtonStarterPage;
+export default ButtonStarterPage;
