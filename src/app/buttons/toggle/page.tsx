@@ -18,45 +18,56 @@ import { TOGGLE_BUTTON_VARIANT_PROGRESS_ITEMS } from './Toggle.progress';
 const ToogleAccessibleButtonVariantPage = () => {
   return (
     <div className="min-h-screen">
-      <ProgressPanel tableOfContents={TOGGLE_BUTTON_VARIANT_PROGRESS_ITEMS} position="right" />
+      <div data-testid="progress-panel">
+        <ProgressPanel tableOfContents={TOGGLE_BUTTON_VARIANT_PROGRESS_ITEMS} position="right" />
+      </div>
+
       <ErrorBoundary errorComponent={FallSafeComponent}>
         <div id="toggle-button">
-          <Information
-            variantTitle="Accessible Toggle Button"
-            variantDescription="The Toggle Button Component is an accessible and versatile UI control designed to represent on/off or active/inactive states with clear visual feedback. It fully complies with WCAG and ARIA accessibility standards, providing seamless keyboard navigation, proper focus management, and screen reader compatibility. Built using the semantic <button> element, it communicates state changes through ARIA attributes such as aria-pressed, ensuring an inclusive experience for users relying on assistive technologies.
+          <div data-testid="information-section">
+            <Information
+              variantTitle="Accessible Toggle Button"
+              variantDescription="The Toggle Button Component is an accessible and versatile UI control designed to represent on/off or active/inactive states with clear visual feedback. It fully complies with WCAG and ARIA accessibility standards, providing seamless keyboard navigation, proper focus management, and screen reader compatibility. Built using the semantic <button> element, it communicates state changes through ARIA attributes such as aria-pressed, ensuring an inclusive experience for users relying on assistive technologies.
 
         The component supports multiple visual styles (e.g., switch, icon, or text-based toggles) while maintaining design consistency across devices. With responsive behavior, distinct contrast ratios, and smooth state transitions, the Toggle Button offers both usability and clarity—making it an excellent choice for building interactive and accessible interfaces."
-            variantTags={TOGGLE_BUTTON_VARIANT_TAGS}
-            variantComponent={ToggleButtonVariant}
-            variantComponentProps={{
-              title: 'Theme',
-              ariaLabel: 'Standard toggle button',
-              onClick: () => toast.success('Button Toggled', { duration: 2000 }),
-              disabled: false,
-            }}
-            variantCode={TOGGLE_BUTTON_VARIABLE_CODE}
-            variantFileName="ToggleButtonVariant.tsx"
-            variantPropColumn={columns}
-            variantPropRow={rows}
-          />
+              variantTags={TOGGLE_BUTTON_VARIANT_TAGS}
+              variantComponent={ToggleButtonVariant}
+              variantComponentProps={{
+                title: 'Theme',
+                ariaLabel: 'Standard toggle button',
+                onClick: () => toast.success('Button Toggled', { duration: 2000 }),
+                disabled: false,
+              }}
+              variantCode={TOGGLE_BUTTON_VARIABLE_CODE}
+              variantFileName="ToggleButtonVariant.tsx"
+              variantPropColumn={columns}
+              variantPropRow={rows}
+            />
+          </div>
         </div>
       </ErrorBoundary>
+
       <ErrorBoundary errorComponent={FallSafeComponent}>
         <div id="quick-links">
-          <Pagination
-            paginationTitle="Follow up with other available components"
-            cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
-            previousRoute="/button/reset"
-            previousRouteTitle="Reset"
-            nextRoute="/button/Link"
-            nextRouteTitle="Link"
-            isExternalLink={false}
-          />
+          <div data-testid="pagination-section">
+            <Pagination
+              paginationTitle="Follow up with other available components"
+              cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
+              previousRoute="/button/reset"
+              previousRouteTitle="Reset"
+              nextRoute="/button/Link"
+              nextRouteTitle="Link"
+              isExternalLink={false}
+            />
+          </div>{' '}
         </div>
       </ErrorBoundary>
+
       <ErrorBoundary errorComponent={FallSafeComponent}>
         <div id="know-more">
-          <Footer />
+          <div data-testid="footer-section">
+            <Footer data-testid="footer-section" />
+          </div>
         </div>
       </ErrorBoundary>
     </div>
