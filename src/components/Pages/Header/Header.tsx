@@ -6,26 +6,15 @@ import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
 import { GLOBAL_PAGINATION_LINKS } from '@/constants/GlobalPaginationLinks';
 import fontMonoton from '@/helpers/font';
-import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import Link from 'next/link';
 import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import Footer from '@/components/Ui/Footer/Footer';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
-import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import Pagination from '../../Ui/Pagination/Pagination';
 import { HEADER_PROGRESS_ITEMS } from './Header.progress';
 
 const Header: React.FC = () => {
-  const isEnabled = useFeatureFlag('HEADER_PAGE');
-
-  if (!isEnabled)
-    return (
-      <div data-testid="underdevelopment-page">
-        <UnderDevelopment />
-      </div>
-    );
-
   return (
     <>
       <ProgressPanel tableOfContents={HEADER_PROGRESS_ITEMS} position="right" />
