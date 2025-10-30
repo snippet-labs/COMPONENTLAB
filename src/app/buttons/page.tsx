@@ -5,18 +5,21 @@ import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import Footer from '../../components/Ui/Footer/Footer';
 import Starter from '../../components/Ui/Starter/Starter';
 import { BUTTON_STARTER_PAGE_PROGRESS_ITEMS } from './Button.progress';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 
-const AccessibleButtonStarterPage = () => {
+const ButtonStarterPage = () => {
   const isEnabled = useFeatureFlag('BUTTON_STARTER_PAGE');
 
   if (!isEnabled)
     return (
       <>
-        <>UnderDevelopment</>
+        <>
+          <UnderDevelopment />
+        </>
       </>
     );
 
