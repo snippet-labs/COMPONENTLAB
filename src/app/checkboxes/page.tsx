@@ -1,15 +1,26 @@
 // Modules
 import { GLOBAL_PAGINATION_LINKS } from '@/constants/GlobalPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
 import Starter from '@/components/Ui/Starter/Starter';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import { CHECKBOX_STARTER_PAGE_PROGRESS_ITEMS } from './Checkbox.progress';
 import { CHECKBOX_VARIANTS } from './CheckboxVariant';
 
 const CheckboxStarterPage = () => {
+  const isEnabled = useFeatureFlag('CHECKBOX_STARTER_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
+
   return (
     <div className="min-h-screen" data-testid="checkbox-starter-page">
       <ProgressPanel tableOfContents={CHECKBOX_STARTER_PAGE_PROGRESS_ITEMS} position="right" />

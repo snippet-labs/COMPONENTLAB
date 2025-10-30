@@ -16,11 +16,9 @@ const ButtonStarterPage = () => {
 
   if (!isEnabled)
     return (
-      <>
-        <>
-          <UnderDevelopment />
-        </>
-      </>
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
     );
 
   return (

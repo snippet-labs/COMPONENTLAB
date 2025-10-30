@@ -1,22 +1,31 @@
 // Modules
 import { GLOBAL_PAGINATION_LINKS } from '@/constants/GlobalPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { MockInstance, afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 import ButtonStarterPage from './page';
+
+// Mock feature flag hook
+vi.mock('@/hooks/useFeatureFlag', () => ({
+  useFeatureFlag: vi.fn(),
+}));
 
 // Render
 const renderComponent = () => {
   render(<ButtonStarterPage />);
 };
 
-// Cleanup
-afterEach(() => {
-  cleanup();
-});
-
 // Test Suite
 describe('ButtonStarterPage Component', () => {
+  beforeEach(() => {
+    (useFeatureFlag as unknown as MockInstance).mockReturnValue(true);
+    renderComponent();
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
   it('should render the ButtonStarterPage container', () => {
     renderComponent();
     expect(screen.queryAllByTestId('button-starter-page')[0]).not.toBeNull();
@@ -51,5 +60,15 @@ describe('ButtonStarterPage Component', () => {
       (_, idx) => screen.queryAllByTestId(`pagination-card-${idx}`)[0]
     );
     expect(paginationCards.length).toBe(GLOBAL_PAGINATION_LINKS.length);
+  });
+
+  it('should render the fall-back under-development page when the page is not-available', () => {
+    (useFeatureFlag as unknown as MockInstance).mockReturnValue(false);
+
+    cleanup();
+    renderComponent();
+
+    const underDevelopmentPage = screen.queryAllByTestId('underdevelopment-page')[0];
+    expect(underDevelopmentPage).toBeTruthy();
   });
 });

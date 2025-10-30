@@ -1,17 +1,28 @@
 // Modules
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { MockInstance, afterEach, describe, expect, it } from 'vitest';
 import Header from './Header';
+
+// Mock feature flag hook
+vi.mock('@/hooks/useFeatureFlag', () => ({
+  useFeatureFlag: vi.fn(),
+}));
 
 // Render
 const renderComponent = () => render(<Header />);
 
-afterEach(() => {
-  cleanup();
-});
-
 // Suite
 describe('Header Component', () => {
+  beforeEach(() => {
+    (useFeatureFlag as unknown as MockInstance).mockReturnValue(true);
+    renderComponent();
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
   it('should render the header component', async () => {
     renderComponent();
     const header = await screen.findByTestId('header');
@@ -55,5 +66,15 @@ describe('Header Component', () => {
     renderComponent();
     const icon = await screen.findByTestId('header-accessibility-icon');
     expect(icon).not.toBeNull();
+  });
+
+  it('should render the fall-back under-development page when the page is not-available', () => {
+    (useFeatureFlag as unknown as MockInstance).mockReturnValue(false);
+
+    cleanup();
+    renderComponent();
+
+    const underDevelopmentPage = screen.queryAllByTestId('underdevelopment-page')[0];
+    expect(underDevelopmentPage).toBeTruthy();
   });
 });
