@@ -5,7 +5,7 @@ import { BUTTON_VARIANTS, CHECKBOX_VARIANTS } from './global';
 export const SidebarItems = [
   {
     parentItemName: 'Getting Started',
-    path: '/installation',
+    path: '',
     children: [
       {
         subItemName: 'Installation',
@@ -26,7 +26,7 @@ export const SidebarItems = [
     path: '/checkboxes',
     children: CHECKBOX_VARIANTS.map((variant) => ({
       subItemName: variant,
-      path: `/checkboxs/${variant.toLowerCase()}`,
+      path: `/checkboxes/${variant.toLowerCase()}`,
     })),
   },
   {

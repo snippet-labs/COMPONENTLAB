@@ -1,13 +1,14 @@
 // Modules
-import { GLOBAL_PAGINATION_LINKS } from '@/constants/GlobalPaginationLinks';
+import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
-import { BUTTON_VARIANTS } from './ButtonVariants';
-import ButtonStarterPage from './page';
+import { CHECKBOX_VARIANTS } from './CheckboxVariant';
+import CheckboxStarterPage from './page';
+
 
 // Render
 const renderComponent = () => {
-  render(<ButtonStarterPage />);
+  render(<CheckboxStarterPage />);
 };
 
 // Cleanup
@@ -16,10 +17,10 @@ afterEach(() => {
 });
 
 // Test Suite
-describe('ButtonStarterPage Component', () => {
-  it('should render the ButtonStarterPage container', () => {
+describe('CheckboxStarterPage Component', () => {
+  it('should render the CheckboxStarterPage container', () => {
     renderComponent();
-    expect(screen.queryAllByTestId('button-starter-page')[0]).not.toBeNull();
+    expect(screen.queryAllByTestId('checkbox-starter-page')[0]).not.toBeNull();
   });
 
   it('should render the Starter component', () => {
@@ -39,7 +40,7 @@ describe('ButtonStarterPage Component', () => {
 
   it('should render all Starter variant cards', () => {
     renderComponent();
-    BUTTON_VARIANTS.forEach((_, idx) => {
+    CHECKBOX_VARIANTS.forEach((_, idx) => {
       const card = screen.queryAllByTestId(`variant-card-${idx}`)[0];
       expect(card).not.toBeNull();
     });
@@ -47,9 +48,9 @@ describe('ButtonStarterPage Component', () => {
 
   it('should render correct number of Pagination cards', () => {
     renderComponent();
-    const paginationCards = GLOBAL_PAGINATION_LINKS.map(
+    const paginationCards = HEADER_PAGINATION_LINKS.map(
       (_, idx) => screen.queryAllByTestId(`pagination-card-${idx}`)[0]
     );
-    expect(paginationCards.length).toBe(GLOBAL_PAGINATION_LINKS.length);
+    expect(paginationCards.length).toBe(HEADER_PAGINATION_LINKS.length);
   });
 });

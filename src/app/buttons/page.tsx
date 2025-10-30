@@ -1,5 +1,5 @@
 // Modules
-import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
+import { GLOBAL_PAGINATION_LINKS } from '@/constants/GlobalPaginationLinks';
 import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
@@ -37,7 +37,7 @@ const AccessibleButtonStarterPage = () => {
       <ErrorBoundary errorComponent={FallSafeComponent}>
         <div id="quick-links">
           <Pagination
-            cards={HEADER_PAGINATION_LINKS}
+            cards={GLOBAL_PAGINATION_LINKS}
             nextRoute="/buttons/standard"
             nextRouteTitle="Standard"
             previousRoute="/installation"
@@ -56,4 +56,4 @@ const AccessibleButtonStarterPage = () => {
   );
 };
 
-export default AccessibleButtonStarterPage;
+export default ButtonStarterPage;
