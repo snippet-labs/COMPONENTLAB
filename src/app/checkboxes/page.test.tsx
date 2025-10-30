@@ -1,23 +1,31 @@
 // Modules
-import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
+import { GLOBAL_PAGINATION_LINKS } from '@/constants/GlobalPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { MockInstance, afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { CHECKBOX_VARIANTS } from './CheckboxVariant';
 import CheckboxStarterPage from './page';
 
+// Mock feature flag hook
+vi.mock('@/hooks/useFeatureFlag', () => ({
+  useFeatureFlag: vi.fn(),
+}));
 
 // Render
 const renderComponent = () => {
   render(<CheckboxStarterPage />);
 };
 
-// Cleanup
-afterEach(() => {
-  cleanup();
-});
-
 // Test Suite
 describe('CheckboxStarterPage Component', () => {
+  beforeEach(() => {
+    (useFeatureFlag as unknown as MockInstance).mockReturnValue(true);
+    renderComponent();
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
   it('should render the CheckboxStarterPage container', () => {
     renderComponent();
     expect(screen.queryAllByTestId('checkbox-starter-page')[0]).not.toBeNull();
@@ -48,9 +56,19 @@ describe('CheckboxStarterPage Component', () => {
 
   it('should render correct number of Pagination cards', () => {
     renderComponent();
-    const paginationCards = HEADER_PAGINATION_LINKS.map(
+    const paginationCards = GLOBAL_PAGINATION_LINKS.map(
       (_, idx) => screen.queryAllByTestId(`pagination-card-${idx}`)[0]
     );
-    expect(paginationCards.length).toBe(HEADER_PAGINATION_LINKS.length);
+    expect(paginationCards.length).toBe(GLOBAL_PAGINATION_LINKS.length);
+  });
+
+  it('should render the fall-back under-development page when the page is not-available', () => {
+    (useFeatureFlag as unknown as MockInstance).mockReturnValue(false);
+
+    cleanup();
+    renderComponent();
+
+    const underDevelopmentPage = screen.queryAllByTestId('underdevelopment-page')[0];
+    expect(underDevelopmentPage).toBeTruthy();
   });
 });

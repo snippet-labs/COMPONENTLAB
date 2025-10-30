@@ -3,6 +3,7 @@
 // Modules
 import toast from 'react-hot-toast';
 import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { columns, rows } from '@/lab/AccessibleButtons/Standard/StandardButtonVariant.props';
 import { TOGGLE_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Toggle/ToggleButtonTags';
 import ToggleButtonVariant from '@/lab/AccessibleButtons/Toggle/ToggleButtonVariant';
@@ -13,9 +14,19 @@ import Footer from '@/components/Ui/Footer/Footer';
 import Information from '@/components/Ui/Information/Information';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import { TOGGLE_BUTTON_VARIANT_PROGRESS_ITEMS } from './Toggle.progress';
 
-const ToogleAccessibleButtonVariantPage = () => {
+const ToggleAccessibleButtonVariantPage = () => {
+  const isEnabled = useFeatureFlag('BUTTON_TOGGLE_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
+
   return (
     <div className="min-h-screen">
       <div data-testid="progress-panel">
@@ -74,4 +85,4 @@ const ToogleAccessibleButtonVariantPage = () => {
   );
 };
 
-export default ToogleAccessibleButtonVariantPage;
+export default ToggleAccessibleButtonVariantPage;

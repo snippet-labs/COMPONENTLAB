@@ -1,12 +1,22 @@
 // Modules
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { MockInstance, afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import SubmitAccessibleButtonVariantPage from './page';
+
+// Mock feature flag hook
+vi.mock('@/hooks/useFeatureFlag', () => ({
+  useFeatureFlag: vi.fn(),
+}));
+
+// Render Helper
+const renderComponent = () => render(<SubmitAccessibleButtonVariantPage />);
 
 // Test Suite
 describe('SubmitAccessibleButtonVariantPage Component', () => {
   beforeEach(() => {
-    render(<SubmitAccessibleButtonVariantPage />);
+    (useFeatureFlag as unknown as MockInstance).mockReturnValue(true);
+    renderComponent();
   });
 
   afterEach(() => {
@@ -31,5 +41,15 @@ describe('SubmitAccessibleButtonVariantPage Component', () => {
   it('should render Footer section', () => {
     const footerSection = screen.queryAllByTestId('footer-section')[0];
     expect(footerSection).toBeTruthy();
+  });
+
+  it('should render the fall-back under-development page when the page is not-available', () => {
+    (useFeatureFlag as unknown as MockInstance).mockReturnValue(false);
+
+    cleanup();
+    renderComponent();
+
+    const underDevelopmentPage = screen.queryAllByTestId('underdevelopment-page')[0];
+    expect(underDevelopmentPage).toBeTruthy();
   });
 });

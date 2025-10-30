@@ -56,11 +56,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, handleToggleSidebar })
           <div className="px-3 pt-2 pb-4 bg-white">
             <input
               type="text"
-              placeholder="Search components ..."
+              placeholder="Search by parent components, say Buttons .."
               data-testid="sidebar-search-input"
               value={searchQuery}
               onChange={handleSearchChange}
-              className="w-full px-4 py-2 border-transparent rounded-full bg-gray-200 transition-all duration-200 placeholder:text-black"
+              className="w-full px-4 py-2 border-transparent rounded-full bg-gray-200 transition-all duration-200 placeholder:text-black/60 placeholder:text-xs"
             />
           </div>
         </ErrorBoundary>

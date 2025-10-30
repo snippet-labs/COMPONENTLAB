@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { SUBMIT_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Submit/SubmitButtonTags';
 import SubmitButtonVariant from '@/lab/AccessibleButtons/Submit/SubmitButtonVariant';
 import { SUBMIT_BUTTON_VARIABLE_CODE } from '@/lab/AccessibleButtons/Submit/SubmitButtonVariant.code';
@@ -13,10 +14,19 @@ import Footer from '@/components/Ui/Footer/Footer';
 import Information from '@/components/Ui/Information/Information';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import { SUBMIT_BUTTON_VARIANT_PROGRESS_ITEMS } from './SubmitButton.progress';
 
 const SubmitAccessibleButtonVariantPage = () => {
   const [loading, setLoading] = useState(false);
+  const isEnabled = useFeatureFlag('BUTTON_SUBMIT_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

@@ -16,7 +16,7 @@ vi.mock('react-icons/md', () => ({
 // Mock : Motion
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>, // mock <motion.div>
+    div: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
   },
 }));
 // Mock : Links
@@ -25,11 +25,20 @@ vi.mock('next/link', () => ({
     <a href={href}>{children}</a>
   ),
 }));
-
+vi.mock('next/navigation', () => ({
+  usePathname: () => '/',
+}));
 // Mock : Hook
 const mockUseSidebarSearch = vi.fn();
 vi.mock('@/hooks/useSidebarSearch', () => ({
   useSidebarSearch: () => mockUseSidebarSearch(),
+}));
+// Mock : Error Boundary
+vi.mock('@/components/Error', () => ({
+  ErrorBoundary: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
+}));
+vi.mock('@/components/Error/FallSafeComponent', () => ({
+  default: () => <div>FallSafeComponent</div>,
 }));
 
 // Render
@@ -49,7 +58,7 @@ describe('Sidebar Component', () => {
     const html = ReactDOMServer.renderToString(renderComponent());
 
     expect(html).toContain('Search results not found');
-    expect(html).toContain('Search components ...');
+    expect(html).toContain('Search by parent components, say Buttons ..');
   });
 
   it('should render parent links without children', () => {
@@ -116,7 +125,7 @@ describe('Sidebar Component', () => {
 
     render(renderComponent());
 
-    const searchInput = screen.getByPlaceholderText('Search components ...');
+    const searchInput = screen.getByPlaceholderText('Search by parent components, say Buttons ..');
     await user.type(searchInput, 'button');
 
     expect(mockHandleSearchChange).toHaveBeenCalled();
