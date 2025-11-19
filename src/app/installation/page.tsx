@@ -1,6 +1,7 @@
 // Modules
 import { HiExternalLink } from 'react-icons/hi';
 import { DOCUMENTATION_LINKS } from '@/constants/Installation/InstallationPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import Link from 'next/link';
 import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
@@ -8,6 +9,7 @@ import CodeBlock from '@/components/Ui/CodeBlock/CodeBlock';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import {
   INSTALLATION_CODES_CSS_IMPORT,
   INSTALLATION_CODES_REACT_ICONS,
@@ -17,6 +19,15 @@ import {
 import { INSTALLATION_PAGE_PROGRESS_ITEMS } from './Installation.progress';
 
 const InstallationGuidePage = () => {
+  const isEnabled = useFeatureFlag('INSTALLATION_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
+
   return (
     <div className="min-h-screen">
       <ProgressPanel tableOfContents={INSTALLATION_PAGE_PROGRESS_ITEMS} position="right" />
@@ -167,7 +178,7 @@ const InstallationGuidePage = () => {
         </div>
       </ErrorBoundary>
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="kmow-more">
+        <div id="know-more">
           <Footer />
         </div>
       </ErrorBoundary>

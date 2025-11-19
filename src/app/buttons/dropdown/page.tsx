@@ -3,6 +3,7 @@
 // Modules
 import toast from 'react-hot-toast';
 import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { DROPDOWN_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Dropdown/DropdownButtonTags';
 import DropdownButtonVariant from '@/lab/AccessibleButtons/Dropdown/DropdownButtonVariant';
 import { DROPDOWN_BUTTON_VARIANT_CODE } from '@/lab/AccessibleButtons/Dropdown/DropdownButtonVariant.code';
@@ -13,9 +14,19 @@ import Footer from '@/components/Ui/Footer/Footer';
 import Information from '@/components/Ui/Information/Information';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import { DROPDOWN_BUTTON_VARIANT_PROGRESS_ITEMS } from './Dropdown.progress';
 
 const DropdownAccessibleButtonVariantPage = () => {
+  const isEnabled = useFeatureFlag('BUTTON_DROPDOWN_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
+
   return (
     <div className="min-h-screen">
       <ErrorBoundary errorComponent={FallSafeComponent}>

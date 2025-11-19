@@ -2,6 +2,7 @@
 
 import toast from 'react-hot-toast';
 import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { STANDARD_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Standard/StandardButtonTags';
 import StandardButtonVariant from '@/lab/AccessibleButtons/Standard/StandardButtonVariant';
 import { STANDARD_BUTTON_VARIABLE_CODE } from '@/lab/AccessibleButtons/Standard/StandardButtonVariant.code';
@@ -12,9 +13,19 @@ import Footer from '@/components/Ui/Footer/Footer';
 import Information from '@/components/Ui/Information/Information';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import { STANDARD_BUTTON_VARIANT_PROGRESS_ITEMS } from './StandardButton.progress';
 
 const StandardAccessibleButtonVariantPage = () => {
+  const isEnabled = useFeatureFlag('BUTTON_STANDARD_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
+
   return (
     <div className="min-h-screen" data-testid="standard-accessible-page">
       <ErrorBoundary errorComponent={FallSafeComponent}>
