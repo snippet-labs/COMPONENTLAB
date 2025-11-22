@@ -4,7 +4,7 @@
 import React from 'react';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RxAccessibility } from 'react-icons/rx';
-import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
+import { GLOBAL_PAGINATION_LINKS } from '@/constants/GlobalPaginationLinks';
 import fontMonoton from '@/helpers/font';
 import Link from 'next/link';
 import { ErrorBoundary } from '@/components/Error';
@@ -78,7 +78,7 @@ const Header: React.FC = () => {
       <ErrorBoundary errorComponent={FallSafeComponent}>
         <div id="quick-links">
           <Pagination
-            cards={HEADER_PAGINATION_LINKS}
+            cards={GLOBAL_PAGINATION_LINKS}
             previousRoute="/"
             nextRoute="/installation"
             isExternalLink={false}

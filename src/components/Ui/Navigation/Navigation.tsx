@@ -21,7 +21,7 @@ const Navigation: React.FC = () => {
   return (
     <nav className="fixed top-0 w-full z-[500] border-b-2 bg-white" data-testid="navigation">
       <div className="px-4 mx-auto max-w-9xl sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18">
+        <div className="flex items-center justify-between h-15">
           {/* LOGO */}
           <div className="flex items-center backdrop-blur-3xl">
             <button data-testid="logo-button">

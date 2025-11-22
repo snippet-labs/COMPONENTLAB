@@ -1,15 +1,26 @@
 // Modules
-import { HEADER_PAGINATION_LINKS } from '@/constants/Header/HeaderPaginationLinks';
+import { GLOBAL_PAGINATION_LINKS } from '@/constants/GlobalPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import Footer from '../../components/Ui/Footer/Footer';
 import Starter from '../../components/Ui/Starter/Starter';
 import { BUTTON_STARTER_PAGE_PROGRESS_ITEMS } from './Button.progress';
 import { BUTTON_VARIANTS } from './ButtonVariants';
 
-const AccessibleButtonStarterPage = () => {
+const ButtonStarterPage = () => {
+  const isEnabled = useFeatureFlag('BUTTON_STARTER_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
+
   return (
     <div className="min-h-screen" data-testid="button-starter-page">
       <ProgressPanel tableOfContents={BUTTON_STARTER_PAGE_PROGRESS_ITEMS} position="right" />
@@ -27,7 +38,7 @@ const AccessibleButtonStarterPage = () => {
       <ErrorBoundary errorComponent={FallSafeComponent}>
         <div id="quick-links">
           <Pagination
-            cards={HEADER_PAGINATION_LINKS}
+            cards={GLOBAL_PAGINATION_LINKS}
             nextRoute="/buttons/standard"
             nextRouteTitle="Standard"
             previousRoute="/installation"
@@ -46,4 +57,4 @@ const AccessibleButtonStarterPage = () => {
   );
 };
 
-export default AccessibleButtonStarterPage;
+export default ButtonStarterPage;

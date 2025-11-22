@@ -1,15 +1,26 @@
 // Modules
 import React from 'react';
 import { TEAM_PAGINATION_LINKS } from '@/constants/Team/TeamPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
 import ChatBubble from '@/components/Ui/Chat/ChatBubble';
 import Footer from '@/components/Ui/Footer/Footer';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import { TEAM_PAGE_PROGRESS_ITEMS } from './Team.progress';
 
 const TeamPage: React.FC = () => {
+  const isEnabled = useFeatureFlag('TEAM_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
+
   return (
     <div className="min-h-screen" data-testid="team-page">
       <ProgressPanel tableOfContents={TEAM_PAGE_PROGRESS_ITEMS} position="right" />

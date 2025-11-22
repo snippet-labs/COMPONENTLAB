@@ -1,7 +1,7 @@
 // Modules
 import { LinkCardsTypes } from '@/types';
 
-export const HEADER_PAGINATION_LINKS: LinkCardsTypes[] = [
+export const GLOBAL_PAGINATION_LINKS: LinkCardsTypes[] = [
   { label: 'Buttons', route: '/buttons' },
   { label: 'Checkboxes', route: '/checkboxes' },
   { label: 'Forms', route: '/forms' },

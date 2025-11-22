@@ -16,7 +16,7 @@ const Errorpage: React.FC = () => {
           COMPONENTLAB/
         </h1>
         <h2
-          className={`${fontMonoton.className} text-7xl md:text-8xl lg:text-9xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation`}
+          className={`${fontMonoton.className} text-3xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 gradient-shift-animation`}
           data-testid="errorpage-heading"
         >
           404

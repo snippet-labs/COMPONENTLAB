@@ -3,6 +3,7 @@
 // Modules
 import toast from 'react-hot-toast';
 import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { DROPDOWN_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Dropdown/DropdownButtonTags';
 import DropdownButtonVariant from '@/lab/AccessibleButtons/Dropdown/DropdownButtonVariant';
 import { DROPDOWN_BUTTON_VARIANT_CODE } from '@/lab/AccessibleButtons/Dropdown/DropdownButtonVariant.code';
@@ -13,14 +14,31 @@ import Footer from '@/components/Ui/Footer/Footer';
 import Information from '@/components/Ui/Information/Information';
 import Pagination from '@/components/Ui/Pagination/Pagination';
 import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
 import { DROPDOWN_BUTTON_VARIANT_PROGRESS_ITEMS } from './Dropdown.progress';
 
 const DropdownAccessibleButtonVariantPage = () => {
+  const isEnabled = useFeatureFlag('BUTTON_DROPDOWN_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
+
   return (
     <div className="min-h-screen">
-      <ProgressPanel tableOfContents={DROPDOWN_BUTTON_VARIANT_PROGRESS_ITEMS} position="right" />
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="dropdown-button">
+        <div id="progress-panel-wrapper" data-testid="progress-panel">
+          <ProgressPanel
+            tableOfContents={DROPDOWN_BUTTON_VARIANT_PROGRESS_ITEMS}
+            position="right"
+          />
+        </div>
+      </ErrorBoundary>
+      <ErrorBoundary errorComponent={FallSafeComponent}>
+        <div id="dropdown-button" data-testid="information-section">
           <Information
             variantTitle="Dropdown Accessible Button"
             variantDescription="The Accessible Dropdown Button provides a fully keyboard-navigable and screen reader friendly way to display a list of selectable options. It adheres to WAI-ARIA best practices, ensuring users can open, navigate, and select items using both keyboard and mouse interactions. The component manages focus states, announces dynamic content changes, and supports customizable labels for better accessibility and usability across devices."
@@ -44,8 +62,9 @@ const DropdownAccessibleButtonVariantPage = () => {
           />
         </div>
       </ErrorBoundary>
+
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="quick-links">
+        <div id="quick-links" data-testid="pagination-section">
           <Pagination
             paginationTitle="Follow up with other available components"
             cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
@@ -57,8 +76,9 @@ const DropdownAccessibleButtonVariantPage = () => {
           />
         </div>
       </ErrorBoundary>
+
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="know-more">
+        <div id="know-more" data-testid="footer-section">
           <Footer />
         </div>
       </ErrorBoundary>
