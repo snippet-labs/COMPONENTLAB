@@ -1,28 +1,36 @@
 'use client';
 
 // Modules
-import toast from 'react-hot-toast';
+import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
 import { LINK_BUTTON_VARIANT_TAGS } from '@/lab/AccessibleButtons/Link/LinkButtonTags';
 import LinkButtonVariant from '@/lab/AccessibleButtons/Link/LinkButtonVariant';
 import { LINK_BUTTON_VARIABLE_CODE } from '@/lab/AccessibleButtons/Link/LinkButtonVariant.code';
 import { columns, rows } from '@/lab/AccessibleButtons/Link/LinkButtonVariant.props';
-import { url } from 'inspector';
-import { div } from 'motion/react-client';
 import { ErrorBoundary } from '@/components/Error';
 import FallSafeComponent from '@/components/Error/FallSafeComponent';
-import Information from '@/components/Ui/Information/Information';
-import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
-import { TOGGLE_BUTTON_VARIANT_PROGRESS_ITEMS } from '../toggle/Toggle.progress';
-import Pagination from '@/components/Ui/Pagination/Pagination';
-import { BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS } from '@/constants/Components/ButtonAccessibleComponentPaginationLinks';
 import Footer from '@/components/Ui/Footer/Footer';
+import Information from '@/components/Ui/Information/Information';
+import Pagination from '@/components/Ui/Pagination/Pagination';
+import ProgressPanel from '@/components/Ui/ProgressPanel/ProgressPanel';
+import UnderDevelopment from '@/components/Ui/UnderDevelopment/UnderDevelopment';
+import { TOGGLE_BUTTON_VARIANT_PROGRESS_ITEMS } from '../toggle/Toggle.progress';
 
 const LinkAccessibleButtonVariantPage = () => {
+  const isEnabled = useFeatureFlag('BUTTON_LINK_PAGE');
+
+  if (!isEnabled)
+    return (
+      <div data-testid="underdevelopment-page">
+        <UnderDevelopment />
+      </div>
+    );
+
   return (
     <div className="min-h-screen">
       <ProgressPanel tableOfContents={TOGGLE_BUTTON_VARIANT_PROGRESS_ITEMS} position="right" />
       <ErrorBoundary errorComponent={FallSafeComponent}>
-        <div id="toggle-button">
+        <div id="link-button">
           <Information
             variantTitle="Accessible Link Button"
             variantDescription="The Accessible Link Button Component is an inclusive and adaptable UI element designed to combine the functionality of a link with the appearance and interactivity of a button. It fully adheres to WCAG and ARIA accessibility standards, ensuring that all users—including those using screen readers or keyboard navigation—can interact with it effectively.
@@ -33,9 +41,8 @@ The component supports various visual variants (e.g., text links, icon links, or
             variantTags={LINK_BUTTON_VARIANT_TAGS}
             variantComponent={LinkButtonVariant}
             variantComponentProps={{
-              title: 'Link button',
+              title: 'Link button varient',
               ariaLabel: 'Standard Link button',
-              disabled: false,
               url: '#',
               target: true,
             }}

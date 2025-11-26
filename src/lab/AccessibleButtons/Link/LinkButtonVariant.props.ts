@@ -8,5 +8,4 @@ export const rows: DataRow[] = [
   ['url', 'string', 'No'],
   ['target', 'string', 'Yes'],
   ['ariaLabel', 'string', 'Yes'],
-  ['disabled', 'boolean', 'Yes'],
 ];

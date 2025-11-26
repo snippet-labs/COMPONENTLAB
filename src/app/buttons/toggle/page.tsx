@@ -64,9 +64,9 @@ const ToggleAccessibleButtonVariantPage = () => {
             <Pagination
               paginationTitle="Follow up with other available components"
               cards={BUTTON_ACCESSIBLE_COMPONENT_PAGINATION_LINKS}
-              previousRoute="/button/reset"
+              previousRoute="/buttons/reset"
               previousRouteTitle="Reset"
-              nextRoute="/button/Link"
+              nextRoute="/buttons/link"
               nextRouteTitle="Link"
               isExternalLink={false}
             />
