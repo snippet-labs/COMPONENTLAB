@@ -1,38 +1,49 @@
 export const TOGGLE_BUTTON_VARIABLE_CODE = `// Modules
 import React from 'react';
+import { useState } from 'react';
 
-interface StandardButtonVariantProps {
-  title?: string;
+interface ToggleButtonVariantProps {
+  title: string;
   ariaLabel?: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
 }
 
-const StandardButtonVariant: React.FC<StandardButtonVariantProps> = ({
-  title = 'Button',
+const ToggleButtonVariant: React.FC<ToggleButtonVariantProps> = ({
+  title = 'Toggle',
   ariaLabel,
   onClick,
   disabled = false,
 }) => {
+  const [isOn, setIsOn] = useState(false);
+
+  const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setIsOn(!isOn);
+    onClick(event);
+  };
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      aria-label={ariaLabel || title}
-      className={\`px-7 py-1 rounded-xl border-dotted border-2 font-medium text-lg transition-all duration-300 
-        focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 
-        \${
-          disabled
-            ? 'bg-gray-200 border-gray-300 text-gray-500 cursor-not-allowed'
-            : 'bg-white border-black text-black hover:bg-black hover:text-white hover:cursor-pointer'
-        }\`}
-    >
+    <div className="flex items-center justify-center gap-3">
       {title}
-    </button>
+      <button
+        onClick={(event) => {
+          handleToggle(event);
+        }}
+        aria-pressed={isOn}
+        className={\`relative w-14.5 h-8 flex items-center border-dotted border-2 rounded-full transition-colors duration-300 \${
+          isOn ? 'bg-black' : 'bg-gray-300'
+        }\`}
+      >
+        <span
+          className={\`px-2 absolute left-1 w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 \${
+            isOn ? 'translate-x-6' : 'translate-x-0'
+          }\`}
+        ></span>
+      </button>
+    </div>
   );
 };
 
-export default StandardButtonVariant;
+export default ToggleButtonVariant;
 
 `;
